@@ -84,6 +84,7 @@
         {"@type":"Question","name":'Muss ich als Veganer B12 supplementieren?',"acceptedAnswer":{"@type":"Answer","text":'Ja, immer. Es gibt keine zuverlässig veganen B12-Quellen. Supplementierung ist nicht optional, sondern obligat.'}},
         {"@type":"Question","name":'Bekomme ich genug Eiweiß ohne Fleisch?',"acceptedAnswer":{"@type":"Answer","text":'Ja. Hülsenfrüchte, Soja, Vollkorn, Nüsse decken den Bedarf gut. Wichtig: Vielfalt und ausreichende Menge.'}},
         {"@type":"Question","name":'Welches Omega-3 ist am besten?',"acceptedAnswer":{"@type":"Answer","text":'Für DHA/EPA: Algenöl-Kapseln. Lein- und Walnussöl liefern nur die Vorstufe ALA, die nur zu 5–15 % umgewandelt wird.'}},
+        {"@type":"Question","name":'Was, wenn meine Werte schlecht sind?',"acceptedAnswer":{"@type":"Answer","text":'Ferritin < 30 µg/l, B12 < 250 pg/ml oder Vitamin D < 20 ng/ml → ärztlich abklären, gezielt substituieren. Häufig reicht 3-Monats-Substitution + Anpassung der Ernährung. Bei wiederholtem Mangel ggf. Diagnostik auf Resorptionsstörung (Zöliakie, Helicobacter).'}},
         {"@type":"Question","name":'Übernimmt die Krankenkasse?',"acceptedAnswer":{"@type":"Answer","text":'Bei nachgewiesenem Mangel oder Begleiterkrankungen ja, typisch 80%. Bei vorsorglicher Beratung Einzelfallprüfung.'}},
         {"@type":"Question","name":'Ist vegan für Kinder sicher?',"acceptedAnswer":{"@type":"Answer","text":'Mit strukturierter Begleitung ja. Wichtig: regelmäßige Kontrollen (B12, Eisen, Vitamin D), Supplementierung, ausreichend Energie und Eiweiß.'}}
         ]
@@ -106,17 +107,8 @@
 
   <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-      <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" />
-        <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span>
-      </a>
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
-        <a href="../#programme" class="hover:text-white">Programme</a>
-        <a href="../#ablauf" class="hover:text-white">Ablauf</a>
-        <a href="../#preise" class="hover:text-white">Preise</a>
-        <a href="./" class="hover:text-white text-white font-semibold">Wissen</a>
-        <a href="../#standort" class="hover:text-white">Standort</a>
-      </nav>
+      <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite"><img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" /><span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span></a>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation"><a href="../#programme" class="hover:text-white">Programme</a><a href="../#ablauf" class="hover:text-white">Ablauf</a><a href="../#preise" class="hover:text-white">Preise</a><a href="./" class="hover:text-white text-white font-semibold">Wissen</a><a href="../#standort" class="hover:text-white">Standort</a></nav>
       <div class="flex items-center gap-2">
         <a href="../#anmelden" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-sm px-4 py-2 transition shadow-lg shadow-brand-500/20">Erstgespräch</a>
         <button class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition" aria-label="Menü öffnen" aria-expanded="false" data-mobile-toggle>
@@ -149,7 +141,7 @@
         <p class="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 bg-brand-500/10 ring-1 ring-brand-500/30 rounded-full px-3 py-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>Indikation · ICD-10 Vegan</p>
         <h1 class="display mt-5 text-3xl md:text-5xl leading-[1.05]">Vegan &amp; vegetarisch:<br><span class="text-brand-500">Pflanzlich essen, vollwertig leben.</span></h1>
         <p class="mt-5 text-lg text-white/85 max-w-2xl">Vegane &amp; vegetarische Ernährung: Vitamin B12, Eisen, Eiweiß, Omega-3, Jod sicherstellen. DGE-Empfehlungen, evidenzbasiert. Münster.</p>
-        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/60"><span>📅 Stand: 15. Mai 2026</span><span>⏱ 6 Min Lesezeit</span><span>🔬 6 wissenschaftliche Quellen</span></div>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/60"><span>📅 Stand: 18. Mai 2026</span><span>⏱ 5 Min Lesezeit</span><span>🔬 8 wissenschaftliche Quellen</span></div>
       </div>
     </section>
 
@@ -164,13 +156,33 @@
 
     <article class="prose-r5">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <h2 id="section-1">Pflanzlich essen — die Studienlage</h2>
-        <p>Vegetarische und vegane Ernährung ist in der Mehrzahl der Studien mit niedrigerem Risiko für Typ-2-Diabetes, Herzinfarkt, Bluthochdruck und einigen Krebsarten verbunden. Vegane Ernährung führt zu niedrigerem LDL und systolischem Blutdruck. Voraussetzung: gute Planung.[1]</p>
-        <h2 id="section-2">Die kritischen Nährstoffe</h2>
+
+        <nav aria-label="Inhalt" class="rounded-2xl bg-ink-50 ring-1 ring-ink-100 p-6 mb-10 text-sm">
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-3">Inhalt</p>
+          <ol class="grid sm:grid-cols-2 gap-y-1.5 gap-x-6 list-decimal list-inside text-ink-900">
+            <li><a href="#pflanzlich-essen-die-studienlage" class="hover:text-brand-700">Pflanzlich essen — die Studienlage</a></li>
+            <li><a href="#die-kritischen-naehrstoffe" class="hover:text-brand-700">Die kritischen Nährstoffe</a></li>
+            <li><a href="#eiweissbedarf-einfach-decken" class="hover:text-brand-700">Eiweißbedarf einfach decken</a></li>
+            <li><a href="#eisen-resorption-optimieren-der-trick-mi" class="hover:text-brand-700">Eisen-Resorption optimieren — der Trick mit Vitamin C</a></li>
+            <li><a href="#familie-kinder-sicher-pflanzlich-aufwach" class="hover:text-brand-700">Familie &amp; Kinder — sicher pflanzlich aufwachsen</a></li>
+            <li><a href="#haeufige-fehler" class="hover:text-brand-700">Häufige Fehler</a></li>
+            <li><a href="#wann-professionelle-begleitung" class="hover:text-brand-700">Wann professionelle Begleitung?</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="pflanzlich-essen-die-studienlage">Pflanzlich essen — die Studienlage</h2>
+        <p>Vegetarische und vegane Ernährung ist in der Mehrzahl der Studien mit niedrigerem Risiko für Typ-2-Diabetes, Herzinfarkt, Bluthochdruck und einigen Krebsarten verbunden. Vegane Ernährung führt zu niedrigerem LDL und systolischem Blutdruck. Voraussetzung: gute Planung.[1] In Deutschland leben etwa 8 Millionen Vegetarier:innen und 1,5 Millionen Veganer:innen — Tendenz steigend.</p>
+        <h2 id="die-kritischen-naehrstoffe">Die kritischen Nährstoffe</h2>
         <p><ul><li><strong>Vitamin B12:</strong> bei veganer Ernährung <em>obligat supplementieren</em> (z. B. 25 µg/Tag oder 2000 µg/Woche). Bei lakto-ovo-vegetarisch kontrollieren</li><li><strong>Eisen:</strong> pflanzliche Quellen (Hülsenfrüchte, Vollkorn, Tofu) — Aufnahme verbessern durch Vitamin C zur Mahlzeit, Kaffee/Tee versetzt</li><li><strong>Zink:</strong> Hülsenfrüchte, Nüsse, Vollkorn — Phytat reduzieren durch Einweichen und Keimen</li><li><strong>Omega-3 (DHA/EPA):</strong> aus Algenöl-Kapseln; Lein- und Walnussöl liefern nur Vorstufe (ALA)</li><li><strong>Jod:</strong> Jodsalz oder Seealgen (nur Nori in kleinen Mengen — andere Algen oft überjodiert)</li><li><strong>Vitamin D:</strong> Eigensynthese + Supplementierung im Winter</li><li><strong>Kalzium:</strong> Mineralwasser (> 400 mg/l), Brokkoli, Grünkohl, Mandeln, angereicherte Pflanzendrinks</li></ul></p>
-        <h2 id="section-3">Eiweißbedarf einfach decken</h2>
+        <h2 id="eiweissbedarf-einfach-decken">Eiweißbedarf einfach decken</h2>
         <p>Empfehlung: 0,8–1,0 g/kg KG (mehr bei Sportler:innen, Schwangerschaft, Alter). Pflanzliche Eiweißquellen:<ul><li>Hülsenfrüchte (Linsen, Kichererbsen, Bohnen, Lupine)</li><li>Soja & Soja-Produkte (Tofu, Tempeh, Edamame)</li><li>Vollkorn-Getreide (Hafer, Quinoa, Dinkel)</li><li>Nüsse und Samen</li><li>Optional Eiweißpulver auf Erbsen-/Reisbasis</li></ul>Wichtig: <strong>Variation</strong> — verschiedene Quellen kombinieren ergänzt die Aminosäure-Profile.</p>
-        <h2 id="section-4">Wann professionelle Begleitung?</h2>
+        <h2 id="eisen-resorption-optimieren-der-trick-mi">Eisen-Resorption optimieren — der Trick mit Vitamin C</h2>
+        <p>Pflanzliches Eisen (Nicht-Häm-Eisen) wird schlechter resorbiert als tierisches. Die gute Nachricht: Vitamin C steigert die Aufnahme um den Faktor 3–5.[7] Praktisch:<ul><li><strong>Eisenreiche Mahlzeit + Orangensaft / Paprika / Zitrone:</strong> Beispiel: Linsensuppe mit Zitronenspritzer, Hafer mit Beeren, Tofu mit Paprika</li><li><strong>Kaffee/Tee 1 h vor und nach Mahlzeit meiden:</strong> Tannine hemmen Eisenaufnahme um 60–80 %</li><li><strong>Eisenkochtöpfe</strong> (Lucky Iron Fish, gusseiserne Pfanne): einfach effektiv, 1–2 mg pro Mahlzeit</li><li><strong>Phytate reduzieren</strong> durch Einweichen, Keimen, Sauerteig-Gärung</li><li><strong>Eisen-Status prüfen</strong>: Ferritin alle 6–12 Monate, Ziel > 30 µg/l</li></ul>Bei nachgewiesenem Mangel: gezielte Substitution unter ärztlicher Begleitung.</p>
+        <h2 id="familie-kinder-sicher-pflanzlich-aufwach">Familie &amp; Kinder — sicher pflanzlich aufwachsen</h2>
+        <p>Vegetarische Ernährung ist für Kinder unproblematisch — vegan erfordert mehr Aufmerksamkeit. DGE-Position 2024 und ESPGHAN sind zurückhaltend, ProVeg und AAP halten vegane Ernährung bei strukturierter Begleitung für möglich.[8] Schlüssel:<ul><li><strong>B12 obligat supplementieren</strong> — kein Spielraum</li><li><strong>Vitamin D 400–600 IE/Tag</strong> im 1. Lebensjahr, danach 600–1000 IE</li><li><strong>Hochkalorische Energie:</strong> Nüsse, Avocado, Olivenöl — Kinder können Volumen nicht so leicht erreichen</li><li><strong>Eisen-Status</strong> bei jeder Vorsorge-Untersuchung</li><li><strong>Stillen oder angereicherte Säuglingsnahrung</strong> im 1. Jahr — Soja-Drink als Hauptmilch ist <em>nicht</em> ausreichend</li><li><strong>Kinderarzt einbeziehen</strong> — nicht alle sind vegan-erfahren, ggf. Spezialist:in suchen</li></ul></p>
+        <h2 id="haeufige-fehler">Häufige Fehler</h2>
+        <p><ol><li><strong>B12 ‚aus Algen' / ‚aus Sauerkraut':</strong> nicht ausreichend bioverfügbar — Supplementierung obligat</li><li><strong>Eiweißmangel durch zu wenig Hülsenfrüchte:</strong> tägliche Portion nötig</li><li><strong>Hochverarbeitete vegane Fertigprodukte:</strong> oft viel Salz, Zucker, Zusatzstoffe — frisch kochen bevorzugen</li><li><strong>Kein Eisen-Test:</strong> alle 6–12 Monate Ferritin prüfen</li><li><strong>Vegan ohne Plan im Sport / Schwangerschaft / Kinder:</strong> hier braucht es zwingend professionelle Begleitung</li></ol></p>
+        <h2 id="wann-professionelle-begleitung">Wann professionelle Begleitung?</h2>
         <p>Vor der Umstellung, in Schwangerschaft/Stillzeit, bei Kindern, Senioren, Leistungssportler:innen, bei chronischen Erkrankungen oder Mangelzuständen. Bei nachgewiesenem Mangel ist die Beratung mit ärztlicher Bescheinigung über §43 SGB V erstattungsfähig — typisch 80 %.</p>
       </div>
     </article>
@@ -199,6 +211,7 @@
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Muss ich als Veganer B12 supplementieren?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Ja, immer. Es gibt keine zuverlässig veganen B12-Quellen. Supplementierung ist nicht optional, sondern obligat.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Bekomme ich genug Eiweiß ohne Fleisch?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Ja. Hülsenfrüchte, Soja, Vollkorn, Nüsse decken den Bedarf gut. Wichtig: Vielfalt und ausreichende Menge.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Welches Omega-3 ist am besten?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Für DHA/EPA: Algenöl-Kapseln. Lein- und Walnussöl liefern nur die Vorstufe ALA, die nur zu 5–15 % umgewandelt wird.</p></details>
+          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Was, wenn meine Werte schlecht sind?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Ferritin < 30 µg/l, B12 < 250 pg/ml oder Vitamin D < 20 ng/ml → ärztlich abklären, gezielt substituieren. Häufig reicht 3-Monats-Substitution + Anpassung der Ernährung. Bei wiederholtem Mangel ggf. Diagnostik auf Resorptionsstörung (Zöliakie, Helicobacter).</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Übernimmt die Krankenkasse?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Bei nachgewiesenem Mangel oder Begleiterkrankungen ja, typisch 80%. Bei vorsorglicher Beratung Einzelfallprüfung.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Ist vegan für Kinder sicher?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Mit strukturierter Begleitung ja. Wichtig: regelmäßige Kontrollen (B12, Eisen, Vitamin D), Supplementierung, ausreichend Energie und Eiweiß.</p></details>
         </div>
@@ -216,6 +229,8 @@
           <li id="q4"><strong>Pawlak R et al.</strong> (2014): „How prevalent is vitamin B12 deficiency among vegetarians?" Nutr Rev, 71:110–117. <a href="https://academic.oup.com/nutritionreviews/article/71/2/110/1940320" target="_blank" rel="noopener">Link</a></li>
           <li id="q5"><strong>EFSA</strong> (2017): „Dietary Reference Values for nutrients." <a href="https://www.efsa.europa.eu" target="_blank" rel="noopener">Link</a></li>
           <li id="q6"><strong>ProVeg</strong> (2024): „Veganer Ernährungsleitfaden für Eltern und Kinder." <a href="https://proveg.com/de/" target="_blank" rel="noopener">Link</a></li>
+          <li id="q7"><strong>Hallberg L, Hulthén L</strong> (2000): „Prediction of dietary iron absorption." Am J Clin Nutr, 71:1147–1160. <a href="https://academic.oup.com/ajcn/article/71/5/1147/4729333" target="_blank" rel="noopener">Link</a></li>
+          <li id="q8"><strong>Baroni L et al.</strong> (2018): „Vegan Nutrition for Mothers and Children." Nutrients, 11:5. <a href="https://www.mdpi.com/2072-6643/11/1/5" target="_blank" rel="noopener">Link</a></li>
         </ol>
         <div class="mt-10 rounded-xl bg-ink-50 ring-1 ring-ink-100 p-5 text-xs text-ink-700"><p><strong>Medizinischer Disclaimer:</strong> Diese Seite ersetzt keine ärztliche Diagnose oder Therapie. Bei medizinischen Beschwerden bitte zunächst die behandelnde Ärztin / den behandelnden Arzt konsultieren. Stand: Mai 2026.</p></div>
       </div>

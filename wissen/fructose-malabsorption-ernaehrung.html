@@ -87,6 +87,7 @@
         {"@type":"Question","name":'Muss ich alle Obstsorten meiden?',"acceptedAnswer":{"@type":"Answer","text":'Nein. Beeren, Zitrusfrüchte und Bananen werden meist gut vertragen (Glukose:Fructose-Verhältnis günstig). Apfel, Birne, Mango sind kritischer.'}},
         {"@type":"Question","name":'Was ist der Unterschied zur hereditären Fructose-Intoleranz (HFI)?',"acceptedAnswer":{"@type":"Answer","text":'HFI ist eine seltene, lebensbedrohliche Enzymdefekt-Erkrankung — strikter, lebenslanger Verzicht nötig. Intestinale Malabsorption ist häufig und meist gut managebar.'}},
         {"@type":"Question","name":'Hilft Glukose dabei, Fructose besser zu verdauen?',"acceptedAnswer":{"@type":"Answer","text":'Ja. Glukose unterstützt die Fructose-Resorption über den GLUT2-Transporter. Praktisch bedeutet das: Obst lieber zu Mahlzeiten mit Stärke essen, nicht solo.'}},
+        {"@type":"Question","name":'Ist Honig erlaubt?',"acceptedAnswer":{"@type":"Answer","text":'Honig hat ein ungünstiges Fructose:Glukose-Verhältnis (~1,2:1) und ist in der Karenzphase tabu. In der Toleranzphase einzeln testen — kleinere Mengen (≤ 1 TL) in Kombination mit Brot oft verträglich.'}},
         {"@type":"Question","name":'Übernimmt die Krankenkasse?',"acceptedAnswer":{"@type":"Answer","text":'Ja. Fructose-Malabsorption (ICD E74.1) ist erstattungsfähig nach §43 SGB V — typisch 80%.'}},
         {"@type":"Question","name":'Hat das was mit Reizdarm zu tun?',"acceptedAnswer":{"@type":"Answer","text":'Ja. Bei vielen Reizdarm-Patient:innen findet sich begleitend eine Fructose-Malabsorption. Das Low-FODMAP-Konzept adressiert beide gleichzeitig.'}}
         ]
@@ -109,17 +110,8 @@
 
   <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-      <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" />
-        <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span>
-      </a>
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
-        <a href="../#programme" class="hover:text-white">Programme</a>
-        <a href="../#ablauf" class="hover:text-white">Ablauf</a>
-        <a href="../#preise" class="hover:text-white">Preise</a>
-        <a href="./" class="hover:text-white text-white font-semibold">Wissen</a>
-        <a href="../#standort" class="hover:text-white">Standort</a>
-      </nav>
+      <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite"><img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" /><span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span></a>
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation"><a href="../#programme" class="hover:text-white">Programme</a><a href="../#ablauf" class="hover:text-white">Ablauf</a><a href="../#preise" class="hover:text-white">Preise</a><a href="./" class="hover:text-white text-white font-semibold">Wissen</a><a href="../#standort" class="hover:text-white">Standort</a></nav>
       <div class="flex items-center gap-2">
         <a href="../#anmelden" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-sm px-4 py-2 transition shadow-lg shadow-brand-500/20">Erstgespräch</a>
         <button class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition" aria-label="Menü öffnen" aria-expanded="false" data-mobile-toggle>
@@ -152,7 +144,7 @@
         <p class="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 bg-brand-500/10 ring-1 ring-brand-500/30 rounded-full px-3 py-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>Indikation · ICD-10 E74.1</p>
         <h1 class="display mt-5 text-3xl md:text-5xl leading-[1.05]">Fructose-Malabsorption:<br><span class="text-brand-500">Strukturierte Karenz &amp; Toleranz.</span></h1>
         <p class="mt-5 text-lg text-white/85 max-w-2xl">Fructose-Malabsorption (ICD E74.1): Diagnostik per H2-Atemtest, 3-Stufen-Protokoll, individuelle Toleranz finden. Kassen-Zuschuss in Münster.</p>
-        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/60"><span>📅 Stand: 15. Mai 2026</span><span>⏱ 6 Min Lesezeit</span><span>🔬 6 wissenschaftliche Quellen</span></div>
+        <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-xs text-white/60"><span>📅 Stand: 18. Mai 2026</span><span>⏱ 5 Min Lesezeit</span><span>🔬 8 wissenschaftliche Quellen</span></div>
       </div>
     </section>
 
@@ -167,13 +159,33 @@
 
     <article class="prose-r5">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <h2 id="section-1">Was ist Fructose-Malabsorption?</h2>
-        <p>Bei intestinaler Fructose-Malabsorption wird Fructose unzureichend über den GLUT5-Transporter im Dünndarm aufgenommen. Sie gelangt in den Dickdarm, wird fermentiert — Symptome. Wichtig: Das ist <strong>nicht</strong> die seltene, lebensbedrohliche hereditäre Fructose-Intoleranz (HFI), die einen kompletten lebenslangen Verzicht erfordert.[1]</p>
-        <h2 id="section-2">Diagnose &amp; Abgrenzung</h2>
+
+        <nav aria-label="Inhalt" class="rounded-2xl bg-ink-50 ring-1 ring-ink-100 p-6 mb-10 text-sm">
+          <p class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-3">Inhalt</p>
+          <ol class="grid sm:grid-cols-2 gap-y-1.5 gap-x-6 list-decimal list-inside text-ink-900">
+            <li><a href="#was-ist-fructose-malabsorption" class="hover:text-brand-700">Was ist Fructose-Malabsorption?</a></li>
+            <li><a href="#diagnose-abgrenzung" class="hover:text-brand-700">Diagnose &amp; Abgrenzung</a></li>
+            <li><a href="#das-3-stufen-protokoll" class="hover:text-brand-700">Das 3-Stufen-Protokoll</a></li>
+            <li><a href="#der-glukose-trick-wie-glukose-fructose-a" class="hover:text-brand-700">Der Glukose-Trick — wie Glukose Fructose ausgleicht</a></li>
+            <li><a href="#lebensmittel-kombinationen-die-helfen" class="hover:text-brand-700">Lebensmittel-Kombinationen, die helfen</a></li>
+            <li><a href="#haeufige-fehler" class="hover:text-brand-700">Häufige Fehler</a></li>
+            <li><a href="#wann-professionelle-begleitung" class="hover:text-brand-700">Wann professionelle Begleitung?</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="was-ist-fructose-malabsorption">Was ist Fructose-Malabsorption?</h2>
+        <p>Bei intestinaler Fructose-Malabsorption wird Fructose unzureichend über den GLUT5-Transporter im Dünndarm aufgenommen. Sie gelangt in den Dickdarm, wird fermentiert — Symptome. Wichtig: Das ist <strong>nicht</strong> die seltene, lebensbedrohliche hereditäre Fructose-Intoleranz (HFI), die einen kompletten lebenslangen Verzicht erfordert.[1] Etwa 30 % der mitteleuropäischen Bevölkerung haben eine reduzierte Fructose-Resorption — nicht alle entwickeln Symptome.</p>
+        <h2 id="diagnose-abgrenzung">Diagnose &amp; Abgrenzung</h2>
         <p><strong>H2-Atemtest mit 25 g Fructose</strong> ist Standard. Vorher ärztliche Anamnese zur Abgrenzung der HFI (Aldolase-B-Defekt). Häufige Kombination: <strong>Sorbit-Intoleranz</strong> — Sorbit blockiert den GLUT5-Transporter zusätzlich.[2]</p>
-        <h2 id="section-3">Das 3-Stufen-Protokoll</h2>
+        <h2 id="das-3-stufen-protokoll">Das 3-Stufen-Protokoll</h2>
         <p><ol><li><strong>Karenzphase (2–4 Wochen):</strong> strikt fructosearm — Symptomfreiheit als Ziel</li><li><strong>Testphase (4–6 Wochen):</strong> schrittweise Wiedereinführung in kleinen Mengen, gemeinsam mit <strong>Glukose</strong> (Glukose erleichtert die Fructose-Resorption)</li><li><strong>Dauerernährung:</strong> individuell tolerierte Menge — meist 8–15 g Fructose pro Mahlzeit möglich</li></ol>Vermieden werden in Phase 1: Apfel, Birne, Mango, Süßstoffe (Sorbit, Xylit), Honig, Agavendicksaft, Fruchtsaft.<br>Bevorzugt: Banane, Beeren, Zitrusfrüchte (Fructose:Glukose-Verhältnis ≤ 1).</p>
-        <h2 id="section-4">Wann professionelle Begleitung?</h2>
+        <h2 id="der-glukose-trick-wie-glukose-fructose-a">Der Glukose-Trick — wie Glukose Fructose ausgleicht</h2>
+        <p>Der Trick mit Glukose ist wissenschaftlich gut belegt[7]: Sobald Glukose im Darm vorhanden ist, aktiviert sich GLUT2, der auch Fructose mit-transportiert. Praktisch bedeutet das:<ul><li><strong>Obst zu einer Mahlzeit</strong> mit Stärke (Brot, Müsli, Kartoffel) → bessere Toleranz</li><li><strong>Banane statt Apfel</strong> — Glukose:Fructose 1:1 (Apfel 1:2)</li><li><strong>Beeren bevorzugen</strong> — günstiges Verhältnis</li><li><strong>Traubenzucker (Dextrose) im Notfall:</strong> 1 TL zur Fructose-Mahlzeit kann Symptome reduzieren</li><li><strong>Vorsicht bei Säften:</strong> hohe Konzentration ohne Ballaststoffe → Symptome wahrscheinlicher</li></ul></p>
+        <h2 id="lebensmittel-kombinationen-die-helfen">Lebensmittel-Kombinationen, die helfen</h2>
+        <p><strong>Gut verträglich:</strong><ul><li>Banane mit Haferflocken & Milch</li><li>Beeren auf Vollkornbrot mit Quark</li><li>Mandarine zur Reis-Mahlzeit</li><li>Kartoffeln mit Gemüse (Glukose-haltig)</li></ul><strong>Schlecht verträglich:</strong><ul><li>Apfelsaft solo (hohe Fructose, kein Glukose-Puffer)</li><li>Trockenfrüchte als Snack</li><li>Honig pur</li><li>Light-Joghurt (oft mit Fructose-Sirup)</li></ul><strong>Versteckte Quellen:</strong> Wurst (Geschmacksverstärker), Cola, Süßigkeiten, ‚gesunde' Bio-Riegel mit Agavendicksaft.</p>
+        <h2 id="haeufige-fehler">Häufige Fehler</h2>
+        <p><ol><li><strong>Komplette Obst-Karenz langfristig:</strong> Ballaststoff- und Mikronährstoff-Mangel droht</li><li><strong>Fructose-freie Spezial-Produkte ohne Test:</strong> oft unnötig teuer</li><li><strong>Sorbit-haltige ‚zuckerfreie' Süßigkeiten:</strong> doppelt schlecht (verschärft GLUT5-Blockade)</li><li><strong>Solo-Obst-Snacks zwischen Mahlzeiten:</strong> hohe Fructose-Last ohne Glukose-Puffer</li><li><strong>Eigentherapie ohne H2-Test:</strong> bei Verdacht erst Diagnose sichern</li></ol></p>
+        <h2 id="wann-professionelle-begleitung">Wann professionelle Begleitung?</h2>
         <p>Bei unklarer Diagnose, ausbleibender Besserung nach Karenz oder gleichzeitigem Reizdarm. Bei Fructose-Malabsorption (ICD E74.1) ist die Beratung mit ärztlicher Bescheinigung über §43 SGB V erstattungsfähig — typisch 80 %.</p>
       </div>
     </article>
@@ -202,6 +214,7 @@
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Muss ich alle Obstsorten meiden?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Nein. Beeren, Zitrusfrüchte und Bananen werden meist gut vertragen (Glukose:Fructose-Verhältnis günstig). Apfel, Birne, Mango sind kritischer.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Was ist der Unterschied zur hereditären Fructose-Intoleranz (HFI)?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">HFI ist eine seltene, lebensbedrohliche Enzymdefekt-Erkrankung — strikter, lebenslanger Verzicht nötig. Intestinale Malabsorption ist häufig und meist gut managebar.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Hilft Glukose dabei, Fructose besser zu verdauen?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Ja. Glukose unterstützt die Fructose-Resorption über den GLUT2-Transporter. Praktisch bedeutet das: Obst lieber zu Mahlzeiten mit Stärke essen, nicht solo.</p></details>
+          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Ist Honig erlaubt?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Honig hat ein ungünstiges Fructose:Glukose-Verhältnis (~1,2:1) und ist in der Karenzphase tabu. In der Toleranzphase einzeln testen — kleinere Mengen (≤ 1 TL) in Kombination mit Brot oft verträglich.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Übernimmt die Krankenkasse?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Ja. Fructose-Malabsorption (ICD E74.1) ist erstattungsfähig nach §43 SGB V — typisch 80%.</p></details>
           <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card"><summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">Hat das was mit Reizdarm zu tun?<span class="chev text-brand-600">▾</span></summary><p class="mt-3 text-ink-700">Ja. Bei vielen Reizdarm-Patient:innen findet sich begleitend eine Fructose-Malabsorption. Das Low-FODMAP-Konzept adressiert beide gleichzeitig.</p></details>
         </div>
@@ -219,6 +232,8 @@
           <li id="q4"><strong>DGVS</strong> (2023): „S3-Leitlinie Reizdarmsyndrom (FODMAP-Konzept)." AWMF-Register 021/016. <a href="https://www.awmf.org/leitlinien/detail/ll/021-016.html" target="_blank" rel="noopener">Link</a></li>
           <li id="q5"><strong>Wilder-Smith CH et al.</strong> (2013): „Fructose and lactose intolerance and malabsorption testing." Aliment Pharmacol Ther, 37:1074–1083. <a href="https://onlinelibrary.wiley.com/doi/10.1111/apt.12306" target="_blank" rel="noopener">Link</a></li>
           <li id="q6"><strong>Monash University</strong> (2024): „FODMAP-Datenbank." <a href="https://www.monashfodmap.com/" target="_blank" rel="noopener">Link</a></li>
+          <li id="q7"><strong>Truswell AS et al.</strong> (1988): „Incomplete absorption of pure fructose in healthy subjects and the facilitating effect of glucose." Am J Clin Nutr, 48:1424–1430. <a href="https://academic.oup.com/ajcn/article-abstract/48/6/1424/4716234" target="_blank" rel="noopener">Link</a></li>
+          <li id="q8"><strong>Skoog SM, Bharucha AE</strong> (2004): „Dietary fructose and gastrointestinal symptoms: a review." Am J Gastroenterol, 99:2046–2050. <a href="https://journals.lww.com/ajg/Abstract/2004/10000/Dietary_Fructose_and_Gastrointestinal_Symptoms__A.36.aspx" target="_blank" rel="noopener">Link</a></li>
         </ol>
         <div class="mt-10 rounded-xl bg-ink-50 ring-1 ring-ink-100 p-5 text-xs text-ink-700"><p><strong>Medizinischer Disclaimer:</strong> Diese Seite ersetzt keine ärztliche Diagnose oder Therapie. Bei medizinischen Beschwerden bitte zunächst die behandelnde Ärztin / den behandelnden Arzt konsultieren. Stand: Mai 2026.</p></div>
       </div>
