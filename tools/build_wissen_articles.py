@@ -662,6 +662,12 @@ def slugify(s):
     return s[:40] or "sektion"
 
 
+def add_citation_links(text):
+    """Wandele [1], [2] etc. in klickbare Links zu den Quellen-IDs um (genau wie bei Fettleber)."""
+    import re as _re
+    return _re.sub(r'\[(\d+)\]', r'<a href="#q\1">[\1]</a>', text)
+
+
 def estimate_reading_time(ind):
     """Estimate reading time in minutes from word count of sections + quick."""
     import re as _re
@@ -675,9 +681,11 @@ def render_article(ind):
     """Render kompletten HTML-Artikel für eine Indikation."""
     section_ids = [slugify(t) for t, _ in ind["sections"]]
     sections_html = "\n".join(
-        f'        <h2 id="{section_ids[i]}">{html.escape(title)}</h2>\n        <p>{body}</p>'
+        f'        <h2 id="{section_ids[i]}">{html.escape(title)}</h2>\n        <p>{add_citation_links(body)}</p>'
         for i, (title, body) in enumerate(ind["sections"])
     )
+    # Auch Quick-Answer mit klickbaren Zitaten versehen, falls vorhanden
+    ind = {**ind, "quick": add_citation_links(ind["quick"])}
     toc_html = "\n".join(
         f'            <li><a href="#{section_ids[i]}" class="hover:text-brand-700">{html.escape(title)}</a></li>'
         for i, (title, _) in enumerate(ind["sections"])
