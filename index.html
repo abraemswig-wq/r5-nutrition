@@ -23,7 +23,7 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <meta name="keywords" content="Ernährungsberatung Münster, Ernährungsberater Münster, Ernährungstherapie Münster, Adipositas Beratung Münster, Diabetes Ernährung Münster, Reizdarm Ernährung, Sportler Ernährung, Krankenkasse Ernährungsberatung, Rehab Five Nutrition, Ernährung neu gedacht" />
   <meta name="author" content="REHAB FIVE GmbH" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-  <meta name="theme-color" content="#1F342D" />
+  <meta name="theme-color" content="#121815" />
   <meta name="geo.region" content="DE-NW" />
   <meta name="geo.placename" content="Münster" />
   <meta name="geo.position" content="51.9607;7.6261" />
@@ -53,43 +53,745 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- Performance / Fonts (Barlow gemäß Corporate Design) -->
+  <!-- Fonts: Archivo trägt das Display-Lockup des Health-Club-Layouts,
+       Barlow bleibt als CI-Schrift für den Fließtext. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700;1,800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" />
 
-  <!-- Tailwind (für Produktion bitte kompilieren statt CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            // CI-konforme Palette gemäß REHAB FIVE CD-Manual (29.11.2023)
-            ink:    { 50:'#FAFAFA', 100:'#F5F5F5', 200:'#C9C9C9', 700:'#4A4A4A', 900:'#1A1A1A' },
-            forest: { 700:'#1F342D', 800:'#172620', 900:'#101A16' },
-            brand:  { 100:'#FBF1E0', 500:'#D99129', 600:'#C57F1F', 700:'#A66819' },
-            accent: { 500:'#D99129' }
-          },
-          fontFamily: { sans: ['Barlow','system-ui','sans-serif'] },
-          boxShadow: { card: '0 4px 24px -8px rgba(26,26,26,0.10)' }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', system-ui, sans-serif; -webkit-font-smoothing: antialiased; color:#1A1A1A; }
-    .display { font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; }
-    .eyebrow { font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
-    .gradient-hero {
-      background:
-        radial-gradient(60% 50% at 80% 15%, rgba(217,145,41,0.22), transparent 60%),
-        linear-gradient(180deg, #1F342D 0%, #172620 100%);
-    }
-    details[open] > summary .chev { transform: rotate(180deg); }
-    .chev { transition: transform .2s ease; }
-  </style>
+<style>
+/* ============================================================
+   REHAB FIVE NUTRITION
+   Struktur/Motion: rehab-five-healthclub-foy  ·  CI: Orange-Klammer + Forest
+   ============================================================ */
+:root{
+  --ink:#121815;
+  --ink-2:#171F1B;
+  --ink-3:#0C110E;
+  --forest:#1F342D;
+  --forest-2:#172620;
+  --cream:#EDE0CC;
+  --cream-dim:rgba(237,224,204,.62);
+  --cream-faint:rgba(237,224,204,.18);
+  --accent:#D99129;
+  --accent-bright:#E8A33F;
+  --accent-deep:#A66819;
+  --line:rgba(237,224,204,.14);
+  --font-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --font-sans:'Barlow',system-ui,sans-serif;
+  --nav-scale:1.06;
+  --pad:clamp(20px,4.4vw,64px);
+  --ease-big:cubic-bezier(.72,.01,0,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--ink);color:var(--cream);
+  font-family:var(--font-sans);font-weight:400;font-size:16px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0;font-family:var(--font-display);font-weight:700;letter-spacing:-.02em;line-height:1.04}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+::selection{background:var(--accent);color:var(--ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Header ---------- */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px var(--pad);
+  transition:transform .5s var(--ease-big),opacity .25s,visibility .25s;
+}
+.header.is-hidden{transform:translateY(-102%);opacity:0}
+.header__logo{display:flex;align-items:center;gap:12px;transition:transform .4s var(--ease-big)}
+.header__logo:hover{transform:scale(1.03)}
+.header__logo img{height:26px;width:auto}
+.header__div{
+  font-family:var(--font-sans);font-size:10px;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--cream-dim);
+  border-left:1px solid var(--line);padding-left:12px;
+}
+.nav{display:flex;gap:clamp(14px,2.2vw,34px);align-items:center}
+.nav a{
+  font-family:var(--font-sans);font-size:13px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cream);
+  transition:transform .18s,letter-spacing .18s,color .18s;
+  transform:translateZ(0) scale(1);display:inline-block;
+}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover{transform:translateZ(0) scale(var(--nav-scale));letter-spacing:.14em;color:var(--accent-bright)}
+}
+.nav__cta{color:var(--accent) !important}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--cream);
+  width:42px;height:42px;cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+.drawer{
+  position:fixed;inset:0;z-index:95;background:var(--ink-3);
+  display:none;flex-direction:column;justify-content:center;gap:6px;padding:var(--pad);
+}
+.drawer.is-open{display:flex}
+.drawer a{
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(24px,7vw,40px);letter-spacing:-.02em;padding:6px 0;
+  border-bottom:1px solid var(--line);
+}
+.drawer a:last-child{color:var(--accent)}
+.drawer__close{position:absolute;top:22px;right:var(--pad);background:none;border:0;
+  color:var(--cream);font-size:30px;line-height:1;cursor:pointer}
+
+/* ---------- 1 · HERO: gepinnte Medien-Wall ---------- */
+.hero{position:relative;height:560vh}
+.hero__stage{position:sticky;top:0;height:100vh;overflow:hidden;isolation:isolate;background:var(--ink-3)}
+.hero__panel{position:absolute;inset:0;margin:0;overflow:hidden;will-change:clip-path}
+/* Die Fotos stammen aus mehreren Shootings mit stark gemischter Farbtemperatur;
+   der gemeinsame Grade zieht sie in einen Look. */
+.hero__panel img,.strip img,.tile img,.course__media img,.shot img{filter:saturate(.72) contrast(1.06)}
+.hero__panel img{width:100%;height:100%;object-fit:cover;transform:scale(1.08) translateY(var(--py,0px));will-change:transform}
+.hero__panel--wipe{clip-path:inset(0 0 0 100%)}
+.hero__veil{position:absolute;inset:0;background:
+  radial-gradient(120% 90% at 50% 45%,rgba(12,17,14,.40) 0%,rgba(12,17,14,.74) 100%);
+  z-index:2;pointer-events:none}
+.hero__ui{
+  position:absolute;inset:0;z-index:3;
+  mix-blend-mode:difference;color:#fff;pointer-events:none;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.hero__mark{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(46px,10.6vw,158px);letter-spacing:-.035em;line-height:.92;
+  text-align:center;white-space:nowrap;
+  transform:translateY(var(--heroY,0px));
+}
+.hero__kick{
+  margin-top:clamp(10px,1.4vw,18px);
+  font-family:var(--font-display);font-style:italic;font-weight:600;
+  font-size:clamp(10px,1.05vw,15px);letter-spacing:.28em;text-transform:uppercase;
+  transform:translateY(calc(var(--heroY,0px) * .6));
+}
+.hero__corner{
+  position:absolute;bottom:clamp(20px,3.4vw,42px);
+  font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+}
+.hero__corner--l{left:var(--pad)}
+.hero__corner--r{right:var(--pad)}
+.hero__bar{
+  position:absolute;left:var(--pad);right:var(--pad);bottom:0;height:2px;
+  background:var(--cream-faint);z-index:4;
+}
+.hero__bar i{display:block;height:100%;width:var(--prog,0%);background:var(--accent);transition:width .1s linear}
+
+/* ---------- 2 · Statement ---------- */
+.stmt{padding:clamp(96px,15vh,190px) var(--pad);text-align:center;background:var(--ink)}
+.stmt__h{
+  font-size:clamp(28px,4.4vw,60px);letter-spacing:-.025em;line-height:1.1;
+  max-width:16ch;margin:0 auto;text-transform:uppercase;font-weight:800;
+}
+.stmt__h em{font-style:italic;font-weight:800}
+.stmt__h .dot{color:var(--accent)}
+.stmt__p{
+  max-width:56ch;margin:clamp(22px,3vw,34px) auto 0;
+  font-size:15px;line-height:1.85;color:var(--cream-dim);
+}
+.stmt__p em{font-style:italic;color:var(--cream)}
+.stmt__p strong{color:var(--cream);font-weight:600}
+.btn{
+  display:inline-block;margin-top:clamp(26px,3.4vw,40px);
+  padding:13px 32px;background:var(--accent);color:var(--ink-3);
+  font-family:var(--font-sans);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  border:0;cursor:pointer;
+  transition:transform .18s,background .18s,letter-spacing .18s,box-shadow .25s;
+}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--accent-bright);transform:translateY(-2px);letter-spacing:.2em;
+    box-shadow:0 10px 30px rgba(217,145,41,.24)}
+}
+.btn:active{transform:translateY(0)}
+.btn--ghost{background:none;color:var(--cream);border:1px solid var(--line)}
+@media (hover:hover) and (pointer:fine){
+  .btn--ghost:hover{background:var(--cream);color:var(--ink-3);box-shadow:none}
+}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btns .btn{margin-top:clamp(26px,3.4vw,40px)}
+.fine{margin-top:14px;font-size:12px;letter-spacing:.04em;color:var(--cream-dim)}
+
+/* Häkchenliste */
+.checks{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:10px clamp(20px,3vw,44px);margin:clamp(28px,4vw,44px) auto 0;max-width:70ch;
+  font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--cream-dim);
+}
+.checks li{display:flex;align-items:center;gap:9px}
+.checks li::before{content:"";width:6px;height:6px;background:var(--accent);flex:0 0 auto}
+
+/* Google-Trust-Pille */
+.trust{
+  display:inline-flex;align-items:center;gap:12px;margin-top:clamp(26px,3.4vw,40px);
+  border:1px solid var(--line);padding:10px 20px;
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--cream-dim);
+  transition:border-color .25s,color .25s;
+}
+.trust b{color:var(--cream);font-weight:700}
+.trust .stars{color:var(--accent);letter-spacing:-.02em;font-size:14px}
+@media (hover:hover){.trust:hover{border-color:var(--accent);color:var(--cream)}}
+
+/* ---------- Fakten-Band ---------- */
+.facts{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2);
+}
+.fact{padding:clamp(24px,3.2vw,38px) clamp(18px,2.4vw,34px);border-right:1px solid var(--line)}
+.fact:last-child{border-right:0}
+.fact__no{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.fact__h{margin-top:12px;font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(14px,1.35vw,18px);letter-spacing:-.01em;line-height:1.16}
+.fact__p{margin-top:8px;font-size:13px;line-height:1.7;color:var(--cream-dim)}
+
+/* ---------- 3 · Full-Bleed-Cinema-Streifen ---------- */
+.strip{position:relative;height:clamp(190px,34vh,340px);overflow:hidden;background:var(--ink-3)}
+.strip img{width:100%;height:132%;object-fit:cover;transform:translateY(var(--py,0px))}
+.strip--tall{height:clamp(260px,52vh,520px)}
+
+/* ---------- 4 · Marquee ---------- */
+.partners{padding:clamp(70px,10vh,120px) 0 clamp(74px,11vh,132px);background:var(--ink);overflow:hidden}
+.sec-h{
+  font-size:clamp(26px,3.6vw,50px);letter-spacing:-.02em;text-transform:uppercase;
+  text-align:center;font-weight:800;
+}
+.sec-h .dot{color:var(--accent)}
+.sec-sub{
+  text-align:center;max-width:58ch;margin:14px auto 0;
+  font-size:14px;color:var(--cream-dim);
+}
+.sec-eyebrow{
+  text-align:center;font-size:11px;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:16px;
+}
+.marquee{margin-top:clamp(34px,5vw,58px);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.marquee + .marquee{margin-top:clamp(20px,2.6vw,34px)}
+.marquee__track{display:flex;width:max-content;gap:clamp(38px,5.6vw,86px);align-items:center;
+  animation:marq 46s linear infinite}
+.marquee--rev .marquee__track{animation-direction:reverse;animation-duration:56s}
+@keyframes marq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (hover:hover){.marquee:hover .marquee__track{animation-play-state:paused}}
+.logo{
+  font-family:var(--font-display);font-weight:700;font-size:clamp(14px,1.5vw,21px);
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;
+  color:var(--cream);opacity:.52;transition:opacity .25s,color .25s;
+}
+.logo--boxed{border:1px solid var(--line);padding:9px 16px;font-size:clamp(11px,1.15vw,15px);letter-spacing:.14em}
+.logo--serif{font-family:Georgia,serif;font-weight:400;letter-spacing:.16em;text-transform:none;font-style:italic}
+@media (hover:hover){.marquee:hover .logo{opacity:.34}.marquee .logo:hover{opacity:1;color:var(--accent)}}
+
+/* ---------- 5 · Drift-Riesenwort + Mosaik ---------- */
+.drift{background:var(--ink);position:relative}
+/* Band bleibt oben stehen, das Mosaik scrollt darunter durch — dadurch
+   liegt bei jedem Scrollstand ein anderer Wortausschnitt im Viewport. */
+.drift__band{
+  position:sticky;top:0;z-index:3;overflow:hidden;
+  padding:clamp(30px,4.6vw,58px) 0 clamp(14px,1.8vw,22px);
+  background:var(--ink);border-bottom:1px solid var(--line);
+}
+.drift__word{
+  font-family:var(--font-display);font-weight:800;
+  font-size:clamp(52px,11vw,168px);letter-spacing:-.04em;line-height:.9;
+  color:var(--accent);white-space:nowrap;text-transform:uppercase;
+  width:max-content;transform:translate3d(var(--drift,0px),0,0);
+  display:flex;align-items:center;gap:.24em;
+}
+.drift__word span.sep{
+  width:.18em;height:.18em;border-radius:50%;background:var(--accent-bright);
+  display:inline-block;flex:0 0 auto;animation:pulse 2.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.45}}
+.drift__meta{
+  display:flex;justify-content:space-between;gap:20px;
+  padding:clamp(12px,1.8vw,20px) var(--pad) 0;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-dim);
+}
+
+.mosaic{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  padding:clamp(26px,4vw,48px) var(--pad) clamp(24px,3vw,40px);
+}
+.tile{position:relative;overflow:hidden;background:var(--ink-2);display:block}
+/* Wipe sitzt auf dem BILD, nicht auf .tile: eine clip-path-Maske auf dem
+   beobachteten Element setzt dessen intersectionRect auf 0 — der Reveal
+   koennte sich dann nie selbst ausloesen. */
+.tile img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+  clip-path:inset(0 100% 0 0);
+  transition:transform .8s var(--ease-big),filter .5s,clip-path .9s var(--ease-big)}
+.tile.in img{clip-path:inset(0 0 0 0)}
+.tile__cap{
+  position:absolute;left:14px;right:14px;bottom:12px;z-index:2;
+  font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#fff;
+  text-shadow:0 1px 12px rgba(0,0,0,.6);
+}
+.tile__sub{
+  display:block;margin-top:8px;font-family:var(--font-sans);font-size:12.5px;
+  font-weight:400;letter-spacing:0;text-transform:none;line-height:1.6;color:rgba(255,255,255,.82);
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .45s var(--ease-big),opacity .3s;
+}
+.tile__no{
+  position:absolute;right:12px;top:10px;z-index:2;font-family:var(--font-display);
+  font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--accent);opacity:.85;
+}
+.tile::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(12,17,14,0) 35%,rgba(12,17,14,.86));opacity:.8;transition:opacity .4s}
+@media (hover:hover) and (pointer:fine){
+  .tile:hover img{transform:scale(1.07)}
+  .tile:hover::after{opacity:.97}
+  .tile:hover .tile__sub{max-height:14em;opacity:1}
+}
+/* Ohne Hover (Touch) bleibt der Text dauerhaft sichtbar — sonst ginge Inhalt verloren. */
+@media (hover:none){
+  .tile__sub{max-height:14em;opacity:1}
+}
+.t-a{grid-column:span 2;aspect-ratio:16/10}
+.t-b{grid-column:span 1;aspect-ratio:3/4}
+.t-c{grid-column:span 1;aspect-ratio:3/4}
+.t-d{grid-column:span 1;aspect-ratio:4/5}
+.t-e{grid-column:span 2;aspect-ratio:16/9}
+.t-f{grid-column:span 1;aspect-ratio:4/5}
+
+.notes{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  padding:0 var(--pad) clamp(70px,10vh,120px);
+}
+.note{border:1px solid var(--line);padding:clamp(18px,2.2vw,26px)}
+.note__k{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.note__p{margin-top:10px;font-size:14px;line-height:1.7;color:var(--cream-dim)}
+
+/* ---------- 6 · Programme (Kartei) ---------- */
+.courses{padding:clamp(80px,12vh,148px) 0 clamp(80px,12vh,150px);background:var(--ink-2)}
+.courses__head{padding:0 var(--pad)}
+.courses__track{
+  display:flex;gap:clamp(14px,1.6vw,24px);
+  margin-top:clamp(34px,5vw,58px);padding:0 var(--pad) 8px;
+  overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;scrollbar-width:none;cursor:grab;
+}
+.courses__track::-webkit-scrollbar{display:none}
+.courses__track.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.courses__hint{
+  padding:clamp(14px,1.8vw,22px) var(--pad) 0;
+  display:flex;justify-content:space-between;gap:16px;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim);
+}
+
+.course{
+  flex:0 0 clamp(256px,25vw,338px);scroll-snap-align:center;
+  display:flex;flex-direction:column;
+  background:var(--ink-3);border:1px solid var(--line);
+  transition:border-color .3s;
+}
+.course__media{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;background:var(--ink)}
+/* Ohne das startet der Browser sein eigenes Bild-Dragging und das Band laesst sich nicht ziehen. */
+.course__media img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);
+  transition:transform .8s var(--ease-big);-webkit-user-drag:none;user-select:none}
+.course__cat{
+  position:absolute;left:0;top:0;padding:6px 12px;
+  background:var(--accent);color:var(--ink-3);
+  font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+}
+.course__body{
+  display:flex;flex-direction:column;flex:1;
+  padding:clamp(16px,1.7vw,22px);
+}
+.course__name{
+  font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(17px,1.5vw,22px);letter-spacing:-.015em;line-height:1.12;
+}
+.course__desc{margin-top:12px;font-size:13.5px;line-height:1.72;color:var(--cream-dim)}
+.course__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.course__tag{
+  border:1px solid var(--line);padding:4px 9px;
+  font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--cream-dim);
+}
+.course__price{
+  margin-top:16px;padding-top:14px;border-top:1px solid var(--line);
+  font-family:var(--font-display);font-weight:800;font-size:22px;letter-spacing:-.02em;color:var(--cream);
+}
+.course__note{
+  margin-top:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
+}
+.course__book{
+  margin-top:16px;padding:12px 18px;
+  background:none;color:var(--cream);border:1px solid var(--line);cursor:pointer;
+  font-family:var(--font-sans);font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;text-align:center;
+  transition:background .18s,color .18s,border-color .18s,letter-spacing .18s;
+}
+@media (hover:hover) and (pointer:fine){
+  .course:hover{border-color:rgba(217,145,41,.5)}
+  .course:hover .course__media img{transform:scale(1.06)}
+  .course__book:hover{background:var(--accent);border-color:var(--accent);
+    color:var(--ink-3);letter-spacing:.2em}
+}
+
+/* ---------- 7 · Creed (Blocksatz) ---------- */
+.creed{padding:clamp(96px,15vh,180px) var(--pad);text-align:center}
+.creed__h{
+  font-size:clamp(26px,3.9vw,54px);letter-spacing:-.02em;text-transform:uppercase;font-weight:800;
+}
+.creed__h .dot{color:var(--accent)}
+.creed__p{
+  max-width:62ch;margin:clamp(20px,2.6vw,30px) auto 0;
+  text-align:justify;font-size:15px;line-height:1.95;color:var(--cream-dim);
+}
+.creed__p strong{color:var(--cream);font-weight:500}
+
+/* ---------- 8 · Prozess ---------- */
+.proc{padding:clamp(90px,14vh,170px) var(--pad) clamp(96px,15vh,180px);text-align:center}
+.proc__steps{
+  display:flex;align-items:flex-end;justify-content:center;gap:clamp(6px,1vw,14px);
+  margin-top:clamp(40px,5.6vw,68px);flex-wrap:nowrap;
+}
+.step{flex:0 1 190px;min-width:0}
+.step__label{
+  font-size:clamp(10px,1.05vw,14px);font-weight:600;letter-spacing:.06em;
+  margin-bottom:14px;color:var(--cream);white-space:nowrap;
+}
+.step__bar{
+  height:clamp(30px,3.6vw,48px);
+  transform:skewX(-22deg);
+  transition:transform .45s var(--ease-big),filter .45s;
+}
+.step:nth-child(1) .step__bar{background:linear-gradient(100deg,#0C110E,#1E2C23)}
+.step:nth-child(2) .step__bar{background:linear-gradient(100deg,#1E2C23,#3B3620)}
+.step:nth-child(3) .step__bar{background:linear-gradient(100deg,#3B3620,#8C6220)}
+.step:nth-child(4) .step__bar{background:linear-gradient(100deg,#8C6220,#D99129)}
+.step__txt{margin-top:16px;font-size:12.5px;line-height:1.7;color:var(--cream-dim);text-align:left}
+@media (hover:hover) and (pointer:fine){
+  .step:hover .step__bar{transform:skewX(-22deg) translateY(-5px);filter:brightness(1.15)}
+}
+.proc__arrow{
+  flex:0 0 auto;height:clamp(30px,3.6vw,48px);
+  display:flex;align-items:center;justify-content:center;
+  padding:0 clamp(22px,2.6vw,36px) 0 clamp(12px,1.4vw,20px);
+  background:var(--cream);color:var(--ink-3);
+  clip-path:polygon(0 22%,72% 22%,72% 0,100% 50%,72% 100%,72% 78%,0 78%);
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  transition:transform .35s var(--ease-big),background .3s;white-space:nowrap;
+  min-width:clamp(120px,13vw,180px);align-self:flex-end;
+}
+@media (hover:hover) and (pointer:fine){
+  .proc__arrow:hover{transform:translateX(6px);background:var(--accent-bright)}
+}
+.proc__dot{width:7px;height:7px;border-radius:50%;background:var(--accent);
+  margin:26px auto 0;animation:pulse 2.6s ease-in-out infinite}
+
+/* ---------- Stimmen ---------- */
+.voices{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink-2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.voices__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:clamp(34px,5vw,58px)}
+.quote{border:1px solid var(--line);padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;
+  transition:border-color .3s}
+@media (hover:hover){.quote:hover{border-color:rgba(217,145,41,.5)}}
+.quote__stars{color:var(--accent);font-size:15px;letter-spacing:-.02em}
+.quote blockquote{margin:16px 0 0;font-size:14.5px;line-height:1.8;color:var(--cream);flex:1;font-style:italic}
+.quote figcaption{margin-top:18px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-dim)}
+.quote figcaption b{color:var(--cream);font-weight:700}
+.disclaimer{max-width:88ch;margin:clamp(28px,3.4vw,44px) auto 0;font-size:11.5px;line-height:1.75;color:rgba(237,224,204,.42)}
+.ratingbar{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px clamp(24px,3.4vw,48px);
+  margin-top:clamp(26px,3.4vw,42px);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);
+}
+.ratingbar b{color:var(--cream);font-weight:700}
+.ratingbar .stars{color:var(--accent);letter-spacing:-.02em;font-size:14px}
+
+/* ---------- Team ---------- */
+.crew{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink)}
+.crew__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:clamp(34px,5vw,58px)}
+.member{position:relative;border:1px solid var(--line);background:var(--ink-3);display:flex;flex-direction:column;
+  transition:border-color .3s}
+@media (hover:hover){.member:hover{border-color:rgba(217,145,41,.5)}}
+.member__media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-2)}
+.member__media img{width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.06);
+  transition:transform .8s var(--ease-big)}
+@media (hover:hover){.member:hover .member__media img{transform:scale(1.05)}}
+.member__tag{position:absolute;left:0;top:0;padding:6px 12px;background:var(--accent);color:var(--ink-3);
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.member__body{padding:clamp(18px,2vw,24px);flex:1;display:flex;flex-direction:column}
+.member__name{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(17px,1.5vw,22px);letter-spacing:-.015em}
+.member__role{margin-top:6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.member__bio{margin-top:14px;font-size:13.5px;line-height:1.72;color:var(--cream-dim);flex:1}
+.member__link{margin-top:16px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+@media (hover:hover){.member__link:hover{color:var(--accent)}}
+.member--open .member__media{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,rgba(217,145,41,.16),rgba(12,17,14,0))}
+.member--open svg{width:64px;height:64px;color:var(--accent);opacity:.7}
+.crewfoot{
+  margin-top:10px;border:1px solid var(--line);padding:clamp(22px,2.6vw,34px);
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;
+}
+.crewfoot h3{font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(17px,1.8vw,24px)}
+.crewfoot p{margin-top:8px;font-size:13.5px;color:var(--cream-dim);max-width:52ch}
+
+/* ---------- Indikationen-Register ---------- */
+.reg{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink-2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.reg__list{margin-top:clamp(34px,5vw,58px);border-top:1px solid var(--line)}
+.reg__row{
+  display:flex;align-items:center;gap:clamp(12px,2vw,28px);
+  padding:clamp(13px,1.5vw,18px) 4px;border-bottom:1px solid var(--line);
+  transition:background .25s,padding-left .3s var(--ease-big);
+}
+.reg__code{
+  flex:0 0 clamp(74px,8vw,110px);font-family:var(--font-display);font-weight:700;
+  font-size:11px;letter-spacing:.12em;color:var(--accent);
+}
+.reg__name{
+  flex:1;font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(14px,1.5vw,20px);letter-spacing:-.01em;
+}
+.reg__arrow{flex:0 0 auto;color:var(--cream-dim);transition:transform .3s var(--ease-big),color .25s}
+@media (hover:hover) and (pointer:fine){
+  .reg__row:hover{background:rgba(237,224,204,.04);padding-left:14px}
+  .reg__row:hover .reg__arrow{transform:translateX(6px);color:var(--accent)}
+}
+.reg__foot{margin-top:clamp(22px,2.6vw,32px);font-size:13.5px;color:var(--cream-dim)}
+.reg__foot a{color:var(--accent);border-bottom:1px solid rgba(217,145,41,.4)}
+
+/* ---------- Lead-Magnet ---------- */
+.lead{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink)}
+.lead__box{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,58px);
+  border:1px solid var(--line);background:var(--forest);padding:clamp(28px,4vw,58px);
+}
+.lead__h{font-size:clamp(24px,3.2vw,44px);text-transform:uppercase;font-weight:800;letter-spacing:-.02em}
+.lead__p{margin-top:16px;font-size:15px;line-height:1.8;color:var(--cream-dim)}
+.lead__p strong{color:var(--cream);font-weight:600}
+.lead .checks{justify-content:flex-start;text-align:left;margin-left:0}
+.form{border:1px solid var(--line);background:var(--ink-3);padding:clamp(22px,2.6vw,32px);align-self:start}
+.form label{display:block;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+.form input[type=email]{
+  width:100%;margin-top:10px;padding:13px 14px;background:var(--ink-2);
+  border:1px solid var(--line);color:var(--cream);font-family:var(--font-sans);font-size:15px;
+  transition:border-color .25s;
+}
+.form input[type=email]:focus{outline:0;border-color:var(--accent)}
+.form__consent{display:flex;gap:10px;align-items:flex-start;margin-top:16px;
+  font-size:12px;line-height:1.6;color:var(--cream-dim);letter-spacing:0;text-transform:none;font-weight:400}
+.form__consent a{color:var(--accent);border-bottom:1px solid rgba(217,145,41,.4)}
+.form .btn{width:100%;margin-top:20px;text-align:center}
+.form__fine{margin-top:12px;font-size:11.5px;line-height:1.65;color:rgba(237,224,204,.42)}
+.form__fine a{color:var(--accent)}
+
+/* ---------- Preise ---------- */
+.plans{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink-2);
+  border-top:1px solid var(--line)}
+.plans__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:clamp(34px,5vw,58px)}
+.plan{border:1px solid var(--line);padding:clamp(24px,2.8vw,36px);display:flex;flex-direction:column;
+  position:relative;transition:border-color .3s}
+.plan--hot{border-color:var(--accent)}
+.plan__flag{position:absolute;top:-1px;right:-1px;background:var(--accent);color:var(--ink-3);
+  padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.plan__name{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(19px,1.9vw,26px);letter-spacing:-.02em}
+.plan__sub{margin-top:6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream-dim)}
+.plan__price{margin-top:clamp(22px,2.6vw,32px);font-family:var(--font-display);font-weight:800;
+  font-size:clamp(38px,4.4vw,60px);letter-spacing:-.035em;line-height:1;color:var(--cream)}
+.plan__price small{font-family:var(--font-sans);font-size:14px;font-weight:400;letter-spacing:0;color:var(--cream-dim)}
+.plan__own{margin-top:10px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.plan__list{margin-top:clamp(22px,2.6vw,30px);flex:1;display:flex;flex-direction:column;gap:11px}
+.plan__list li{display:flex;gap:11px;font-size:13.5px;line-height:1.62;color:var(--cream-dim)}
+.plan__list li::before{content:"";width:6px;height:6px;background:var(--accent);flex:0 0 auto;margin-top:8px}
+.plan .btn{width:100%;text-align:center;margin-top:clamp(24px,2.8vw,34px)}
+@media (hover:hover){.plan:hover{border-color:rgba(217,145,41,.5)}}
+.plans__foot{margin-top:clamp(22px,2.6vw,32px);font-size:12.5px;line-height:1.75;color:rgba(237,224,204,.45);max-width:92ch}
+
+/* ---------- BGM ---------- */
+.bgm{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink)}
+.bgm__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4.4vw,64px);
+  margin-top:clamp(34px,5vw,58px);align-items:start}
+.mods{display:flex;flex-direction:column;gap:2px}
+.mod{display:flex;gap:clamp(14px,1.8vw,24px);padding:clamp(18px,2vw,24px) 0;border-top:1px solid var(--line)}
+.mod:last-child{border-bottom:1px solid var(--line)}
+.mod__no{flex:0 0 auto;font-family:var(--font-display);font-weight:800;font-size:14px;color:var(--accent)}
+.mod__h{font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(15px,1.5vw,20px);letter-spacing:-.01em}
+.mod__p{margin-top:8px;font-size:13.5px;line-height:1.72;color:var(--cream-dim)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{border:1px solid var(--line);padding:clamp(22px,2.6vw,32px)}
+.stat__n{font-family:var(--font-display);font-weight:800;font-size:clamp(34px,4vw,54px);
+  letter-spacing:-.035em;line-height:1;color:var(--accent)}
+.stat__p{margin-top:12px;font-size:13px;line-height:1.65;color:var(--cream-dim)}
+.stat__p small{display:block;margin-top:4px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,224,204,.4)}
+
+/* ---------- Standort ---------- */
+.place{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink-2);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:clamp(34px,5vw,58px)}
+.shot{position:relative;overflow:hidden;background:var(--ink-3);aspect-ratio:1/1}
+.shot--wide{grid-column:span 2;aspect-ratio:2/1}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-big)}
+@media (hover:hover){.shot:hover img{transform:scale(1.06)}}
+.place__cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.card{border:1px solid var(--line);padding:clamp(24px,2.8vw,36px)}
+.card__k{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.card h3{margin-top:12px;font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(18px,1.9vw,26px);letter-spacing:-.02em}
+.card address{margin-top:10px;font-style:normal;font-size:14px;color:var(--cream-dim);line-height:1.7}
+.card__list{margin-top:20px;display:flex;flex-direction:column;gap:9px}
+.card__list li{display:flex;gap:11px;font-size:13.5px;line-height:1.6;color:var(--cream-dim)}
+.card__list li::before{content:"";width:6px;height:6px;background:var(--accent);flex:0 0 auto;margin-top:7px}
+.card .btns{justify-content:flex-start;margin-top:6px}
+.card .btn{margin-top:20px;padding:11px 22px;font-size:11px}
+.map{border:1px solid var(--line);min-height:360px;background:var(--ink-3)}
+.map iframe{display:block;width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.4) contrast(1.05)}
+.near{margin-top:10px;border:1px solid var(--line);padding:clamp(24px,2.8vw,36px)}
+.near__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.near__item{border:1px solid var(--line);padding:clamp(16px,1.8vw,22px);transition:border-color .25s,background .25s}
+.near__item b{display:block;font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:14px}
+.near__item span{display:block;margin-top:6px;font-size:12px;color:var(--cream-dim)}
+@media (hover:hover){.near__item:hover{border-color:var(--accent);background:rgba(217,145,41,.06)}}
+
+/* ---------- Wissen ---------- */
+.reads{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink)}
+.reads__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:clamp(34px,5vw,58px)}
+.read{border:1px solid var(--line);padding:clamp(24px,2.8vw,34px);display:flex;flex-direction:column;
+  transition:border-color .3s,background .3s}
+.read__k{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.read h3{margin-top:18px;font-family:var(--font-display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(16px,1.6vw,21px);letter-spacing:-.015em;line-height:1.18}
+.read p{margin-top:14px;font-size:13.5px;line-height:1.72;color:var(--cream-dim);flex:1}
+.read__go{margin-top:20px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream)}
+@media (hover:hover){.read:hover{border-color:rgba(217,145,41,.5);background:rgba(237,224,204,.03)}
+  .read:hover .read__go{color:var(--accent)}}
+
+/* ---------- FAQ ---------- */
+.faq{padding:clamp(80px,12vh,148px) var(--pad);background:var(--ink-2);border-top:1px solid var(--line)}
+.faq__list{max-width:92ch;margin:clamp(34px,5vw,58px) auto 0;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:clamp(17px,2vw,24px) 4px;cursor:pointer;list-style:none;
+  font-family:var(--font-display);font-weight:700;text-transform:uppercase;
+  font-size:clamp(14px,1.5vw,19px);letter-spacing:-.01em;line-height:1.3;
+  transition:color .25s,padding-left .3s var(--ease-big);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .chev{flex:0 0 auto;color:var(--accent);transition:transform .3s var(--ease-big)}
+.faq details[open] summary .chev{transform:rotate(180deg)}
+@media (hover:hover){.faq summary:hover{color:var(--accent-bright);padding-left:10px}}
+.faq__a{padding:0 4px clamp(20px,2.4vw,28px);max-width:74ch;font-size:14.5px;line-height:1.85;color:var(--cream-dim)}
+.faq__a strong{color:var(--cream);font-weight:600}
+
+/* ---------- Final-CTA ---------- */
+.cta{position:relative;overflow:hidden;padding:clamp(90px,14vh,170px) var(--pad);text-align:center;background:var(--forest)}
+.cta::before{content:"";position:absolute;top:-30%;right:-14%;width:min(620px,80vw);aspect-ratio:1;
+  border-radius:50%;background:radial-gradient(circle,rgba(217,145,41,.36),transparent 68%);pointer-events:none}
+.cta > *{position:relative}
+
+/* ---------- Footer ---------- */
+.footer{padding:clamp(56px,7vw,92px) var(--pad) clamp(28px,3.4vw,44px);border-top:1px solid var(--line)}
+.footer__row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.footer__side{font-size:14px;letter-spacing:.04em;color:var(--cream);white-space:nowrap}
+.footer__side a{transition:color .2s}
+.footer__side a:hover{color:var(--accent)}
+.footer__mark{
+  flex:1;text-align:center;font-family:var(--font-display);font-weight:800;
+  font-size:clamp(30px,7.4vw,104px);letter-spacing:-.035em;line-height:1;color:var(--cream);
+  white-space:nowrap;
+}
+.footer__cols{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);
+  margin-top:clamp(38px,5vw,64px);padding-top:clamp(28px,3.4vw,44px);border-top:1px solid var(--line);
+}
+.footer__cols h3{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);
+  font-family:var(--font-sans)}
+.footer__cols p,.footer__cols address,.footer__cols li{margin-top:12px;font-size:13.5px;line-height:1.75;
+  color:var(--cream-dim);font-style:normal}
+.footer__cols li{margin-top:8px}
+.footer__cols a:hover{color:var(--accent)}
+.footer__social{display:flex;justify-content:center;gap:clamp(24px,3vw,44px);margin-top:clamp(16px,2.2vw,28px)}
+.footer__social a{
+  width:34px;height:34px;border:1px solid var(--accent);border-radius:5px;
+  display:flex;align-items:center;justify-content:center;color:var(--accent);
+  transition:transform .25s var(--ease-big),background .25s,color .25s;
+}
+.footer__social a:hover{transform:translateY(-3px);background:var(--accent);color:var(--ink-3)}
+.footer__social svg{width:16px;height:16px}
+.footer__legal{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin-top:clamp(24px,3.2vw,44px);
+  font-size:12px;color:var(--cream-dim);
+}
+.footer__legal a{letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cream);transition:color .2s,letter-spacing .2s}
+.footer__legal a:hover{color:var(--accent);letter-spacing:.19em}
+
+/* ---------- Sticky Mobile-CTA ---------- */
+.mobbar{display:none;position:fixed;left:10px;right:10px;bottom:10px;z-index:80;gap:8px}
+.mobbar a{
+  flex:1;padding:14px;text-align:center;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.mobbar a:first-child{background:var(--ink-3);color:var(--cream);border:1px solid var(--line)}
+.mobbar a:last-child{flex:1.4;background:var(--accent);color:var(--ink-3)}
+
+/* ---------- Scroll-Reveals ---------- */
+.rv{opacity:0;transform:translateY(26px);
+  transition:opacity .7s var(--ease-big),transform .7s var(--ease-big)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.06s}.rv-d2{transition-delay:.12s}.rv-d3{transition-delay:.18s}
+.rv-d4{transition-delay:.24s}.rv-d5{transition-delay:.3s}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  .nav{display:none}
+  .burger{display:flex}
+  .lead__box,.bgm__grid,.place__cols{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .fact:nth-child(2){border-right:0}
+  .fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:900px){
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .t-a,.t-e{grid-column:span 2}
+  .t-b,.t-c,.t-d,.t-f{grid-column:span 1}
+  .notes{grid-template-columns:1fr}
+  .course{flex-basis:min(74vw,300px)}
+  .courses__hint{flex-direction:column;gap:6px}
+  .proc__steps{flex-wrap:wrap;justify-content:flex-start;gap:10px 12px}
+  .step{flex:1 1 44%}
+  .proc__arrow{flex:1 1 100%;margin-top:12px;min-width:0}
+  .voices__grid,.crew__grid,.plans__grid,.reads__grid,.near__grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .shot--wide{grid-column:span 2}
+  .footer__row{flex-direction:column;align-items:center;text-align:center}
+  .footer__mark{order:-1}
+  .footer__cols{grid-template-columns:1fr;text-align:center}
+  .footer__legal{flex-direction:column;gap:10px}
+  .mobbar{display:flex}
+  .hero{height:460vh}
+}
+@media (max-width:620px){
+  /* Die volle Adresse laeuft sonst in das "by REHAB FIVE" der rechten Ecke. */
+  .hero__corner{font-size:9px;letter-spacing:.11em}
+  .hero__city{display:none}
+  .header__logo img{height:22px}
+  .header__div{display:none}
+  .creed__p{text-align:left}
+  .facts{grid-template-columns:1fr}
+  .fact{border-right:0;border-bottom:1px solid var(--line)}
+  .reg__code{flex-basis:64px}
+  .stats{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.12s !important;scroll-behavior:auto !important}
+  .rv{opacity:1;transform:none}
+  .tile img{clip-path:none}
+  .hero{height:100vh}
+  .hero__stage{position:relative}
+}
+</style>
 
   <!-- =========================================
        SCHEMA.ORG JSON-LD (SEO + AEO/GEO)
@@ -220,1133 +922,1021 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   </script>
   <script async src="https://cdn.docmedico-rezeption.de/j9u4c9m7a/reception_embed.js"></script>
 </head>
+<body>
 
-<body class="bg-white text-ink-900 antialiased">
+<a href="#top" class="sr">Zum Inhalt springen</a>
 
-  <!-- Skip-Link für Accessibility -->
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ink-900 focus:text-white focus:px-4 focus:py-2 focus:rounded">Zum Inhalt springen</a>
+<!-- ══════════ HEADER ══════════ -->
+<header class="header" id="hdr">
+  <a class="header__logo" href="#top" aria-label="REHAB FIVE NUTRITION Startseite">
+    <img src="R5-Logo-B-white_RZ.png" alt="REHAB FIVE" width="3000" height="643">
+    <span class="header__div">Nutrition</span>
+  </a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="#programme">Programme</a>
+    <a href="#konzept">Konzept</a>
+    <a href="#team">Team</a>
+    <a href="#indikationen">Indikationen</a>
+    <a href="#preise">Preise</a>
+    <a href="wissen/">Wissen</a>
+    <a href="#standort">Standort</a>
+    <a href="#anmelden" class="nav__cta">Erstgespräch</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="drawer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+</header>
 
-  <!-- =========================================
-       HEADER
-       ========================================= -->
-  <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-      <a href="./" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" width="3000" height="643" />
-        <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition</span>
-      </a>
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
-        <a href="#programme" class="hover:text-white">Programme</a>
-        <a href="#konzept" class="hover:text-white">Konzept</a>
-        <a href="#team" class="hover:text-white">Team</a>
-        <a href="#ablauf" class="hover:text-white">Ablauf</a>
-        <a href="#indikationen" class="hover:text-white">Indikationen</a>
-        <a href="#preise" class="hover:text-white">Preise</a>
-        <a href="wissen/" class="hover:text-white">Wissen</a>
-        <a href="#standort" class="hover:text-white">Standort</a>
-        <a href="#faq" class="hover:text-white">FAQ</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="tel:+4925174788200" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-brand-500" aria-label="Jetzt anrufen">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
-          <span class="hidden xl:inline">0251 74788 200</span>
-        </a>
-        <a href="#anmelden" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-sm px-4 py-2 transition shadow-lg shadow-brand-500/20">Erstgespräch</a>
-        <button id="mobile-toggle" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
-          <svg class="w-6 h-6" id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg class="w-6 h-6 hidden" id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
+<div class="drawer" id="drawer">
+  <button class="drawer__close" id="drawerClose" aria-label="Menü schließen">&times;</button>
+  <a href="#programme">Programme</a>
+  <a href="#konzept">Konzept</a>
+  <a href="#team">Team</a>
+  <a href="#ablauf">Ablauf</a>
+  <a href="#indikationen">Indikationen</a>
+  <a href="#preise">Preise</a>
+  <a href="wissen/">Wissen</a>
+  <a href="#standort">Standort</a>
+  <a href="#faq">FAQ</a>
+  <a href="#anmelden">Erstgespräch sichern</a>
+</div>
+
+<main id="top">
+
+<!-- ══════════ 1 · HERO — gepinnte Medien-Wall ══════════ -->
+<section class="hero" id="hero" data-panels="5">
+  <div class="hero__stage">
+    <figure class="hero__panel" data-p="0"><img src="img/real-banane.jpg" alt="Gesunde Zwischenmahlzeit im REHAB FIVE Münster"></figure>
+    <figure class="hero__panel hero__panel--wipe" data-p="1"><img src="img/ernaehrung-1600.jpg" alt="Ernährungsberatung bei REHAB FIVE NUTRITION Münster"></figure>
+    <figure class="hero__panel hero__panel--wipe" data-p="2"><img src="img/real-gespraech.jpg" alt="Beratungsgespräch in ruhiger Atmosphäre"></figure>
+    <figure class="hero__panel hero__panel--wipe" data-p="3"><img src="img/ernaehrung-2-1600.jpg" alt="Frische Lebensmittel im Beratungsraum"></figure>
+    <figure class="hero__panel hero__panel--wipe" data-p="4"><img src="img/ernaehrung-3-1600.jpg" alt="Ernährungsplanung am Beratungstisch"></figure>
+    <div class="hero__veil"></div>
+
+    <div class="hero__ui">
+      <h1 class="hero__mark">NUTRITION</h1>
+      <p class="hero__kick">Wissenschaftlich · Individuell · Ohne Verbote</p>
+      <span class="hero__corner hero__corner--l"><span class="hero__city">Münster · </span>Weseler Straße 71</span>
+      <span class="hero__corner hero__corner--r">by REHAB FIVE</span>
     </div>
-    <!-- Mobile Menu Drawer -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-forest-800 border-t border-forest-900">
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 grid grid-cols-2 gap-x-4 gap-y-1 text-sm font-medium text-white/85">
-        <a href="#programme" class="block py-2 hover:text-brand-500" data-mobile-link>Programme</a>
-        <a href="#konzept" class="block py-2 hover:text-brand-500" data-mobile-link>Konzept</a>
-        <a href="#team" class="block py-2 hover:text-brand-500" data-mobile-link>Team</a>
-        <a href="#ablauf" class="block py-2 hover:text-brand-500" data-mobile-link>Ablauf</a>
-        <a href="#indikationen" class="block py-2 hover:text-brand-500" data-mobile-link>Indikationen</a>
-        <a href="#preise" class="block py-2 hover:text-brand-500" data-mobile-link>Preise</a>
-        <a href="wissen/" class="block py-2 hover:text-brand-500" data-mobile-link>Wissen</a>
-        <a href="#standort" class="block py-2 hover:text-brand-500" data-mobile-link>Standort</a>
-        <a href="#faq" class="block py-2 hover:text-brand-500" data-mobile-link>FAQ</a>
-        <a href="tel:+4925174788200" class="block py-2 col-span-2 mt-2 border-t border-white/10 pt-3 text-white font-semibold hover:text-brand-500">📞 0251 74788 200 anrufen</a>
-        <a href="#anmelden" class="block sm:hidden py-3 col-span-2 mt-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-center" data-mobile-link>Erstgespräch sichern</a>
-      </nav>
-    </div>
-  </header>
-  <script>
-    (function() {
-      var btn = document.getElementById('mobile-toggle');
-      var menu = document.getElementById('mobile-menu');
-      var iconMenu = document.getElementById('icon-menu');
-      var iconClose = document.getElementById('icon-close');
-      if (!btn || !menu) return;
-      function setOpen(open) {
-        menu.classList.toggle('hidden', !open);
-        iconMenu.classList.toggle('hidden', open);
-        iconClose.classList.toggle('hidden', !open);
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        btn.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
-      }
-      btn.addEventListener('click', function() {
-        setOpen(menu.classList.contains('hidden'));
-      });
-      menu.querySelectorAll('[data-mobile-link]').forEach(function(a) {
-        a.addEventListener('click', function() { setOpen(false); });
-      });
-    })();
-  </script>
+    <div class="hero__bar"><i id="heroProg"></i></div>
+  </div>
+</section>
 
-  <!-- Announcement-Bar direkt unter dem Header -->
-  <div class="bg-brand-500 text-ink-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs sm:text-sm font-semibold uppercase tracking-[0.14em]">
-      <span class="inline-flex items-center gap-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-ink-900"></span>
-        Ernährung neu gedacht
+<!-- ══════════ 2 · STATEMENT 1 ══════════ -->
+<section class="stmt" id="start">
+  <h2 class="stmt__h rv">Wissenschaftlich<span class="dot">.</span> Individuell<span class="dot">.</span> <em>Ohne Verbote</em><span class="dot">.</span></h2>
+  <p class="stmt__p rv rv-d1">
+    <strong>Dein Ernährungsplan in 90 Minuten</strong> — entwickelt von zertifizierten
+    Expert:innen in Münster. Schluss mit Diät-Mythen. Bei vielen Indikationen erstattet
+    die Kasse <strong>bis zu 80 %</strong>.
+  </p>
+  <ul class="checks rv rv-d2">
+    <li>Zertifizierte Expert:innen</li>
+    <li>100 % auf dich zugeschnitten</li>
+    <li>Ohne Verbote, mit Freude</li>
+    <li>Krankenkassen-Zuschuss möglich</li>
+  </ul>
+  <div class="btns rv rv-d3">
+    <a href="?dmropen=1" class="btn">Gratis Kennenlern-Call · 15 Min</a>
+    <a href="tel:+4925174788200" class="btn btn--ghost">0251 74788 200 anrufen</a>
+  </div>
+  <p class="fine rv rv-d4">Unverbindlich · keine Verkaufs-Show · wir sagen ehrlich, ob wir passen.</p>
+  <a class="trust rv rv-d5" href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener">
+    <span class="stars">★★★★★</span><b>5,0</b><span>100+ Google-Bewertungen REHAB FIVE</span>
+  </a>
+</section>
+
+<!-- ══════════ FAKTEN-BAND ══════════ -->
+<section class="facts" aria-label="Vertrauen &amp; Anerkennung">
+  <div class="fact rv">
+    <div class="fact__no">01</div>
+    <h3 class="fact__h">Zertifizierte Expert:innen</h3>
+    <p class="fact__p">Oecotrophologie · DGE-Zertifikat</p>
+  </div>
+  <div class="fact rv rv-d1">
+    <div class="fact__no">02</div>
+    <h3 class="fact__h">Krankenkassen-Zuschuss</h3>
+    <p class="fact__p">Bei ärztlicher Notwendigkeit</p>
+  </div>
+  <div class="fact rv rv-d2">
+    <div class="fact__no">03</div>
+    <h3 class="fact__h">REHAB FIVE Qualität</h3>
+    <p class="fact__p">Top-Bewertungen bei Google</p>
+  </div>
+  <div class="fact rv rv-d3">
+    <div class="fact__no">04</div>
+    <h3 class="fact__h">Standort Münster</h3>
+    <p class="fact__p">Weseler Straße 71</p>
+  </div>
+</section>
+
+<!-- ══════════ 3 · CINEMA-STREIFEN ══════════ -->
+<section class="strip" data-parallax="0.16" aria-hidden="true">
+  <img src="img/real-lounge.jpg" alt="">
+</section>
+
+<!-- ══════════ 4 · DRIFT-RIESENWORT + MOSAIK ══════════ -->
+<section class="drift" id="konzept">
+  <div class="drift__band">
+    <h2 class="drift__word" data-drift="1500" aria-label="Ernährung neu gedacht">
+      <span>Ernährung</span><span class="sep" aria-hidden="true"></span><span>neu gedacht</span><span class="sep" aria-hidden="true"></span><span>Ernährung</span><span class="sep" aria-hidden="true"></span><span>neu gedacht</span>
+    </h2>
+    <div class="drift__meta">
+      <span>Unser Konzept · Vier Säulen. Ein Versprechen. Deine Ernährung im Mittelpunkt.</span>
+      <span>01 — 06</span>
+    </div>
+  </div>
+
+  <div class="mosaic">
+    <a class="tile t-a rv" href="#anmelden">
+      <span class="tile__no">01</span><img src="img/ernaehrung-1600.jpg" alt="Beratung nach aktuellen Leitlinien">
+      <span class="tile__cap">Wissenschaftlich fundiert
+        <span class="tile__sub">Wir arbeiten nach aktuellen Leitlinien der DGE und Fachgesellschaften sowie nach aktueller Studienlage — keine Diät-Trends, keine Social-Media-Mythen, nicht TikTok-getrieben.</span>
       </span>
-      <span class="opacity-50">·</span>
-      <span>Weseler Straße 71 · Münster</span>
-      <span class="opacity-50 hidden sm:inline">·</span>
-      <a href="#anmelden" class="hidden sm:inline underline underline-offset-2 hover:no-underline">Erstgespräch sichern →</a>
+    </a>
+    <a class="tile t-b rv rv-d1" href="#anmelden">
+      <span class="tile__no">02</span><img src="img/real-dialog.jpg" alt="Individuelle Beratung im Gespräch">
+      <span class="tile__cap">100 % individuell
+        <span class="tile__sub">Wir berücksichtigen deine Lebenssituation, Essbiografie und körperlichen Voraussetzungen — kein Plan von der Stange.</span>
+      </span>
+    </a>
+    <a class="tile t-c rv rv-d2" href="#anmelden">
+      <span class="tile__no">03</span><img src="img/ernaehrung-2-1600.jpg" alt="Essen mit Freude statt Verboten">
+      <span class="tile__cap">Ohne Verbote
+        <span class="tile__sub">Essen darf Freude machen. Wir setzen auf nachhaltige Veränderung statt kurzfristige Verzichts-Diäten.</span>
+      </span>
+    </a>
+    <a class="tile t-d rv rv-d3" href="#kassen-check">
+      <span class="tile__no">04</span><img src="img/real-monitor.jpg" alt="Unterstützung beim Kassenantrag">
+      <span class="tile__cap">Kassen-Zuschuss
+        <span class="tile__sub">Bei vielen Indikationen 80 % Erstattung nach §43 SGB V, einzelne Kassen sogar bis 100 % — wir helfen beim Antrag.</span>
+      </span>
+    </a>
+    <a class="tile t-e rv rv-d4" href="#standort">
+      <span class="tile__no">05</span><img src="img/real-neon.jpg" alt="REHAB FIVE Standort in Münster">
+      <span class="tile__cap">Im REHAB-FIVE-Ökosystem
+        <span class="tile__sub">Therapie, Training, Diagnostik und Ernährung greifen ineinander. Bei Bedarf direkter Übergang in Physio oder Health Club.</span>
+      </span>
+    </a>
+    <a class="tile t-f rv rv-d5" href="#ablauf">
+      <span class="tile__no">06</span><img src="img/ernaehrung-3-1600.jpg" alt="Ruhiges Beratungsgespräch ohne Zeitdruck">
+      <span class="tile__cap">Ohne Zeitdruck
+        <span class="tile__sub">60–90 Minuten für die Anamnese. Wir hören zu, statt nur Pläne auszudrucken — persönlich und ruhig.</span>
+      </span>
+    </a>
+  </div>
+
+  <div class="notes">
+    <div class="note rv">
+      <div class="note__k">Gesundheits-DNA</div>
+      <p class="note__p">10+ Jahre REHAB FIVE in Münster.</p>
+    </div>
+    <div class="note rv rv-d1">
+      <div class="note__k">1:1-Beratung</div>
+      <p class="note__p">In ruhiger Atmosphäre — kein Massengeschäft.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5 · PROGRAMME ══════════ -->
+<!-- Programm anlegen = ein Eintrag in #programmdaten. Am HTML dieser Sektion nichts aendern. -->
+<script type="application/json" id="programmdaten">
+[
+  {
+    "name": "Gewicht & Stoffwechsel",
+    "kategorie": "Kasse erstattet",
+    "text": "Nachhaltige Gewichtsregulation bei Adipositas, Übergewicht oder Diabetes Typ 2 — wissenschaftsbasiert, ohne JoJo-Effekt.",
+    "tags": ["4–6 Termine", "Mit Bescheinigung erstattbar"],
+    "preis": "ab 95 €",
+    "preisnote": "Erstgespräch · Kassen-Zuschuss möglich",
+    "cta": "Erstgespräch",
+    "bild": "img/ernaehrung-1200.jpg"
+  },
+  {
+    "name": "Verdauung & Reizdarm",
+    "kategorie": "Kasse erstattet",
+    "text": "Reizdarm, Reflux, Laktose-, Fructose- oder Sorbit-Intoleranz, Zöliakie. Wir finden, was dir wirklich hilft.",
+    "tags": ["Low-FODMAP", "Eliminations-Diagnostik"],
+    "preis": "ab 95 €",
+    "preisnote": "Erstgespräch · Kassen-Zuschuss möglich",
+    "cta": "Erstgespräch",
+    "bild": "img/ernaehrung-2-1200.jpg"
+  },
+  {
+    "name": "Sport & Performance",
+    "kategorie": "Bestseller",
+    "text": "Energie für Training und Wettkampf. Muskelaufbau, Wettkampfvorbereitung, Recovery — abgestimmt auf deine Sportart.",
+    "tags": ["Make-Up & Cuts", "Vereins-Pakete"],
+    "preis": "ab 95 €",
+    "preisnote": "Erstgespräch · Privatzahlung",
+    "cta": "Erstgespräch",
+    "bild": "img/ernaehrung-3-1200.jpg"
+  },
+  {
+    "name": "Herz & Stoffwechsel-Risiko",
+    "kategorie": "Kasse erstattet",
+    "text": "Bluthochdruck, Fettleber, erhöhte Blutfette, Gicht — wir reduzieren deine Risikofaktoren über den Teller.",
+    "tags": ["Leitlinien-basiert", "Mit Bescheinigung erstattbar"],
+    "preis": "ab 95 €",
+    "preisnote": "Erstgespräch · Kassen-Zuschuss möglich",
+    "cta": "Erstgespräch",
+    "bild": "img/real-anamnese.jpg"
+  },
+  {
+    "name": "Frauengesundheit",
+    "kategorie": "Schwerpunkt",
+    "text": "Lipödem, PCOS, Wechseljahre, Endometriose, Schwangerschaft & Stillzeit. Hormone, Energie & Körper im Blick.",
+    "tags": ["Zyklusbezogen", "Mit Bescheinigung erstattbar"],
+    "preis": "ab 95 €",
+    "preisnote": "Erstgespräch · Kassen-Zuschuss möglich",
+    "cta": "Erstgespräch",
+    "bild": "img/real-tablet.jpg"
+  },
+  {
+    "name": "Aufbau & Vitalität",
+    "kategorie": "Schwerpunkt",
+    "text": "Untergewicht, Mangelernährung, Erschöpfung, Osteoporose, Aufbau nach Erkrankung. Wir bauen dich wieder auf.",
+    "tags": ["Eiweißfokus", "Mit Bescheinigung erstattbar"],
+    "preis": "ab 95 €",
+    "preisnote": "Erstgespräch · Kassen-Zuschuss möglich",
+    "cta": "Erstgespräch",
+    "bild": "img/real-banane.jpg"
+  },
+  {
+    "name": "Präventionskurs · §20",
+    "kategorie": "Bis 100 % erstattet",
+    "text": "ZPP-zertifizierter Kurs „Gesund essen im Alltag“. 8 Termine in der Gruppe — alle gesetzlichen Kassen erstatten bis zu 100 % (2× pro Jahr).",
+    "tags": ["8 × 60 Min.", "§20 SGB V", "Friedrich-Ebert 122"],
+    "preis": "149 €",
+    "preisnote": "8er-Kursblock · bis 100 % Kassen-Erstattung",
+    "cta": "Anmelden",
+    "bild": "img/real-interieur.jpg"
+  }
+]
+</script>
+
+<section class="courses" id="programme">
+  <div class="courses__head">
+    <h2 class="sec-h rv">Sieben Programme<span class="dot">.</span> Ein Anspruch<span class="dot">.</span></h2>
+    <p class="sec-sub rv rv-d1">
+      Egal, ob du eine medizinische Indikation hast, sportliche Ziele verfolgst, einen
+      ZPP-zertifizierten Präventionskurs (Kassen-Erstattung bis 100 %) suchst oder einfach
+      besser essen willst — wir haben das passende Programm für dich.
+    </p>
+  </div>
+
+  <div class="courses__track" id="programmTrack" data-hscroll></div>
+
+  <div class="courses__hint">
+    <span id="programmZahl"></span>
+    <span>Ziehen oder wischen</span>
+  </div>
+</section>
+
+<!-- ══════════ 6 · CINEMA-STREIFEN 2 ══════════ -->
+<section class="strip strip--tall" data-parallax="0.12" aria-hidden="true">
+  <img src="img/real-stayhungry.jpg" alt="">
+</section>
+
+<!-- ══════════ 7 · CREED ══════════ -->
+<section class="creed">
+  <p class="sec-eyebrow rv">Warum REHAB FIVE NUTRITION</p>
+  <h2 class="creed__h rv">Keine Beratung von der Stange<span class="dot">.</span> Ein Konzept, das wirkt<span class="dot">.</span></h2>
+  <p class="creed__p rv rv-d1">
+    Wir haben über zehn Jahre Gesundheits-Expertise in Münster — Therapie, Training,
+    Diagnostik — und immer wieder
+    gehört: „Was soll ich denn jetzt eigentlich essen?" Die Antwort gibt's jetzt unter einem Dach.
+    Wir sehen Ernährung als <strong>ganzheitliches Konzept für dein Wohlbefinden</strong>, nicht als
+    kurzfristige Diät: klare Navigation statt Trend-Wahnsinn. Wir arbeiten nach DGE-Leitlinien und
+    aktueller Studienlage, nehmen uns 60–90 Minuten für die Anamnese und hören zu, statt Pläne
+    auszudrucken. Weil Therapie, Training, Diagnostik und Ernährung bei REHAB FIVE ineinandergreifen,
+    ist der Übergang in Physio oder Health Club jederzeit möglich. Und bei vielen Indikationen
+    übernimmt deine Kasse <strong>80 % der Kosten nach §43 SGB V</strong>, einzelne Kassen bis zu
+    100 % — beim Antrag helfen wir.
+  </p>
+  <div class="btns rv rv-d2">
+    <a href="#anmelden" class="btn">Erstgespräch sichern</a>
+    <a href="https://www.rehab-five.com" target="_blank" rel="noopener" class="btn btn--ghost">Zur REHAB FIVE Physio</a>
+  </div>
+</section>
+
+<!-- ══════════ 8 · PROZESS ══════════ -->
+<section class="proc" id="ablauf">
+  <h2 class="sec-h rv">In 4 Schritten zu nachhaltiger Veränderung</h2>
+  <p class="sec-sub rv rv-d1">So einfach geht's — ein fester Ablauf vom Erstgespräch bis zur Evaluation.</p>
+
+  <div class="proc__steps">
+    <div class="step rv rv-d1">
+      <div class="step__label">01 · Anamnese</div><div class="step__bar"></div>
+      <p class="step__txt">60–90 Min Erstgespräch. Wir lernen dich kennen — deine Ess-Biografie, deinen Alltag, deine Diagnosen, deine Ziele.</p>
+    </div>
+    <div class="step rv rv-d2">
+      <div class="step__label">02 · Plan</div><div class="step__bar"></div>
+      <p class="step__txt">Wir entwickeln einen maßgeschneiderten Ernährungsplan, der zu dir passt — keine Standard-Tabellen, sondern alltagstauglich.</p>
+    </div>
+    <div class="step rv rv-d3">
+      <div class="step__label">03 · Intervention</div><div class="step__bar"></div>
+      <p class="step__txt">Wir setzen den Plan praktisch um — Schritt für Schritt, mit psychologisch durchdachter Motivation und engmaschiger Begleitung.</p>
+    </div>
+    <div class="step rv rv-d4">
+      <div class="step__label">04 · Evaluation</div><div class="step__bar"></div>
+      <p class="step__txt">Wir messen den Fortschritt, justieren den Plan und sorgen für nachhaltige Veränderung — weit über das Beratungsende hinaus.</p>
+    </div>
+    <a href="#anmelden" class="proc__arrow rv rv-d5">Erstgespräch sichern</a>
+  </div>
+  <div class="proc__dot" aria-hidden="true"></div>
+  <a href="tel:+4925174788200" class="btn btn--ghost rv">0251 74788 200</a>
+</section>
+
+<!-- ══════════ 9 · STIMMEN ══════════ -->
+<section class="voices">
+  <p class="sec-eyebrow rv">Stimmen</p>
+  <h2 class="sec-h rv">Das sagen unsere Patient:innen<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Aus über 100 Google-Bewertungen und persönlichen Rückmeldungen — Ergebnisse, die für sich sprechen.</p>
+
+  <div class="voices__grid">
+    <figure class="quote rv">
+      <div class="quote__stars" role="img" aria-label="5 Sterne">★★★★★</div>
+      <blockquote>„Mir wurde eine Ernährungsberatung nach meiner Lipödem-Diagnose verordnet. Meine Beratungsgespräche bei Lena Stroot waren super informativ. Sie haben mir geholfen, einen für mich passenden Weg zu finden, meine Ernährung umzustellen. Nach einem halben Jahr habe ich 14 cm Taillenumfang verloren!"</blockquote>
+      <figcaption><b>Linda W.</b> · Lipödem-Diagnose</figcaption>
+    </figure>
+    <figure class="quote rv rv-d1">
+      <div class="quote__stars" role="img" aria-label="5 Sterne">★★★★★</div>
+      <blockquote>„Freundliche Leute und extrem kompetente Behandlung sind hier selbstverständlich."</blockquote>
+      <figcaption><b>C. Kuckhermann</b> · REHAB FIVE Privatkundin</figcaption>
+    </figure>
+    <figure class="quote rv rv-d2">
+      <div class="quote__stars" role="img" aria-label="5 Sterne">★★★★★</div>
+      <blockquote>„Ich fühle mich im REHAB FIVE sehr gut aufgehoben und freue mich immer auf meine Termine."</blockquote>
+      <figcaption><b>Luisa van Clewe</b> · Profi-Volleyballerin USC Münster</figcaption>
+    </figure>
+  </div>
+
+  <p class="disclaimer rv">Individuelle Erfahrungsberichte aus Google-Bewertungen und Kund:innen-Feedback der REHAB FIVE Praxis. Linda W. bezieht sich konkret auf eine Ernährungsberatung; die weiteren Stimmen stammen aus der REHAB FIVE Gesamtpraxis und stehen exemplarisch für die Qualität, die auch REHAB FIVE NUTRITION prägt. Ergebnisse einer Ernährungsberatung sind individuell verschieden. Eine Ernährungsberatung ersetzt keine ärztliche Diagnose oder Therapie — bei medizinischen Beschwerden bitte zunächst die behandelnde Ärztin / den behandelnden Arzt konsultieren.</p>
+
+  <div class="ratingbar rv">
+    <span><span class="stars">★★★★★</span> <b>5,0</b> auf Google</span>
+    <span><b>100+</b> verifizierte Bewertungen</span>
+    <span><b>10+ Jahre</b> REHAB FIVE in Münster</span>
+    <a href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener" style="color:var(--accent)">Alle Google-Bewertungen →</a>
+  </div>
+</section>
+
+<!-- ══════════ 10 · TEAM ══════════ -->
+<section class="crew" id="team">
+  <p class="sec-eyebrow rv">Dein Team</p>
+  <h2 class="sec-h rv">Expert:innen, die auch zuhören<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Alle Berater:innen sind zertifizierte Oecotropholog:innen oder DGE-anerkannte Ernährungsexpert:innen. Du sprichst mit Menschen, die genau wissen, was dein Körper und dein Alltag brauchen.</p>
+
+  <div class="crew__grid">
+    <article class="member rv">
+      <div class="member__media">
+        <img src="img/team/maya-pilgram.jpg" alt="Maya Pilgram · Oecotrophologin bei REHAB FIVE NUTRITION Münster" loading="lazy" width="1200" height="1500">
+        <span class="member__tag">Oecotrophologie · Sport</span>
+      </div>
+      <div class="member__body">
+        <h3 class="member__name">Maya Pilgram</h3>
+        <p class="member__role">Oecotrophologin</p>
+        <p class="member__bio">B.Sc. Oecotrophologie · M.Sc. i.A. Sport, Bewegung und Ernährung · Beratung &amp; Empfang</p>
+      </div>
+    </article>
+
+    <article class="member rv rv-d1">
+      <div class="member__media">
+        <img src="img/team/lena-stroot.jpg" alt="Lena Stroot · Ernährungsberaterin bei REHAB FIVE NUTRITION Münster" loading="lazy" width="1200" height="1500">
+        <span class="member__tag">Lipödem · Frauen</span>
+      </div>
+      <div class="member__body">
+        <h3 class="member__name">Lena Stroot</h3>
+        <p class="member__role">Ernährungsberaterin</p>
+        <p class="member__bio">Schwerpunkt Lipödem, Frauengesundheit &amp; individuelle Ernährungsumstellung</p>
+      </div>
+    </article>
+
+    <article class="member member--open rv rv-d2">
+      <div class="member__media">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        <span class="member__tag">Wir wachsen</span>
+      </div>
+      <div class="member__body">
+        <h3 class="member__name">Werde Teil des Teams</h3>
+        <p class="member__role">Ernährungsberater:in (m/w/d)</p>
+        <p class="member__bio">REHAB FIVE NUTRITION sucht Verstärkung. Bewirb dich initiativ — wir freuen uns.</p>
+        <a class="member__link" href="mailto:karriere@rehab-five.com?subject=Initiativbewerbung%20REHAB%20FIVE%20NUTRITION">Initiativbewerbung →</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="crewfoot rv">
+    <div>
+      <h3>Kleines Team. Volle Aufmerksamkeit.</h3>
+      <p>Bei uns sprichst du persönlich mit Maya oder Lena — keine wechselnden Ansprechpartner:innen.</p>
+    </div>
+    <a href="https://www.rehab-five.com" target="_blank" rel="noopener" class="btn btn--ghost" style="margin-top:0">Gesamtes REHAB FIVE Team →</a>
+  </div>
+</section>
+
+<!-- ══════════ 11 · KOSTENTRÄGER-MARQUEE ══════════ -->
+<section class="partners">
+  <h2 class="sec-h rv">Kassen &amp; Methodik<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Wir rechnen mit allen gesetzlichen Kassen ab und arbeiten ausschließlich leitlinienbasiert.</p>
+
+  <div class="marquee">
+    <div class="marquee__track">
+      <span class="logo">Alle gesetzlichen Kassen</span>
+      <span class="logo logo--serif">Privatversicherung</span>
+      <span class="logo logo--boxed">§43 SGB V</span>
+      <span class="logo">Beihilfe</span>
+      <span class="logo logo--serif">Selbstzahler</span>
+      <span class="logo logo--boxed">§20 SGB V · ZPP</span>
+      <span class="logo">§3 Nr. 34 EStG</span>
+      <span aria-hidden="true" class="logo">Alle gesetzlichen Kassen</span>
+      <span aria-hidden="true" class="logo logo--serif">Privatversicherung</span>
+      <span aria-hidden="true" class="logo logo--boxed">§43 SGB V</span>
+      <span aria-hidden="true" class="logo">Beihilfe</span>
+      <span aria-hidden="true" class="logo logo--serif">Selbstzahler</span>
+      <span aria-hidden="true" class="logo logo--boxed">§20 SGB V · ZPP</span>
+      <span aria-hidden="true" class="logo">§3 Nr. 34 EStG</span>
     </div>
   </div>
 
-  <main id="main">
+  <div class="marquee marquee--rev">
+    <div class="marquee__track">
+      <span class="logo logo--boxed">DGE-Leitlinien</span>
+      <span class="logo">Oecotrophologie</span>
+      <span class="logo logo--serif">Low-FODMAP</span>
+      <span class="logo logo--boxed">Eliminations-Diagnostik</span>
+      <span class="logo">Ernährungstherapie</span>
+      <span class="logo logo--serif">Evidenzbasiert</span>
+      <span class="logo logo--boxed">Prävention</span>
+      <span aria-hidden="true" class="logo logo--boxed">DGE-Leitlinien</span>
+      <span aria-hidden="true" class="logo">Oecotrophologie</span>
+      <span aria-hidden="true" class="logo logo--serif">Low-FODMAP</span>
+      <span aria-hidden="true" class="logo logo--boxed">Eliminations-Diagnostik</span>
+      <span aria-hidden="true" class="logo">Ernährungstherapie</span>
+      <span aria-hidden="true" class="logo logo--serif">Evidenzbasiert</span>
+      <span aria-hidden="true" class="logo logo--boxed">Prävention</span>
+    </div>
+  </div>
+</section>
 
-    <!-- =========================================
-         HERO
-         ========================================= -->
-    <section class="gradient-hero text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-24 grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-12 items-center">
+<!-- ══════════ 12 · INDIKATIONEN-REGISTER ══════════ -->
+<section class="reg" id="indikationen">
+  <p class="sec-eyebrow rv">Indikationen</p>
+  <h2 class="sec-h rv">Bei diesen Diagnosen helfen wir gezielt<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Bei den folgenden Indikationen ist eine ärztlich verordnete Ernährungstherapie häufig erstattungsfähig — wir beraten dich evidenzbasiert nach aktuellen Leitlinien.</p>
+
+  <div class="reg__list rv rv-d2">
+    <a class="reg__row" href="wissen/adipositas-ernaehrungstherapie.html"><span class="reg__code">E66</span><span class="reg__name">Adipositas / Übergewicht</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/untergewicht-mangelernaehrung.html"><span class="reg__code">E43–46</span><span class="reg__name">Untergewicht / Mangelernährung</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/diabetes-typ-2-ernaehrung.html"><span class="reg__code">E11</span><span class="reg__name">Diabetes mellitus Typ 2</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/hypertonie-ernaehrung.html"><span class="reg__code">I10</span><span class="reg__name">Hypertonie / Bluthochdruck</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/dyslipoproteinaemien-ernaehrung.html"><span class="reg__code">E78</span><span class="reg__name">Dyslipoproteinämien</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/fettleber-ernaehrung.html"><span class="reg__code">K76.0</span><span class="reg__name">Fettleber (NAFLD/MASLD)</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/gicht-hyperurikaemie-ernaehrung.html"><span class="reg__code">E79.0</span><span class="reg__name">Hyperurikämie / Gicht</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/osteoporose-ernaehrung.html"><span class="reg__code">M80–82</span><span class="reg__name">Osteoporose</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/reflux-gerd-ernaehrung.html"><span class="reg__code">K21</span><span class="reg__name">Reflux / GERD</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/reizdarm-syndrom-ernaehrung.html"><span class="reg__code">K58</span><span class="reg__name">Reizdarm-Syndrom (RDS)</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/rheumatoide-arthritis-ernaehrung.html"><span class="reg__code">M05–06</span><span class="reg__name">Rheumatoide Arthritis</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/laktose-intoleranz-ernaehrung.html"><span class="reg__code">E73</span><span class="reg__name">Laktose-Intoleranz</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/fructose-malabsorption-ernaehrung.html"><span class="reg__code">E74.1</span><span class="reg__name">Fructose-Malabsorption</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/sorbit-intoleranz-ernaehrung.html"><span class="reg__code">E74.3</span><span class="reg__name">Sorbit-Intoleranz</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/zoeliakie-ernaehrung.html"><span class="reg__code">K90.0</span><span class="reg__name">Zöliakie</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/lipoedem-ernaehrung.html"><span class="reg__code">E88.2</span><span class="reg__name">Lipödem</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/pcos-endometriose-ernaehrung.html"><span class="reg__code">E28.2 / N80</span><span class="reg__name">PCOS / Endometriose</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/schwangerschaft-stillzeit-ernaehrung.html"><span class="reg__code">Z32–39</span><span class="reg__name">Schwangerschaft &amp; Stillzeit</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/sport-performance-ernaehrung.html"><span class="reg__code">Sport</span><span class="reg__name">Sport- &amp; Performance-Ernährung</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/wechseljahre-ernaehrung.html"><span class="reg__code">N95</span><span class="reg__name">Wechseljahre</span><span class="reg__arrow">→</span></a>
+    <a class="reg__row" href="wissen/vegan-vegetarisch-ernaehrung.html"><span class="reg__code">Vegan</span><span class="reg__name">Vegane / vegetarische Ernährung</span><span class="reg__arrow">→</span></a>
+  </div>
+  <p class="reg__foot rv">Klicke auf eine Indikation für den ausführlichen Artikel mit Quellen. Deine Diagnose ist nicht dabei? <a href="#anmelden">Sprich uns an</a> — wir beraten zu über 50 Indikationen.</p>
+</section>
+
+<!-- ══════════ 13 · LEAD-MAGNET · KASSEN-CHECK ══════════ -->
+<section class="lead" id="kassen-check">
+  <div class="lead__box rv">
+    <div>
+      <p class="sec-eyebrow" style="text-align:left;margin-bottom:14px">Gratis Download</p>
+      <h2 class="lead__h">Erstattet meine Kasse die Beratung?</h2>
+      <p class="lead__p">Hol dir den <strong>REHAB FIVE Kassen-Check (PDF)</strong>: Welche Diagnose wird erstattet? Welche Kasse zahlt wie viel? Was muss auf der ärztlichen Bescheinigung stehen? Inklusive Mustertext für deinen Hausarzt.</p>
+      <ul class="checks">
+        <li>Erstattungs-Tabelle aller GKV</li>
+        <li>Indikationen-Übersicht (§43 SGB V)</li>
+        <li>Muster-Antragstext</li>
+        <li>Checkliste Hausarzttermin</li>
+      </ul>
+    </div>
+    <form class="form" action="#" method="post">
+      <label for="lm-email">Deine E-Mail-Adresse</label>
+      <input id="lm-email" type="email" required placeholder="name@beispiel.de">
+      <label class="form__consent">
+        <input type="checkbox" required>
+        <span>Ich willige ein, dass REHAB FIVE mir den Kassen-Check per E-Mail zusendet. Widerruf jederzeit möglich. <a href="https://www.rehab-five.com/datenschutz" target="_blank" rel="noopener">Datenschutz</a>.</span>
+      </label>
+      <button type="submit" class="btn">PDF kostenlos anfordern</button>
+      <p class="form__fine">Kein Spam. Wir nutzen deine E-Mail nur für den Versand &amp; ggf. einmalig zur Rückfrage.</p>
+      <p class="form__fine">Direkt-Download zum Vorschauen: <a href="kassen-check-rehab-five.pdf" target="_blank" rel="noopener">PDF (5 Seiten)</a></p>
+    </form>
+  </div>
+</section>
+
+<!-- ══════════ 14 · PREISE ══════════ -->
+<section class="plans" id="preise">
+  <p class="sec-eyebrow rv">Pakete</p>
+  <h2 class="sec-h rv">Drei Wege<span class="dot">.</span> Volle Transparenz<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Keine versteckten Kosten. Keine langen Bindungen. Du entscheidest, wie tief wir gemeinsam einsteigen.</p>
+
+  <div class="plans__grid">
+    <article class="plan rv">
+      <h3 class="plan__name">Erstgespräch</h3>
+      <p class="plan__sub">Anamnese &amp; Standortbestimmung</p>
+      <p class="plan__price">95 €</p>
+      <p class="plan__own">Mit Kassen-Bescheinigung: ab 19 € Eigenanteil</p>
+      <ul class="plan__list">
+        <li>60–90 Minuten 1:1-Gespräch</li>
+        <li>Ausführliche Anamnese</li>
+        <li>Ess-Biografie &amp; Ziel-Klärung</li>
+        <li>Empfehlung zum weiteren Vorgehen</li>
+      </ul>
+      <a href="#anmelden" class="btn btn--ghost">Erstgespräch sichern</a>
+    </article>
+
+    <article class="plan plan--hot rv rv-d1">
+      <span class="plan__flag">Beliebt</span>
+      <h3 class="plan__name">4er-Paket</h3>
+      <p class="plan__sub">Solides Fundament</p>
+      <p class="plan__price">320 € <small>· 80 €/Termin</small></p>
+      <p class="plan__own">Mit Kassen-Bescheinigung: ab 64 € Eigenanteil</p>
+      <ul class="plan__list">
+        <li>1 × Anamnese + 3 × Folgetermine</li>
+        <li>Individueller Ernährungsplan</li>
+        <li>80 % Kassen-Erstattung möglich</li>
+        <li>Folgetermine online möglich</li>
+        <li>12 Monate Gültigkeit · Ratenzahlung möglich</li>
+      </ul>
+      <a href="#anmelden" class="btn">4er-Paket buchen</a>
+    </article>
+
+    <article class="plan rv rv-d2">
+      <h3 class="plan__name">6er-Paket</h3>
+      <p class="plan__sub">Nachhaltige Veränderung</p>
+      <p class="plan__price">450 € <small>· 75 €/Termin</small></p>
+      <p class="plan__own">Mit Kassen-Bescheinigung: ab 90 € Eigenanteil</p>
+      <ul class="plan__list">
+        <li>1 × Anamnese + 5 × Folgetermine</li>
+        <li>Individueller Ernährungsplan</li>
+        <li>80 % Kassen-Erstattung möglich</li>
+        <li>Folgetermine online möglich</li>
+        <li>Engmaschige Begleitung (chronisch)</li>
+        <li>12 Monate Gültigkeit · Ratenzahlung möglich</li>
+      </ul>
+      <a href="#anmelden" class="btn btn--ghost">6er-Paket buchen</a>
+    </article>
+  </div>
+  <p class="plans__foot rv">Eigenanteils-Beispiele bei 80 % Kassen-Erstattung (§43 SGB V) und ärztlicher Notwendigkeitsbescheinigung. Einzelne Kassen erstatten bis 100 %. Indikationen: Adipositas, Diabetes Typ 2, Bluthochdruck, Zöliakie u. v. m. Wir unterstützen beim Antrag.</p>
+</section>
+
+<!-- ══════════ 15 · BGM / FIRMEN ══════════ -->
+<section class="bgm" id="bgm">
+  <p class="sec-eyebrow rv">Für Unternehmen</p>
+  <h2 class="sec-h rv">Ernährung als BGM-Baustein<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Gesunde Mitarbeiter:innen sind produktivere Mitarbeiter:innen. Wir liefern Ernährungsmodule, die im betrieblichen Gesundheitsmanagement messbar wirken — zu 100 % nach §3 Nr. 34 EStG steuerlich begünstigt (bis 600 €/Jahr pro Mitarbeiter:in).</p>
+
+  <div class="bgm__grid">
+    <div class="mods rv">
+      <div class="mod">
+        <span class="mod__no">01</span>
         <div>
-          <h1 class="display text-[34px] sm:text-[40px] md:text-[44px] lg:text-[60px] xl:text-[68px] leading-[1] sm:leading-[0.98]">
-            Wissenschaftlich.<br>
-            Individuell.<br>
-            <span class="text-brand-500">Ohne Verbote.</span>
-          </h1>
-          <p class="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 bg-brand-500/10 ring-1 ring-brand-500/30 rounded-full px-3 py-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-            Ernährungsberatung · Münster
-          </p>
-          <p class="mt-6 text-lg md:text-xl text-white/85 max-w-xl normal-case font-normal">
-            <strong class="text-white">Dein Ernährungsplan in 90 Minuten</strong> — entwickelt von zertifizierten Expert:innen in Münster. Schluss mit Diät-Mythen. Bei vielen Indikationen erstattet die Kasse <strong class="text-white">bis zu 80%</strong>.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#anmelden" class="inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold px-6 py-3.5 text-base transition shadow-lg shadow-brand-500/20">
-              Gratis Kennenlern-Call · 15 Min
-            </a>
-            <a href="tel:+4925174788200" class="inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3.5 text-base ring-1 ring-white/20 transition">
-              0251 74788 200 anrufen
-            </a>
-          </div>
-          <p class="mt-3 text-xs text-white/60">Unverbindlich · keine Verkaufs-Show · wir sagen ehrlich, ob wir passen.</p>
-          <ul class="mt-8 grid grid-cols-2 gap-y-2 gap-x-6 text-sm text-white/80">
-            <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Zertifizierte Expert:innen</li>
-            <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> 100 % auf dich zugeschnitten</li>
-            <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Ohne Verbote, mit Freude</li>
-            <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Krankenkassen-Zuschuss möglich</li>
-          </ul>
-          <!-- Trust-Pille (REHAB FIVE Mutter-Rating) -->
-          <a href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener" class="mt-7 inline-flex items-center gap-3 bg-white/10 hover:bg-white/15 ring-1 ring-white/20 rounded-full px-4 py-2 text-sm text-white transition">
-            <span class="text-brand-500 text-base tracking-tight">★★★★★</span>
-            <span class="font-semibold">5,0</span>
-            <span class="text-white/70">·</span>
-            <span class="text-white/85">100+ Google-Bewertungen REHAB FIVE</span>
-          </a>
-        </div>
-
-        <!-- Hero Visual / Trust-Card -->
-        <div class="relative">
-          <div class="aspect-[4/5] rounded-3xl bg-white/5 ring-1 ring-white/10 overflow-hidden">
-            <picture>
-              <source type="image/webp" srcset="img/ernaehrung-800.webp 800w, img/ernaehrung-1200.webp 1200w, img/ernaehrung-1600.webp 1600w" sizes="(min-width: 1024px) 600px, 100vw" />
-              <img src="img/ernaehrung-1200.jpg"
-                   srcset="img/ernaehrung-800.jpg 800w, img/ernaehrung-1200.jpg 1200w, img/ernaehrung-1600.jpg 1600w"
-                   sizes="(min-width: 1024px) 600px, 100vw"
-                   alt="Ernährungsberaterin im Beratungsgespräch bei REHAB FIVE NUTRITION Münster"
-                   class="w-full h-full object-cover"
-                   width="1200" height="1500"
-                   loading="eager" fetchpriority="high" />
-            </picture>
-          </div>
-          <div class="absolute -bottom-6 -left-6 sm:-left-10 bg-white text-ink-900 rounded-2xl shadow-card p-5 w-64">
-            <div class="flex items-center gap-1 text-accent-500 text-lg" aria-label="5-Sterne-Bewertung" role="img">★★★★★</div>
-            <p class="mt-1 text-sm font-semibold">Aus REHAB FIVE DNA</p>
-            <p class="text-xs text-ink-700">10+ Jahre Gesundheits-Expertise in Münster.</p>
-          </div>
+          <h3 class="mod__h">Lunch &amp; Learn</h3>
+          <p class="mod__p">60–90 Min Impulsvortrag in eurer Mittagspause. Themen: „Energie ohne Mittagstief", „Schlank im Büro", „Darm &amp; Stress".</p>
         </div>
       </div>
-    </section>
-
-    <!-- =========================================
-         TRUST BAR
-         ========================================= -->
-    <section aria-label="Vertrauen & Anerkennung" class="border-y border-ink-100 bg-ink-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 grid grid-cols-2 md:grid-cols-4 gap-6 items-center text-ink-700">
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">🎓</span>
-          <div>
-            <p class="text-sm font-semibold text-ink-900">Zertifizierte Expert:innen</p>
-            <p class="text-xs">Oecotrophologie · DGE-Zertifikat</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">💚</span>
-          <div>
-            <p class="text-sm font-semibold text-ink-900">Krankenkassen-Zuschuss</p>
-            <p class="text-xs">Bei ärztlicher Notwendigkeit</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">⭐</span>
-          <div>
-            <p class="text-sm font-semibold text-ink-900">REHAB FIVE Qualität</p>
-            <p class="text-xs">Top-Bewertungen bei Google</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-2xl">📍</span>
-          <div>
-            <p class="text-sm font-semibold text-ink-900">Standort Münster</p>
-            <p class="text-xs">Weseler Straße 71</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         4 SÄULEN / WARUM
-         ========================================= -->
-    <section class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-500">Unser Konzept</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">Vier Säulen. Ein Versprechen. Deine Ernährung im Mittelpunkt.</h2>
-          <p class="mt-4 text-white/80 text-lg">Wir sehen Ernährung als ganzheitliches Konzept für dein Wohlbefinden — nicht als kurzfristige Diät. Klare Navigation statt Trend-Wahnsinn.</p>
-        </div>
-
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 grid place-items-center font-bold">★</div>
-            <h3 class="mt-4 font-semibold text-lg" style="color:#1F342D">Wissenschaftlich fundiert</h3>
-            <p class="mt-2 text-sm text-ink-700">Wir arbeiten nach aktuellen Leitlinien der DGE und Fachgesellschaften — keine Diät-Trends, keine Social-Media-Mythen.</p>
-          </article>
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 grid place-items-center font-bold">⌖</div>
-            <h3 class="mt-4 font-semibold text-lg" style="color:#1F342D">100 % individuell</h3>
-            <p class="mt-2 text-sm text-ink-700">Wir berücksichtigen deine Lebenssituation, Essbiografie und körperlichen Voraussetzungen — kein Plan von der Stange.</p>
-          </article>
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 grid place-items-center font-bold">♡</div>
-            <h3 class="mt-4 font-semibold text-lg" style="color:#1F342D">Ohne Verbote</h3>
-            <p class="mt-2 text-sm text-ink-700">Essen darf Freude machen. Wir setzen auf nachhaltige Veränderung statt kurzfristige Verzichts-Diäten.</p>
-          </article>
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-600 grid place-items-center font-bold">€</div>
-            <h3 class="mt-4 font-semibold text-lg" style="color:#1F342D">Kassen-Zuschuss</h3>
-            <p class="mt-2 text-sm text-ink-700">Bei vielen Indikationen 80% Erstattung nach §43 SGB V, einige Kassen sogar bis 100% — wir helfen beim Antrag.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         PROGRAMME
-         ========================================= -->
-    <section id="programme" class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-500">Unsere Programme</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">Sieben Programme. Ein Anspruch.</h2>
-          <p class="mt-4 text-white/85 text-lg">Egal, ob du eine medizinische Indikation hast, sportliche Ziele verfolgst, einen ZPP-zertifizierten Präventionskurs (Kassen-Erstattung bis 100%) suchst oder einfach besser essen willst — wir haben das passende Programm für dich.</p>
-        </div>
-
-        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-1200.jpg" alt="Beratungsgespräch zur Gewichtsregulation bei REHAB FIVE NUTRITION" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Kasse erstattet</span>
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Gewicht & Stoffwechsel</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">Nachhaltige Gewichtsregulation bei Adipositas, Übergewicht oder Diabetes Typ 2 — wissenschaftsbasiert, ohne JoJo-Effekt.</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">4–6 Termine</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Mit Bescheinigung erstattbar</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">ab 95 €</p>
-                  <p class="text-xs text-ink-700">Erstgespräch · Kassen-Zuschuss möglich</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Erstgespräch →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-2-1200.jpg" alt="Frische Lebensmittel auf dem Tisch im Beratungsraum" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Kasse erstattet</span>
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Verdauung & Reizdarm</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">Reizdarm, Reflux, Laktose-, Fructose- oder Sorbit-Intoleranz, Zöliakie. Wir finden, was dir wirklich hilft.</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Low-FODMAP</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Eliminations-Diagnostik</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">ab 95 €</p>
-                  <p class="text-xs text-ink-700">Erstgespräch · Kassen-Zuschuss möglich</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Erstgespräch →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-3-1200.jpg" alt="Sportlerin bei der Ernährungsplanung im Beratungsgespräch" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-ink-900 bg-white rounded-full px-2.5 py-1">Bestseller</span>
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Sport & Performance</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">Energie für Training und Wettkampf. Muskelaufbau, Wettkampfvorbereitung, Recovery — abgestimmt auf deine Sportart.</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Make-Up & Cuts</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Vereins-Pakete</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">ab 95 €</p>
-                  <p class="text-xs text-ink-700">Erstgespräch · Privatzahlung</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Erstgespräch →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-1200.jpg" alt="Beratung zu Herz-Kreislauf-Ernährung bei REHAB FIVE NUTRITION" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Kasse erstattet</span>
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Herz & Stoffwechsel-Risiko</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">Bluthochdruck, Fettleber, erhöhte Blutfette, Gicht — wir reduzieren deine Risikofaktoren über den Teller.</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Leitlinien-basiert</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Mit Bescheinigung erstattbar</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">ab 95 €</p>
-                  <p class="text-xs text-ink-700">Erstgespräch · Kassen-Zuschuss möglich</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Erstgespräch →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-2-1200.jpg" alt="Frauen-spezifische Ernährungsberatung in Münster" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Frauengesundheit</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">Lipödem, PCOS, Wechseljahre, Endometriose, Schwangerschaft & Stillzeit. Hormone, Energie & Körper im Blick.</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Zyklusbezogen</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Mit Bescheinigung erstattbar</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">ab 95 €</p>
-                  <p class="text-xs text-ink-700">Erstgespräch · Kassen-Zuschuss möglich</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Erstgespräch →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-3-1200.jpg" alt="Aufbau-Ernährung bei Untergewicht oder Erkrankungen" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Aufbau & Vitalität</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">Untergewicht, Mangelernährung, Erschöpfung, Osteoporose, Aufbau nach Erkrankung. Wir bauen dich wieder auf.</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Eiweißfokus</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Mit Bescheinigung erstattbar</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">ab 95 €</p>
-                  <p class="text-xs text-ink-700">Erstgespräch · Kassen-Zuschuss möglich</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Erstgespräch →</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 overflow-hidden shadow-card flex flex-col">
-            <div class="aspect-[16/10] relative overflow-hidden">
-              <img src="img/ernaehrung-2-1200.jpg" alt="ZPP-zertifizierter Präventionskurs Ernährung in Münster" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="750" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Bis 100 % erstattet</span>
-            </div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-bold text-xl" style="color:#1F342D">Präventionskurs · §20</h3>
-              <p class="mt-2 text-sm text-ink-700 flex-1">ZPP-zertifizierter Kurs „Gesund essen im Alltag". 8 Termine in der Gruppe — alle gesetzlichen Kassen erstatten bis zu 100% (2× pro Jahr).</p>
-              <div class="mt-4 flex flex-wrap gap-2 text-xs">
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">8 × 60 Min.</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">§20 SGB V</span>
-                <span class="bg-ink-50 ring-1 ring-ink-100 rounded-full px-2.5 py-1 text-ink-700">Friedrich-Ebert 122</span>
-              </div>
-              <div class="mt-5 pt-4 border-t border-ink-100 flex items-end justify-between">
-                <div>
-                  <p class="font-bold text-lg" style="color:#1F342D">149 €</p>
-                  <p class="text-xs text-ink-700">8er-Kursblock · bis 100% Kassen-Erstattung</p>
-                </div>
-                <a href="#anmelden" class="text-sm font-semibold text-brand-600 hover:text-brand-700">Anmelden →</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         KONZEPT
-         ========================================= -->
-    <section id="konzept" class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="aspect-[5/6] rounded-3xl ring-1 ring-white/10 overflow-hidden relative">
-          <picture>
-            <source type="image/webp" srcset="img/ernaehrung-2-800.webp 800w, img/ernaehrung-2-1200.webp 1200w, img/ernaehrung-2-1600.webp 1600w" sizes="(min-width: 1024px) 600px, 100vw" />
-            <img src="img/ernaehrung-2-1200.jpg"
-                 srcset="img/ernaehrung-2-800.jpg 800w, img/ernaehrung-2-1200.jpg 1200w, img/ernaehrung-2-1600.jpg 1600w"
-                 sizes="(min-width: 1024px) 600px, 100vw"
-                 alt="Frische Lebensmittel und Beratungsmaterial bei REHAB FIVE NUTRITION Münster"
-                 class="w-full h-full object-cover"
-                 width="1200" height="1440"
-                 loading="lazy" />
-          </picture>
-          <div class="absolute top-6 left-6 bg-white text-ink-900 rounded-2xl p-4 shadow-card max-w-[240px]">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">Gesundheits-DNA</p>
-            <p class="mt-1 text-sm">10+ Jahre REHAB FIVE in Münster.</p>
-          </div>
-          <div class="absolute bottom-6 right-6 bg-white text-ink-900 rounded-2xl p-4 shadow-card max-w-[220px]">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700">1:1-Beratung</p>
-            <p class="mt-1 text-sm">In ruhiger Atmosphäre — kein Massengeschäft.</p>
-          </div>
-        </div>
+      <div class="mod">
+        <span class="mod__no">02</span>
         <div>
-          <p class="eyebrow text-sm text-brand-500">Warum REHAB FIVE NUTRITION</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">Keine Ernährungsberatung von der Stange. Ein Konzept, das wirkt.</h2>
-          <p class="mt-4 text-white/80 text-lg">Wir haben über zehn Jahre Therapie- und Trainings-Erfahrung in Münster — und immer wieder gehört: „Was soll ich denn jetzt eigentlich essen?" Die Antwort gibt's jetzt unter einem Dach.</p>
-          <ul class="mt-8 space-y-4">
-            <li class="flex gap-3">
-              <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-sm flex-none mt-0.5">✓</span>
-              <div><strong class="block">Wissenschaftlich, nicht TikTok-getrieben</strong><p class="text-white/75 text-sm mt-1">Wir arbeiten nach DGE-Leitlinien und aktueller Studienlage — keine Trend-Diäten, keine Social-Media-Mythen.</p></div>
-            </li>
-            <li class="flex gap-3">
-              <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-sm flex-none mt-0.5">✓</span>
-              <div><strong class="block">Eingebettet im REHAB FIVE Ökosystem</strong><p class="text-white/75 text-sm mt-1">Therapie, Training, Diagnostik und Ernährung greifen ineinander. Bei Bedarf direkter Übergang in Physio oder Health Club.</p></div>
-            </li>
-            <li class="flex gap-3">
-              <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-sm flex-none mt-0.5">✓</span>
-              <div><strong class="block">Persönlich, ruhig, ohne Zeitdruck</strong><p class="text-white/75 text-sm mt-1">60–90 Min für die Anamnese. Wir hören zu, statt nur Pläne auszudrucken.</p></div>
-            </li>
-            <li class="flex gap-3">
-              <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-sm flex-none mt-0.5">✓</span>
-              <div><strong class="block">Krankenkassen-Förderung</strong><p class="text-white/75 text-sm mt-1">Bei vielen Indikationen übernimmt deine Kasse 80% der Kosten (§43 SGB V), einzelne Kassen bis zu 100% — wir helfen beim Antrag.</p></div>
-            </li>
-          </ul>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#anmelden" class="inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold px-6 py-3.5 text-base transition shadow-lg shadow-brand-500/20">Erstgespräch sichern</a>
-            <a href="https://www.rehab-five.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3.5 text-base ring-1 ring-white/20 transition">Zur REHAB FIVE Physio</a>
-          </div>
+          <h3 class="mod__h">Ernährungs-Sprechstunde</h3>
+          <p class="mod__p">Wöchentliche 1:1-Slots vor Ort oder online — niedrigschwellig für eure Belegschaft, mit individueller Kassen-Anbindung.</p>
         </div>
       </div>
-    </section>
-
-    <!-- =========================================
-         TEAM
-         ========================================= -->
-    <section id="team" class="bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-600">Dein Team</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl" style="color:#1F342D">Expert:innen, die auch zuhören.</h2>
-          <p class="mt-4 text-ink-700 text-lg">Alle Berater:innen sind zertifizierte Oecotropholog:innen oder DGE-anerkannte Ernährungsexpert:innen. Du sprichst mit Menschen, die genau wissen, was dein Körper und dein Alltag brauchen.</p>
-        </div>
-
-        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Berater:in 1: Maya Pilgram -->
-          <article class="group rounded-2xl overflow-hidden ring-1 ring-ink-100 bg-ink-50 shadow-card">
-            <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="img/team/maya-pilgram.jpg" alt="Maya Pilgram · Oecotrophologin bei REHAB FIVE NUTRITION Münster" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="1500" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-[10px] font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Oecotrophologie · Sport</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg" style="color:#1F342D">Maya Pilgram</h3>
-              <p class="text-sm text-ink-700">Oecotrophologin</p>
-              <p class="mt-3 text-xs text-ink-700">B.Sc. Oecotrophologie · M.Sc. i.A. Sport, Bewegung und Ernährung · Beratung & Empfang</p>
-            </div>
-          </article>
-
-          <!-- Berater:in 2: Lena Stroot -->
-          <article class="group rounded-2xl overflow-hidden ring-1 ring-ink-100 bg-ink-50 shadow-card">
-            <div class="aspect-[4/5] relative overflow-hidden">
-              <img src="img/team/lena-stroot.jpg" alt="Lena Stroot · Ernährungsberaterin bei REHAB FIVE NUTRITION Münster" class="absolute inset-0 w-full h-full object-cover" loading="lazy" width="1200" height="1500" />
-              <span class="absolute top-3 left-3 inline-flex items-center text-[10px] font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Lipödem · Frauen</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg" style="color:#1F342D">Lena Stroot</h3>
-              <p class="text-sm text-ink-700">Ernährungsberaterin</p>
-              <p class="mt-3 text-xs text-ink-700">Schwerpunkt Lipödem, Frauengesundheit & individuelle Ernährungsumstellung</p>
-            </div>
-          </article>
-
-          <!-- Berater:in 3: Recruiting / Coming Soon -->
-          <article class="group rounded-2xl overflow-hidden ring-1 ring-brand-500/30 bg-white shadow-card relative">
-            <div class="aspect-[4/5] relative overflow-hidden" style="background:linear-gradient(180deg,#FBF1E0,#FFFFFF)">
-              <div class="absolute inset-0 grid place-items-center">
-                <svg class="w-16 h-16 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-              </div>
-              <span class="absolute top-3 left-3 inline-flex items-center text-[10px] font-semibold uppercase tracking-wider text-ink-900 bg-brand-500 rounded-full px-2.5 py-1">Wir wachsen</span>
-            </div>
-            <div class="p-5">
-              <h3 class="font-bold text-lg" style="color:#1F342D">Werde Teil des Teams</h3>
-              <p class="text-sm text-ink-700">Ernährungsberater:in (m/w/d)</p>
-              <p class="mt-3 text-xs text-ink-700">REHAB FIVE NUTRITION sucht Verstärkung. Bewirb dich initiativ — wir freuen uns.</p>
-              <a href="mailto:karriere@rehab-five.com?subject=Initiativbewerbung%20REHAB%20FIVE%20NUTRITION" class="mt-3 inline-flex items-center text-xs font-semibold text-brand-600 hover:text-brand-700">Initiativbewerbung →</a>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Trust-Footer -->
-        <div class="mt-12 rounded-2xl bg-ink-50 ring-1 ring-ink-100 p-6 md:p-8 flex flex-wrap items-center justify-between gap-6">
-          <div>
-            <p class="font-bold text-lg" style="color:#1F342D">Kleines Team. Volle Aufmerksamkeit.</p>
-            <p class="mt-1 text-sm text-ink-700">Bei uns sprichst du persönlich mit Maya oder Lena — keine wechselnden Ansprechpartner:innen.</p>
-          </div>
-          <a href="https://www.rehab-five.com" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl bg-ink-900 hover:bg-brand-600 text-white font-semibold px-5 py-3 text-sm transition">Gesamtes REHAB FIVE Team →</a>
+      <div class="mod">
+        <span class="mod__no">03</span>
+        <div>
+          <h3 class="mod__h">ZPP-Gruppenkurse §20</h3>
+          <p class="mod__p">8-Wochen-Präventionskurs „Gesund essen im Alltag" als Inhouse-Format. Bis 100 % Kassen-Erstattung für jede:n Teilnehmer:in.</p>
         </div>
       </div>
-    </section>
-
-    <!-- =========================================
-         TESTIMONIALS
-         ========================================= -->
-    <section class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="flex items-end justify-between flex-wrap gap-4">
-          <div class="max-w-2xl">
-            <p class="eyebrow text-sm text-brand-500">Stimmen</p>
-            <h2 class="display mt-3 text-3xl md:text-4xl">Das sagen unsere Patient:innen.</h2>
-            <p class="mt-3 text-white/85 text-lg">Aus über 100 Google-Bewertungen und persönlichen Rückmeldungen — Ergebnisse, die für sich sprechen.</p>
-          </div>
-          <a href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener" class="text-sm font-semibold text-brand-500 hover:text-brand-400">Alle Google-Bewertungen →</a>
-        </div>
-
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-          <figure class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="flex items-center gap-1 text-accent-500" aria-label="5 Sterne" role="img">★★★★★</div>
-            <blockquote class="mt-3 text-ink-900 leading-relaxed">„Mir wurde eine Ernährungsberatung nach meiner Lipödem-Diagnose verordnet. Meine Beratungsgespräche bei Lena Stroot waren super informativ. Sie haben mir geholfen, einen für mich passenden Weg zu finden, meine Ernährung umzustellen. Nach einem halben Jahr habe ich 14 cm Taillenumfang verloren!"</blockquote>
-            <figcaption class="mt-4 text-sm text-ink-700"><strong class="text-ink-900">Linda W.</strong> · Lipödem-Diagnose</figcaption>
-          </figure>
-
-          <figure class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="flex items-center gap-1 text-accent-500" aria-label="5 Sterne" role="img">★★★★★</div>
-            <blockquote class="mt-3 text-ink-900 leading-relaxed">„Freundliche Leute und extrem kompetente Behandlung sind hier selbstverständlich."</blockquote>
-            <figcaption class="mt-4 text-sm text-ink-700"><strong class="text-ink-900">C. Kuckhermann</strong> · REHAB FIVE Privatkundin</figcaption>
-          </figure>
-
-          <figure class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-            <div class="flex items-center gap-1 text-accent-500" aria-label="5 Sterne" role="img">★★★★★</div>
-            <blockquote class="mt-3 text-ink-900 leading-relaxed">„Ich fühle mich im REHAB FIVE sehr gut aufgehoben und freue mich immer auf meine Termine."</blockquote>
-            <figcaption class="mt-4 text-sm text-ink-700"><strong class="text-ink-900">Luisa van Clewe</strong> · Profi-Volleyballerin USC Münster</figcaption>
-          </figure>
-        </div>
-
-        <!-- Disclaimer Heilversprechen + Transparenz -->
-        <p class="mt-8 text-xs text-white/60 max-w-3xl">Individuelle Erfahrungsberichte aus Google-Bewertungen und Kund:innen-Feedback der REHAB FIVE Praxis. Linda W. bezieht sich konkret auf eine Ernährungsberatung; die weiteren Stimmen stammen aus der REHAB FIVE Gesamtpraxis und stehen exemplarisch für die Qualität, die auch REHAB FIVE NUTRITION prägt. Ergebnisse einer Ernährungsberatung sind individuell verschieden. Eine Ernährungsberatung ersetzt keine ärztliche Diagnose oder Therapie — bei medizinischen Beschwerden bitte zunächst die behandelnde Ärztin / den behandelnden Arzt konsultieren.</p>
-
-        <!-- Rating-Bar -->
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/85">
-          <div class="flex items-center gap-2"><span class="text-brand-500 text-base tracking-tight">★★★★★</span><strong class="text-white">5,0</strong> auf Google</div>
-          <span class="text-white/30 hidden sm:inline">·</span>
-          <div><strong class="text-white">100+</strong> verifizierte Bewertungen</div>
-          <span class="text-white/30 hidden sm:inline">·</span>
-          <div><strong class="text-white">10+ Jahre</strong> REHAB FIVE in Münster</div>
+      <div class="mod">
+        <span class="mod__no">04</span>
+        <div>
+          <h3 class="mod__h">Kantinen-Audit</h3>
+          <p class="mod__p">Wir analysieren euer Speisenangebot und liefern konkrete Verbesserungen — von der Ausschreibung bis zum Tellerwetter.</p>
         </div>
       </div>
-    </section>
-
-    <!-- =========================================
-         4-STEP PROCESS
-         ========================================= -->
-    <section id="ablauf" class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-500">So einfach geht's</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">In 4 Schritten zu nachhaltiger Veränderung.</h2>
-        </div>
-        <ol class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <li class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card">
-            <div class="text-brand-600 font-extrabold text-3xl">01</div>
-            <h3 class="mt-3 font-bold text-lg" style="color:#1F342D">Anamnese</h3>
-            <p class="mt-2 text-sm text-ink-700">60–90 Min Erstgespräch. Wir lernen dich kennen — deine Ess-Biografie, deinen Alltag, deine Diagnosen, deine Ziele.</p>
-          </li>
-          <li class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card">
-            <div class="text-brand-600 font-extrabold text-3xl">02</div>
-            <h3 class="mt-3 font-bold text-lg" style="color:#1F342D">Plan</h3>
-            <p class="mt-2 text-sm text-ink-700">Wir entwickeln einen maßgeschneiderten Ernährungsplan, der zu dir passt — keine Standard-Tabellen, sondern alltagstauglich.</p>
-          </li>
-          <li class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card">
-            <div class="text-brand-600 font-extrabold text-3xl">03</div>
-            <h3 class="mt-3 font-bold text-lg" style="color:#1F342D">Intervention</h3>
-            <p class="mt-2 text-sm text-ink-700">Wir setzen den Plan praktisch um — Schritt für Schritt, mit psychologisch durchdachter Motivation und engmaschiger Begleitung.</p>
-          </li>
-          <li class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card">
-            <div class="text-brand-600 font-extrabold text-3xl">04</div>
-            <h3 class="mt-3 font-bold text-lg" style="color:#1F342D">Evaluation</h3>
-            <p class="mt-2 text-sm text-ink-700">Wir messen den Fortschritt, justieren den Plan und sorgen für nachhaltige Veränderung — weit über das Beratungsende hinaus.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- =========================================
-         INDIKATIONEN
-         ========================================= -->
-    <section id="indikationen" class="bg-ink-50 border-y border-ink-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-3xl">
-          <p class="eyebrow text-sm text-brand-600">Indikationen</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl" style="color:#1F342D">Bei diesen Diagnosen helfen wir gezielt.</h2>
-          <p class="mt-4 text-ink-700 text-lg">Bei den folgenden Indikationen ist eine ärztlich verordnete Ernährungstherapie häufig erstattungsfähig — wir beraten dich evidenzbasiert nach aktuellen Leitlinien.</p>
-        </div>
-        <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-3">
-          <a href="wissen/adipositas-ernaehrungstherapie.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E66</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Adipositas / Übergewicht</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/untergewicht-mangelernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E43–46</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Untergewicht / Mangelernährung</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/diabetes-typ-2-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E11</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Diabetes mellitus Typ 2</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/hypertonie-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">I10</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Hypertonie / Bluthochdruck</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/dyslipoproteinaemien-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E78</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Dyslipoproteinämien</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/fettleber-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">K76.0</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Fettleber (NAFLD/MASLD)</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/gicht-hyperurikaemie-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E79.0</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Hyperurikämie / Gicht</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/osteoporose-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">M80–82</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Osteoporose</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/reflux-gerd-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">K21</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Reflux / GERD</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/reizdarm-syndrom-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">K58</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Reizdarm-Syndrom (RDS)</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/rheumatoide-arthritis-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">M05–06</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Rheumatoide Arthritis</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/laktose-intoleranz-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E73</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Laktose-Intoleranz</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/fructose-malabsorption-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E74.1</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Fructose-Malabsorption</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/sorbit-intoleranz-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E74.3</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Sorbit-Intoleranz</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/zoeliakie-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">K90.0</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Zöliakie</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/lipoedem-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E88.2</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Lipödem</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/pcos-endometriose-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E28.2 / N80</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">PCOS / Endometriose</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/schwangerschaft-stillzeit-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">Z32–39</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Schwangerschaft & Stillzeit</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/sport-performance-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">Sport</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Sport- & Performance-Ernährung</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/wechseljahre-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">N95</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Wechseljahre</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wissen/vegan-vegetarisch-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">Vegan</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Vegane / vegetarische Ernährung</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-        </div>
-        <p class="mt-8 text-sm text-ink-700">Klicke auf eine Indikation für den ausführlichen Artikel mit Quellen. Deine Diagnose ist nicht dabei? <a href="#anmelden" class="text-brand-700 underline hover:no-underline">Sprich uns an</a> — wir beraten zu über 50 Indikationen.</p>
-      </div>
-    </section>
-
-    <!-- =========================================
-         LEAD-MAGNET — KASSEN-CHECK
-         ========================================= -->
-    <section id="kassen-check" class="bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div class="rounded-3xl bg-forest-700 text-white p-8 md:p-12 shadow-card grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
-          <div>
-            <p class="eyebrow text-sm text-brand-500">Gratis Download</p>
-            <h2 class="display mt-3 text-3xl md:text-4xl">Erstattet meine Kasse die Beratung?</h2>
-            <p class="mt-4 text-white/85 text-lg">Hol dir den <strong class="text-white">REHAB FIVE Kassen-Check (PDF)</strong>: Welche Diagnose wird erstattet? Welche Kasse zahlt wie viel? Was muss auf der ärztlichen Bescheinigung stehen? Inklusive Mustertext für deinen Hausarzt.</p>
-            <ul class="mt-6 grid sm:grid-cols-2 gap-y-2 gap-x-6 text-sm text-white/85">
-              <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Erstattungs-Tabelle aller GKV</li>
-              <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Indikationen-Übersicht (§43 SGB V)</li>
-              <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Muster-Antragstext</li>
-              <li class="flex items-center gap-2"><span class="text-brand-500">✓</span> Checkliste Hausarzttermin</li>
-            </ul>
-          </div>
-          <form action="#" method="post" class="bg-white text-ink-900 rounded-2xl p-6 md:p-7 shadow-card">
-            <label for="lm-email" class="block text-sm font-semibold" style="color:#1F342D">Deine E-Mail-Adresse</label>
-            <input id="lm-email" type="email" required placeholder="name@beispiel.de" class="mt-2 w-full rounded-lg border border-ink-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 px-4 py-3 text-base outline-none" />
-            <label class="mt-4 flex gap-2 items-start text-xs text-ink-700">
-              <input type="checkbox" required class="mt-0.5 rounded border-ink-200" />
-              <span>Ich willige ein, dass REHAB FIVE mir den Kassen-Check per E-Mail zusendet. Widerruf jederzeit möglich. <a href="https://www.rehab-five.com/datenschutz" class="underline hover:no-underline" target="_blank" rel="noopener">Datenschutz</a>.</span>
-            </label>
-            <button type="submit" class="mt-5 w-full inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold px-5 py-3.5 text-base transition shadow-lg shadow-brand-500/20">PDF kostenlos anfordern</button>
-            <p class="mt-3 text-xs text-ink-700">Kein Spam. Wir nutzen deine E-Mail nur für den Versand & ggf. einmalig zur Rückfrage.</p>
-            <p class="mt-2 text-xs text-ink-700">Direkt-Download zum Vorschauen: <a href="kassen-check-rehab-five.pdf" target="_blank" rel="noopener" class="text-brand-700 font-semibold underline hover:no-underline">PDF (5 Seiten)</a></p>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         PREISE / PAKETE
-         ========================================= -->
-    <section id="preise" class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-500">Pakete</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">Drei Wege. Volle Transparenz.</h2>
-          <p class="mt-4 text-white/85 text-lg">Keine versteckten Kosten. Keine langen Bindungen. Du entscheidest, wie tief wir gemeinsam einsteigen.</p>
-        </div>
-
-        <div class="mt-12 grid md:grid-cols-3 gap-6">
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card flex flex-col">
-            <h3 class="font-bold text-2xl" style="color:#1F342D">Erstgespräch</h3>
-            <p class="mt-1 text-sm text-ink-700">Anamnese & Standortbestimmung</p>
-            <p class="mt-6 display text-5xl" style="color:#1F342D">95 €</p>
-            <p class="mt-1 text-xs font-semibold text-brand-700">Mit Kassen-Bescheinigung: ab 19 € Eigenanteil</p>
-            <ul class="mt-6 space-y-2.5 flex-1 text-sm text-ink-700">
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 60–90 Minuten 1:1-Gespräch</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Ausführliche Anamnese</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Ess-Biografie & Ziel-Klärung</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Empfehlung zum weiteren Vorgehen</li>
-            </ul>
-            <a href="#anmelden" class="mt-6 inline-flex items-center justify-center rounded-xl bg-ink-900 hover:bg-ink-700 text-white font-semibold px-5 py-3 text-sm transition">Erstgespräch sichern</a>
-          </article>
-
-          <article class="relative rounded-2xl bg-white ring-2 ring-brand-500 p-7 shadow-card flex flex-col">
-            <span class="absolute -top-3 left-7 inline-flex text-xs font-bold uppercase tracking-wider bg-brand-500 text-ink-900 rounded-full px-3 py-1">Beliebt</span>
-            <h3 class="font-bold text-2xl" style="color:#1F342D">4er-Paket</h3>
-            <p class="mt-1 text-sm text-ink-700">Solides Fundament</p>
-            <p class="mt-6 display text-5xl" style="color:#1F342D">320 € <span class="text-base font-normal text-ink-700">· 80 €/Termin</span></p>
-            <p class="mt-1 text-xs font-semibold text-brand-700">Mit Kassen-Bescheinigung: ab 64 € Eigenanteil</p>
-            <ul class="mt-6 space-y-2.5 flex-1 text-sm text-ink-700">
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 1 × Anamnese + 3 × Folgetermine</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Individueller Ernährungsplan</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 80% Kassen-Erstattung möglich</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Folgetermine online möglich</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 12 Monate Gültigkeit · Ratenzahlung möglich</li>
-            </ul>
-            <a href="#anmelden" class="mt-6 inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 font-semibold px-5 py-3 text-sm transition shadow-lg shadow-brand-500/20" style="color:#ffffff">4er-Paket buchen</a>
-          </article>
-
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card flex flex-col">
-            <h3 class="font-bold text-2xl" style="color:#1F342D">6er-Paket</h3>
-            <p class="mt-1 text-sm text-ink-700">Nachhaltige Veränderung</p>
-            <p class="mt-6 display text-5xl" style="color:#1F342D">450 € <span class="text-base font-normal text-ink-700">· 75 €/Termin</span></p>
-            <p class="mt-1 text-xs font-semibold text-brand-700">Mit Kassen-Bescheinigung: ab 90 € Eigenanteil</p>
-            <ul class="mt-6 space-y-2.5 flex-1 text-sm text-ink-700">
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 1 × Anamnese + 5 × Folgetermine</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Individueller Ernährungsplan</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 80% Kassen-Erstattung möglich</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Folgetermine online möglich</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Engmaschige Begleitung (chronisch)</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> 12 Monate Gültigkeit · Ratenzahlung möglich</li>
-            </ul>
-            <a href="#anmelden" class="mt-6 inline-flex items-center justify-center rounded-xl bg-ink-900 hover:bg-ink-700 text-white font-semibold px-5 py-3 text-sm transition">6er-Paket buchen</a>
-          </article>
-
-        </div>
-        <p class="mt-6 text-sm text-white/75">Eigenanteils-Beispiele bei 80% Kassen-Erstattung (§43 SGB V) und ärztlicher Notwendigkeitsbescheinigung. Einzelne Kassen erstatten bis 100%. Indikationen: Adipositas, Diabetes Typ 2, Bluthochdruck, Zöliakie u. v. m. Wir unterstützen beim Antrag.</p>
-      </div>
-    </section>
-
-    <!-- =========================================
-         STANDORT
-         ========================================= -->
-    <section id="standort" class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-500">Standort</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">Weseler Straße 71 · Münster.</h2>
-          <p class="mt-3 text-white/85">Persönliche Beratung in ruhiger 1:1-Atmosphäre — gut erreichbar mit ÖPNV und Auto. Folgetermine optional auch per Video.</p>
-        </div>
-
-        <!-- Bildgalerie -->
-        <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-          <div class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 aspect-square col-span-2 md:col-span-2 lg:col-span-2">
-            <img src="img/ernaehrung-1200.jpg" alt="Beratungsraum bei REHAB FIVE NUTRITION in Münster" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-          </div>
-          <div class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 aspect-square">
-            <img src="img/ernaehrung-2-800.jpg" alt="Frische Lebensmittel auf dem Tisch im Beratungsraum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-          </div>
-          <div class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 aspect-square">
-            <img src="img/ernaehrung-3-800.jpg" alt="Notizen und Beratungsmaterial bei der Ernährungsberatung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-          </div>
-          <div class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 aspect-square">
-            <img src="img/ernaehrung-2-1200.jpg" alt="Beratungsgespräch zu Ernährung und Stoffwechsel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-          </div>
-          <div class="group relative overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 aspect-square">
-            <img src="img/ernaehrung-3-1200.jpg" alt="Sportler:in bei der Ernährungsplanung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-          </div>
-        </div>
-
-        <!-- Adresse + Karte -->
-        <div class="mt-10 grid md:grid-cols-2 gap-6 items-stretch">
-          <article class="rounded-2xl bg-white ring-1 ring-ink-100 p-7 shadow-card text-ink-900">
-            <span class="inline-flex text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">Nutrition</span>
-            <h3 class="font-bold text-xl mt-3" style="color:#1F342D">REHAB FIVE NUTRITION</h3>
-            <address class="not-italic mt-2 text-ink-700">Weseler Straße 71<br>48151 Münster</address>
-            <ul class="mt-4 text-sm text-ink-700 space-y-1.5">
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Individuelle 1:1-Beratung</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Folgetermine optional per Video</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Mit allen gesetzl. Kassen abrechenbar</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> ÖPNV-Anbindung & Parkplätze</li>
-              <li class="flex gap-2"><span class="text-brand-600">✓</span> Mo–Do 8:00–20:00 · Fr 8:00–17:00</li>
-            </ul>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a href="https://www.google.com/maps/search/?api=1&query=Weseler+Stra%C3%9Fe+71+48151+M%C3%BCnster" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-4 py-2.5 transition">Route planen</a>
-              <a href="tel:+4925174788200" class="inline-flex items-center justify-center rounded-lg bg-ink-900 hover:bg-ink-700 text-white font-semibold text-sm px-4 py-2.5 transition">0251 74788 200</a>
-              <a href="mailto:info@rehab-five.com" class="inline-flex items-center justify-center rounded-lg ring-1 ring-ink-200 hover:bg-ink-50 text-ink-900 font-semibold text-sm px-4 py-2.5 transition">E-Mail schreiben</a>
-            </div>
-          </article>
-          <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 min-h-[320px]">
-            <iframe title="Google Maps Karte: Weseler Straße 71, Münster" src="https://www.google.com/maps?q=Weseler+Stra%C3%9Fe+71,+48151+M%C3%BCnster&output=embed" width="100%" height="100%" style="border:0; min-height:320px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <!-- Weitere Standorte -->
-        <article class="mt-6 rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 md:p-7">
-          <p class="eyebrow text-xs text-brand-500">Auch in Münster</p>
-          <h3 class="font-bold text-xl mt-2 text-white">Du suchst Physiotherapie oder Training?</h3>
-          <p class="mt-2 text-sm text-white/85">REHAB FIVE bietet auch Physiotherapie an drei weiteren Standorten in Münster sowie funktionelles Training, Pilates und Präventionskurse im Health Club.</p>
-          <div class="mt-4 grid sm:grid-cols-3 gap-3 text-sm">
-            <a href="https://www.rehab-five.com" target="_blank" rel="noopener" class="rounded-xl bg-white text-ink-900 p-4 hover:bg-brand-500/20 transition">
-              <p class="font-semibold">Physiotherapie</p>
-              <p class="text-xs text-ink-700 mt-1">3 Standorte in Münster</p>
-            </a>
-            <a href="https://rehab-five-gym.com" target="_blank" rel="noopener" class="rounded-xl bg-white text-ink-900 p-4 hover:bg-brand-500/20 transition">
-              <p class="font-semibold">Health Club</p>
-              <p class="text-xs text-ink-700 mt-1">Training · Pilates · §20</p>
-            </a>
-            <a href="https://www.rehab-five.com" target="_blank" rel="noopener" class="rounded-xl bg-white text-ink-900 p-4 hover:bg-brand-500/20 transition">
-              <p class="font-semibold">Diagnostik & Athletik</p>
-              <p class="text-xs text-ink-700 mt-1">Performance-Testing</p>
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- =========================================
-         BGM / FIRMEN
-         ========================================= -->
-    <section id="bgm" class="bg-ink-50 border-y border-ink-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div class="grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
-          <div>
-            <p class="eyebrow text-sm text-brand-600">Für Unternehmen</p>
-            <h2 class="display mt-3 text-3xl md:text-4xl" style="color:#1F342D">Ernährung als BGM-Baustein.</h2>
-            <p class="mt-4 text-ink-700 text-lg">Gesunde Mitarbeiter:innen sind produktivere Mitarbeiter:innen. Wir liefern Ernährungsmodule, die im betrieblichen Gesundheitsmanagement messbar wirken — zu 100% nach §3 Nr. 34 EStG steuerlich begünstigt (bis 600 €/Jahr pro Mitarbeiter:in).</p>
-            <ul class="mt-8 space-y-4 text-sm text-ink-900">
-              <li class="flex gap-3">
-                <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-xs flex-none mt-0.5">1</span>
-                <div><strong class="block" style="color:#1F342D">Lunch & Learn</strong><p class="text-ink-700 mt-1">60–90 Min Impulsvortrag in eurer Mittagspause. Themen: „Energie ohne Mittagstief", „Schlank im Büro", „Darm & Stress".</p></div>
-              </li>
-              <li class="flex gap-3">
-                <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-xs flex-none mt-0.5">2</span>
-                <div><strong class="block" style="color:#1F342D">Ernährungs-Sprechstunde</strong><p class="text-ink-700 mt-1">Wöchentliche 1:1-Slots vor Ort oder online — niedrigschwellig für eure Belegschaft, mit individueller Kassen-Anbindung.</p></div>
-              </li>
-              <li class="flex gap-3">
-                <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-xs flex-none mt-0.5">3</span>
-                <div><strong class="block" style="color:#1F342D">ZPP-Gruppenkurse §20</strong><p class="text-ink-700 mt-1">8-Wochen-Präventionskurs „Gesund essen im Alltag" als Inhouse-Format. Bis 100% Kassen-Erstattung für jede:n Teilnehmer:in.</p></div>
-              </li>
-              <li class="flex gap-3">
-                <span class="w-6 h-6 rounded-full bg-brand-500 text-ink-900 grid place-items-center font-bold text-xs flex-none mt-0.5">4</span>
-                <div><strong class="block" style="color:#1F342D">Kantinen-Audit</strong><p class="text-ink-700 mt-1">Wir analysieren euer Speisenangebot und liefern konkrete Verbesserungen — von der Ausschreibung bis zum Tellerwetter.</p></div>
-              </li>
-            </ul>
-            <div class="mt-8 flex flex-wrap gap-3">
-              <a href="mailto:info@rehab-five.com?subject=BGM-Anfrage%20Ern%C3%A4hrung" class="inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3.5 text-base transition shadow-lg shadow-brand-500/20">BGM-Konzept anfragen</a>
-              <a href="tel:+4925174788200" class="inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-ink-200 hover:bg-ink-50 text-ink-900 font-semibold px-6 py-3.5 text-base transition">0251 74788 200</a>
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-              <p class="display text-4xl" style="color:#1F342D">600 €</p>
-              <p class="mt-1 text-sm text-ink-700">pro Mitarbeiter:in / Jahr<br><span class="text-xs">steuerfrei nach §3 Nr. 34 EStG</span></p>
-            </div>
-            <div class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-              <p class="display text-4xl" style="color:#1F342D">100 %</p>
-              <p class="mt-1 text-sm text-ink-700">Kassen-Erstattung<br><span class="text-xs">für ZPP-§20-Inhouse-Kurse</span></p>
-            </div>
-            <div class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-              <p class="display text-4xl" style="color:#1F342D">10+</p>
-              <p class="mt-1 text-sm text-ink-700">Jahre BGM-Erfahrung<br><span class="text-xs">aus der REHAB FIVE Praxis</span></p>
-            </div>
-            <div class="rounded-2xl bg-white ring-1 ring-ink-100 p-6 shadow-card">
-              <p class="display text-4xl" style="color:#1F342D">DE</p>
-              <p class="mt-1 text-sm text-ink-700">deutschlandweit<br><span class="text-xs">Inhouse · hybrid · online</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         WISSEN / BLOG
-         ========================================= -->
-    <section id="wissen" class="bg-forest-700 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div class="max-w-2xl">
-          <p class="eyebrow text-sm text-brand-500">Mehr zum Thema</p>
-          <h2 class="display mt-3 text-3xl md:text-4xl">Lies dich tiefer ein.</h2>
-          <p class="mt-3 text-white/80">Aus unserem Blog — Hintergründe, Therapie-Ansätze und was die Forschung sagt.</p>
-        </div>
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-          <a href="https://www.rehab-five.com/blog/mehr-als-nur-physiotherapie-in-muenster" target="_blank" rel="noopener" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1 w-max">Blog</p>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Krankenkassen-Zuschuss zur Ernährungsberatung — was du wissen musst</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Welche Indikationen werden erstattet, wie hoch ist der Zuschuss, was brauchst du vom Arzt?</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-          <a href="wissen/reizdarm-syndrom-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1 w-max">Indikation · K58</p>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Reizdarm & Ernährung: Was wirklich hilft</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Low-FODMAP, Probiotika, Stressachse — evidenzbasiert mit 12 wissenschaftlichen Quellen.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-          <a href="https://www.rehab-five.com/blog/mehr-als-nur-physiotherapie-in-muenster" target="_blank" rel="noopener" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1 w-max">Blog</p>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Sport-Ernährung: Energie ohne Kalorienzählen</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Was Athlet:innen wirklich brauchen — Makronährstoffe, Timing, Recovery in der Praxis.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         FAQ
-         ========================================= -->
-    <section id="faq" class="bg-forest-700 text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <p class="eyebrow text-sm text-brand-500">Häufige Fragen</p>
-        <h2 class="display mt-3 text-3xl md:text-4xl">Alles, was du wissen willst.</h2>
-
-        <div class="mt-10 space-y-3">
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Übernimmt die Krankenkasse die Ernährungsberatung?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Bei vielen Indikationen (z. B. Adipositas, Diabetes Typ 2, Bluthochdruck, Zöliakie) ist ein <strong>Krankenkassen-Zuschuss</strong> möglich. Die gesetzlichen Kassen erstatten <strong>typischerweise 80%</strong> der Kosten nach §43 SGB V — bei einigen Kassen bis zu 100%. Du brauchst eine <strong>ärztliche Notwendigkeitsbescheinigung</strong>; wir unterstützen dich beim Antrag.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Was kostet eine Ernährungsberatung?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Das <strong>Erstgespräch</strong> (60–90 Min) kostet 95 €, ein 4er-Paket 320 €, ein 6er-Paket 450 €. Bei <strong>ärztlicher Notwendigkeitsbescheinigung</strong> übernehmen gesetzliche Kassen typischerweise <strong>80% nach §43 SGB V</strong> — einzelne Kassen bis zu 100%. Eigenanteil entsprechend gering.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Wie viele Termine brauche ich?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Eine typische Beratung umfasst <strong>4–6 Termine</strong> über mehrere Monate, beginnend mit einer ausführlichen Anamnese (60–90 Min) und gefolgt von Folgeterminen zur Anpassung und Evaluation. Bei chronischen Indikationen kann eine längere Begleitung sinnvoll sein.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Welche Qualifikation haben die Berater:innen?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Unser Team besteht aus <strong>zertifizierten Oecotropholog:innen und DGE-anerkannten Ernährungsexpert:innen</strong>. Wir arbeiten ausschließlich evidenzbasiert nach aktuellen Leitlinien — keine Trend-Diäten, keine Social-Media-Mythen.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Was unterscheidet euch von einer Diät-App?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Wir betrachten deine <strong>Lebenssituation, Essbiografie und körperlichen Voraussetzungen</strong>. Eine App gibt dir Tabellen — wir geben dir alltagstaugliche Lösungen, psychologische Unterstützung und einen Plan, den du wirklich durchziehen kannst. Ohne Verbote, ohne Zwänge.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Brauche ich eine ärztliche Überweisung?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Für die Beratung selbst brauchst du <strong>keine Überweisung</strong>. Wenn du einen Krankenkassen-Zuschuss möchtest, benötigst du eine ärztliche Notwendigkeitsbescheinigung — die holst du beim Hausarzt.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Bietet ihr auch Online-Beratungen an?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Ja. <strong>Folgetermine</strong> sind auf Wunsch bequem als Video-Beratung möglich. Das <strong>Erstgespräch</strong> findet idealerweise vor Ort statt — wir lernen dich besser kennen.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900" style="color:#1A1A1A">
-              Wo befindet sich REHAB FIVE NUTRITION?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3" style="color:#4A4A4A">Unser Beratungsraum liegt in der <strong>Weseler Straße 71, 48151 Münster</strong> — ruhige 1:1-Atmosphäre, gut erreichbar mit ÖPNV und Auto. Folgetermine sind auch online möglich.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================
-         FINAL CTA
-         ========================================= -->
-    <section id="anmelden" class="relative overflow-hidden bg-forest-700 text-white">
-      <div class="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true"><div class="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-brand-500/40 blur-3xl"></div></div>
-      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-        <p class="text-sm font-semibold uppercase tracking-widest text-brand-500">Termin sichern</p>
-        <h2 class="display mt-3 text-3xl md:text-4xl">Lass uns starten.</h2>
-        <p class="mt-5 text-lg text-white/80 max-w-2xl mx-auto"><strong class="text-white">Gratis 15-Min-Kennenlern-Call</strong> oder direktes Erstgespräch (95 €, ggf. erstattungsfähig). Wir besprechen Ziele, Diagnosen und Alltag — und sagen ehrlich, ob wir passen.</p>
-        <ul class="mt-8 grid sm:grid-cols-3 gap-3 text-white/90 max-w-2xl mx-auto text-sm">
-          <li class="flex items-center justify-center gap-2"><span class="text-brand-500">✓</span> Termin in 48 h</li>
-          <li class="flex items-center justify-center gap-2"><span class="text-brand-500">✓</span> Alle Kassen + Privat</li>
-          <li class="flex items-center justify-center gap-2"><span class="text-brand-500">✓</span> Unverbindlich · ohne Verkaufs-Show</li>
-        </ul>
-        <div class="mt-10 flex flex-wrap justify-center gap-3">
-          <a href="?dmropen=1" class="inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold px-7 py-4 text-base transition shadow-lg shadow-brand-500/20">⚡ Gratis Kennenlern-Call buchen</a>
-          <a href="tel:+4925174788200" class="inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold px-7 py-4 text-base ring-1 ring-white/20 transition">0251 74788 200</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =========================================
-       FOOTER
-       ========================================= -->
-  <footer class="bg-forest-700 text-white/85 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-10">
-      <div class="md:col-span-2">
-        <img src="R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-8 w-auto" width="3000" height="643" />
-        <p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht. Wissenschaftlich, individuell, ohne Verbote. Teil der REHAB FIVE Familie in Münster.</p>
-        <div class="mt-4 flex items-center gap-4">
-          <a href="https://www.google.com/search?q=rehab+five+münster" target="_blank" rel="noopener" class="text-white hover:text-brand-500">Google</a>
-          <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener" class="text-white hover:text-brand-500">Instagram</a>
-          <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener" class="text-white hover:text-brand-500">LinkedIn</a>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold">Standort</h3>
-        <address class="not-italic mt-3 space-y-3 text-white/80">
-          <div>Weseler Straße 71<br>48151 Münster</div>
-          <div class="text-xs text-white/60">Mo–Do 8:00–20:00<br>Fr 8:00–17:00</div>
-          <a href="tel:+4925174788200" class="block text-white hover:text-brand-500">0251 74788 200</a>
-          <a href="mailto:info@rehab-five.com" class="block text-white hover:text-brand-500">info@rehab-five.com</a>
-        </address>
-      </div>
-      <div>
-        <h3 class="text-white font-semibold">Rechtliches</h3>
-        <ul class="mt-3 space-y-2 text-white/80">
-          <li><a href="impressum.html" class="hover:text-brand-500">Impressum</a></li>
-          <li><a href="datenschutz.html" class="hover:text-brand-500">Datenschutz</a></li>
-          <li><a href="https://www.rehab-five.com/agb" target="_blank" rel="noopener" class="hover:text-brand-500">AGB</a></li>
-          <li><a href="#" data-cookiefirst-action="open-preferences" class="hover:text-brand-500">Cookie-Einstellungen</a></li>
-        </ul>
+      <div class="btns" style="justify-content:flex-start">
+        <a href="mailto:info@rehab-five.com?subject=BGM-Anfrage%20Ern%C3%A4hrung" class="btn">BGM-Konzept anfragen</a>
+        <a href="tel:+4925174788200" class="btn btn--ghost">0251 74788 200</a>
       </div>
     </div>
-    <div class="border-t border-white/10">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-xs flex flex-wrap items-center justify-between gap-3 text-white/60">
-        <p>© <span id="y"></span> REHAB FIVE. Alle Rechte vorbehalten.</p>
-        <p>Made in Münster · Inhaber: Aric Brämswig</p>
+
+    <div class="stats rv rv-d1">
+      <div class="stat">
+        <div class="stat__n">600 €</div>
+        <p class="stat__p">pro Mitarbeiter:in / Jahr<small>steuerfrei nach §3 Nr. 34 EStG</small></p>
+      </div>
+      <div class="stat">
+        <div class="stat__n">100 %</div>
+        <p class="stat__p">Kassen-Erstattung<small>für ZPP-§20-Inhouse-Kurse</small></p>
+      </div>
+      <div class="stat">
+        <div class="stat__n">10+</div>
+        <p class="stat__p">Jahre BGM-Erfahrung<small>aus der REHAB FIVE Praxis</small></p>
+      </div>
+      <div class="stat">
+        <div class="stat__n">DE</div>
+        <p class="stat__p">deutschlandweit<small>Inhouse · hybrid · online</small></p>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Sticky Mobile CTA -->
-  <div class="md:hidden fixed bottom-3 inset-x-3 z-30 flex gap-2">
-    <a href="tel:+4925174788200" class="flex-1 inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-ink-200 text-ink-900 font-semibold px-4 py-3 shadow-card">Anrufen</a>
-    <a href="#anmelden" class="flex-[1.4] inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-3 shadow-card">Erstgespräch</a>
+<!-- ══════════ 16 · STANDORT ══════════ -->
+<section class="place" id="standort">
+  <p class="sec-eyebrow rv">Standort</p>
+  <h2 class="sec-h rv">Weseler Straße 71 · Münster<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Persönliche Beratung in ruhiger 1:1-Atmosphäre — gut erreichbar mit ÖPNV und Auto. Folgetermine optional auch per Video.</p>
+
+  <div class="gallery">
+    <div class="shot shot--wide rv"><img src="img/real-rezeption.jpg" alt="Empfang bei REHAB FIVE in Münster" loading="lazy"></div>
+    <div class="shot rv rv-d1"><img src="img/ernaehrung-1200.jpg" alt="Beratungsraum bei REHAB FIVE NUTRITION in Münster" loading="lazy"></div>
+    <div class="shot rv rv-d2"><img src="img/ernaehrung-2-800.jpg" alt="Frische Lebensmittel auf dem Tisch im Beratungsraum" loading="lazy"></div>
+    <div class="shot rv rv-d3"><img src="img/real-flur.jpg" alt="Flur zu den Beratungsräumen" loading="lazy"></div>
+    <div class="shot rv rv-d4"><img src="img/ernaehrung-3-800.jpg" alt="Notizen und Beratungsmaterial bei der Ernährungsberatung" loading="lazy"></div>
+    <div class="shot shot--wide rv rv-d5"><img src="img/real-theke.jpg" alt="Beratung an der Theke" loading="lazy"></div>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <div class="place__cols">
+    <article class="card rv">
+      <div class="card__k">Nutrition</div>
+      <h3>REHAB FIVE NUTRITION</h3>
+      <address>Weseler Straße 71<br>48151 Münster</address>
+      <ul class="card__list">
+        <li>Individuelle 1:1-Beratung</li>
+        <li>Folgetermine optional per Video</li>
+        <li>Mit allen gesetzl. Kassen abrechenbar</li>
+        <li>ÖPNV-Anbindung &amp; Parkplätze</li>
+        <li>Mo–Do 8:00–20:00 · Fr 8:00–17:00</li>
+      </ul>
+      <div class="btns" style="justify-content:flex-start">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Weseler+Stra%C3%9Fe+71+48151+M%C3%BCnster" target="_blank" rel="noopener" class="btn">Route planen</a>
+        <a href="tel:+4925174788200" class="btn btn--ghost">0251 74788 200</a>
+        <a href="mailto:info@rehab-five.com" class="btn btn--ghost">E-Mail schreiben</a>
+      </div>
+    </article>
+    <div class="map rv rv-d1">
+      <iframe title="Google Maps Karte: Weseler Straße 71, Münster" src="https://www.google.com/maps?q=Weseler+Stra%C3%9Fe+71,+48151+M%C3%BCnster&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <article class="near rv">
+    <div class="card__k">Auch in Münster</div>
+    <h3 style="margin-top:12px;font-family:var(--font-display);font-weight:800;text-transform:uppercase;font-size:clamp(17px,1.8vw,24px)">Du suchst Physiotherapie oder Training?</h3>
+    <p style="margin-top:10px;font-size:14px;color:var(--cream-dim);max-width:74ch">REHAB FIVE bietet auch Physiotherapie an drei weiteren Standorten in Münster sowie funktionelles Training, Pilates und Präventionskurse im Health Club.</p>
+    <div class="near__grid">
+      <a class="near__item" href="https://www.rehab-five.com" target="_blank" rel="noopener"><b>Physiotherapie</b><span>3 Standorte in Münster</span></a>
+      <a class="near__item" href="https://rehab-five-gym.com" target="_blank" rel="noopener"><b>Health Club</b><span>Training · Pilates · §20</span></a>
+      <a class="near__item" href="https://www.rehab-five.com" target="_blank" rel="noopener"><b>Diagnostik &amp; Athletik</b><span>Performance-Testing</span></a>
+    </div>
+  </article>
+</section>
+
+<!-- ══════════ 17 · WISSEN ══════════ -->
+<section class="reads" id="wissen">
+  <p class="sec-eyebrow rv">Mehr zum Thema</p>
+  <h2 class="sec-h rv">Lies dich tiefer ein<span class="dot">.</span></h2>
+  <p class="sec-sub rv rv-d1">Aus unserem Blog — Hintergründe, Therapie-Ansätze und was die Forschung sagt.</p>
+
+  <div class="reads__grid">
+    <a class="read rv" href="https://www.rehab-five.com/blog/mehr-als-nur-physiotherapie-in-muenster" target="_blank" rel="noopener">
+      <div class="read__k">Blog</div>
+      <h3>Krankenkassen-Zuschuss zur Ernährungsberatung — was du wissen musst</h3>
+      <p>Welche Indikationen werden erstattet, wie hoch ist der Zuschuss, was brauchst du vom Arzt?</p>
+      <span class="read__go">Artikel lesen →</span>
+    </a>
+    <a class="read rv rv-d1" href="wissen/reizdarm-syndrom-ernaehrung.html">
+      <div class="read__k">Indikation · K58</div>
+      <h3>Reizdarm &amp; Ernährung: Was wirklich hilft</h3>
+      <p>Low-FODMAP, Probiotika, Stressachse — evidenzbasiert mit 12 wissenschaftlichen Quellen.</p>
+      <span class="read__go">Artikel lesen →</span>
+    </a>
+    <a class="read rv rv-d2" href="https://www.rehab-five.com/blog/mehr-als-nur-physiotherapie-in-muenster" target="_blank" rel="noopener">
+      <div class="read__k">Blog</div>
+      <h3>Sport-Ernährung: Energie ohne Kalorienzählen</h3>
+      <p>Was Athlet:innen wirklich brauchen — Makronährstoffe, Timing, Recovery in der Praxis.</p>
+      <span class="read__go">Artikel lesen →</span>
+    </a>
+  </div>
+  <div style="text-align:center"><a href="wissen/" class="btn btn--ghost rv">Alle Wissens-Artikel</a></div>
+</section>
+
+<!-- ══════════ 18 · FAQ ══════════ -->
+<section class="faq" id="faq">
+  <p class="sec-eyebrow rv">Häufige Fragen</p>
+  <h2 class="sec-h rv">Alles, was du wissen willst<span class="dot">.</span></h2>
+
+  <div class="faq__list rv rv-d1">
+    <details>
+      <summary>Übernimmt die Krankenkasse die Ernährungsberatung?<span class="chev">▾</span></summary>
+      <p class="faq__a">Bei vielen Indikationen (z. B. Adipositas, Diabetes Typ 2, Bluthochdruck, Zöliakie) ist ein <strong>Krankenkassen-Zuschuss</strong> möglich. Die gesetzlichen Kassen erstatten <strong>typischerweise 80 %</strong> der Kosten nach §43 SGB V — bei einigen Kassen bis zu 100 %. Du brauchst eine <strong>ärztliche Notwendigkeitsbescheinigung</strong>; wir unterstützen dich beim Antrag.</p>
+    </details>
+    <details>
+      <summary>Was kostet eine Ernährungsberatung?<span class="chev">▾</span></summary>
+      <p class="faq__a">Das <strong>Erstgespräch</strong> (60–90 Min) kostet 95 €, ein 4er-Paket 320 €, ein 6er-Paket 450 €. Bei <strong>ärztlicher Notwendigkeitsbescheinigung</strong> übernehmen gesetzliche Kassen typischerweise <strong>80 % nach §43 SGB V</strong> — einzelne Kassen bis zu 100 %. Eigenanteil entsprechend gering.</p>
+    </details>
+    <details>
+      <summary>Wie viele Termine brauche ich?<span class="chev">▾</span></summary>
+      <p class="faq__a">Eine typische Beratung umfasst <strong>4–6 Termine</strong> über mehrere Monate, beginnend mit einer ausführlichen Anamnese (60–90 Min) und gefolgt von Folgeterminen zur Anpassung und Evaluation. Bei chronischen Indikationen kann eine längere Begleitung sinnvoll sein.</p>
+    </details>
+    <details>
+      <summary>Welche Qualifikation haben die Berater:innen?<span class="chev">▾</span></summary>
+      <p class="faq__a">Unser Team besteht aus <strong>zertifizierten Oecotropholog:innen und DGE-anerkannten Ernährungsexpert:innen</strong>. Wir arbeiten ausschließlich evidenzbasiert nach aktuellen Leitlinien — keine Trend-Diäten, keine Social-Media-Mythen.</p>
+    </details>
+    <details>
+      <summary>Was unterscheidet euch von einer Diät-App?<span class="chev">▾</span></summary>
+      <p class="faq__a">Wir betrachten deine <strong>Lebenssituation, Essbiografie und körperlichen Voraussetzungen</strong>. Eine App gibt dir Tabellen — wir geben dir alltagstaugliche Lösungen, psychologische Unterstützung und einen Plan, den du wirklich durchziehen kannst. Ohne Verbote, ohne Zwänge.</p>
+    </details>
+    <details>
+      <summary>Brauche ich eine ärztliche Überweisung?<span class="chev">▾</span></summary>
+      <p class="faq__a">Für die Beratung selbst brauchst du <strong>keine Überweisung</strong>. Wenn du einen Krankenkassen-Zuschuss möchtest, benötigst du eine ärztliche Notwendigkeitsbescheinigung — die holst du beim Hausarzt.</p>
+    </details>
+    <details>
+      <summary>Bietet ihr auch Online-Beratungen an?<span class="chev">▾</span></summary>
+      <p class="faq__a">Ja. <strong>Folgetermine</strong> sind auf Wunsch bequem als Video-Beratung möglich. Das <strong>Erstgespräch</strong> findet idealerweise vor Ort statt — wir lernen dich besser kennen.</p>
+    </details>
+    <details>
+      <summary>Wo befindet sich REHAB FIVE NUTRITION?<span class="chev">▾</span></summary>
+      <p class="faq__a">Unser Beratungsraum liegt in der <strong>Weseler Straße 71, 48151 Münster</strong> — ruhige 1:1-Atmosphäre, gut erreichbar mit ÖPNV und Auto. Folgetermine sind auch online möglich.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════ 19 · FINAL-CTA ══════════ -->
+<section class="cta" id="anmelden">
+  <p class="sec-eyebrow rv">Termin sichern</p>
+  <h2 class="sec-h rv">Lass uns starten<span class="dot">.</span></h2>
+  <p class="stmt__p rv rv-d1"><strong>Gratis 15-Min-Kennenlern-Call</strong> oder direktes Erstgespräch (95 €, ggf. erstattungsfähig). Wir besprechen Ziele, Diagnosen und Alltag — und sagen ehrlich, ob wir passen.</p>
+  <ul class="checks rv rv-d2">
+    <li>Termin in 48 h</li>
+    <li>Alle Kassen + Privat</li>
+    <li>Unverbindlich · ohne Verkaufs-Show</li>
+  </ul>
+  <div class="btns rv rv-d3">
+    <a href="?dmropen=1" class="btn">Gratis Kennenlern-Call buchen</a>
+    <a href="tel:+4925174788200" class="btn btn--ghost">0251 74788 200</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ 20 · FOOTER ══════════ -->
+<footer class="footer" id="kontakt">
+  <div class="footer__row">
+    <span class="footer__side">REHAB FIVE</span>
+    <div class="footer__mark">NUTRITION</div>
+    <span class="footer__side"><a href="mailto:info@rehab-five.com">info@rehab-five.com</a></span>
+  </div>
+
+  <div class="footer__social">
+    <a href="mailto:info@rehab-five.com" aria-label="E-Mail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+    </a>
+    <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.4v.1M11.5 17v-3.6a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+    </a>
+  </div>
+
+  <div class="footer__cols">
+    <div>
+      <h3>Über uns</h3>
+      <p>REHAB FIVE NUTRITION — Ernährung neu gedacht. Wissenschaftlich, individuell, ohne Verbote. Teil der REHAB FIVE Familie in Münster.</p>
+      <p><a href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener">Google</a> · <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+    <div>
+      <h3>Standort</h3>
+      <address>
+        Weseler Straße 71<br>48151 Münster<br><br>
+        Mo–Do 8:00–20:00<br>Fr 8:00–17:00<br><br>
+        <a href="tel:+4925174788200">0251 74788 200</a><br>
+        <a href="mailto:info@rehab-five.com">info@rehab-five.com</a>
+      </address>
+    </div>
+    <div>
+      <h3>Rechtliches</h3>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="https://www.rehab-five.com/agb" target="_blank" rel="noopener">AGB</a></li>
+        <li><a href="#" data-cookiefirst-action="open-preferences">Cookie-Einstellungen</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer__legal">
+    <span>© <span id="y"></span> REHAB FIVE. Alle Rechte vorbehalten.</span>
+    <span>Made in Münster · Inhaber: Aric Brämswig</span>
+    <a href="#anmelden">Erstgespräch sichern</a>
+  </div>
+</footer>
+
+<!-- Sticky Mobile-CTA -->
+<div class="mobbar">
+  <a href="tel:+4925174788200">Anrufen</a>
+  <a href="#anmelden">Erstgespräch</a>
+</div>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Lenis-artiger Smooth-Scroll (Dokument scrollt nativ) ---------- */
+  if(!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches){
+    var target = window.scrollY, current = window.scrollY, running = false;
+    addEventListener('wheel', function(e){
+      if(e.ctrlKey) return;
+      /* Waagerechte Gesten ueber einem seitlich scrollbaren Band durchlassen —
+         der Smooth-Scroll unterschlaegt sonst jedes preventDefault-te deltaX. */
+      if(Math.abs(e.deltaX) > Math.abs(e.deltaY) && e.target.closest('[data-hscroll]')) return;
+      e.preventDefault();
+      var max = document.documentElement.scrollHeight - innerHeight;
+      target = Math.max(0, Math.min(max, target + e.deltaY * (e.deltaMode === 1 ? 24 : 1)));
+      if(!running){ running = true; requestAnimationFrame(step); }
+    }, {passive:false});
+    function step(){
+      current += (target - current) * 0.13;
+      if(Math.abs(target - current) < 0.4){ current = target; running = false; }
+      scrollTo(0, current);
+      if(running) requestAnimationFrame(step);
+    }
+    addEventListener('scroll', function(){ if(!running) target = current = scrollY; }, {passive:true});
+  }
+
+  /* ---------- rAF-Scroll-Loop: Hero-Wipes · Parallax · Drift ---------- */
+  var hero    = document.getElementById('hero'),
+      stage   = hero.querySelector('.hero__stage'),
+      panels  = [].slice.call(hero.querySelectorAll('.hero__panel')),
+      prog    = document.getElementById('heroProg'),
+      strips  = [].slice.call(document.querySelectorAll('[data-parallax]')),
+      drifts  = [].slice.call(document.querySelectorAll('[data-drift]')),
+      hdr     = document.getElementById('hdr'),
+      lastY   = 0, ticking = false;
+
+  function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
+
+  function frame(){
+    ticking = false;
+    var y = scrollY, vh = innerHeight;
+
+    /* Hero: Panel-Wipes über den Sektions-Fortschritt */
+    var hTop = hero.offsetTop, hRange = hero.offsetHeight - vh;
+    var p = clamp((y - hTop) / (hRange || 1));
+    if(prog) prog.style.width = (p * 100).toFixed(2) + '%';
+    var n = panels.length, seg = 1 / (n - 1);
+    for(var i = 1; i < n; i++){
+      var local = clamp((p - (i - 1) * seg) / (seg * 0.55));
+      panels[i].style.clipPath = 'inset(0 0 0 ' + ((1 - local) * 100).toFixed(2) + '%)';
+    }
+    /* leichte Gegenbewegung im aktiven Panel + Lockup-Drift */
+    var sub = (p * (n - 1)) % 1;
+    panels.forEach(function(el){ el.querySelector('img').style.setProperty('--py', (-18 + sub * 36).toFixed(1) + 'px'); });
+    stage.style.setProperty('--heroY', (p * -46).toFixed(1) + 'px');
+
+    /* Full-Bleed-Streifen: viewport-relative Parallax */
+    strips.forEach(function(s){
+      var r = s.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > vh + 200) return;
+      var t = (r.top + r.height / 2 - vh / 2) / vh;
+      s.querySelector('img').style.setProperty('--py', (t * -parseFloat(s.dataset.parallax) * 240).toFixed(1) + 'px');
+    });
+
+    /* Drift-Band: gepinnt, deshalb ueber den SEKTIONS-Fortschritt getrieben —
+       viewport-relative Parallax stuende hier still, weil das Band klebt. */
+    drifts.forEach(function(d){
+      var band = d.parentElement, sec = d.closest('section');
+      var r = sec.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > vh + 200) return;
+      var range = sec.offsetHeight - band.offsetHeight;
+      var pr = clamp(-r.top / (range || 1));
+      d.style.setProperty('--drift', (-pr * parseFloat(d.dataset.drift)).toFixed(1) + 'px');
+    });
+
+    /* Header verstecken beim Runterscrollen */
+    if(y > vh * 0.9 && y > lastY + 4) hdr.classList.add('is-hidden');
+    else if(y < lastY - 4 || y < vh * 0.4) hdr.classList.remove('is-hidden');
+    lastY = y;
+  }
+
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+  addEventListener('scroll', onScroll, {passive:true});
+  addEventListener('resize', onScroll);
+  frame();
+
+  /* ---------- Mobile-Drawer ---------- */
+  var burger = document.getElementById('burger'), drawer = document.getElementById('drawer');
+  function setDrawer(open){
+    drawer.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){ setDrawer(!drawer.classList.contains('is-open')); });
+  document.getElementById('drawerClose').addEventListener('click', function(){ setDrawer(false); });
+  drawer.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setDrawer(false); }); });
+
+  /* ---------- Programme ---------- */
+  /* Einziger Einstiegspunkt fuer die Terminbuchung. DocMedico oeffnet ueber ?dmropen=1;
+     fuer programm-spezifische Buchung nur diese Funktion ersetzen. */
+  window.nutBooking = window.nutBooking || { open: function(programm){ location.href = '?dmropen=1'; } };
+
+  var track = document.getElementById('programmTrack');
+  if(track){
+    var programme = JSON.parse(document.getElementById('programmdaten').textContent);
+
+    programme.forEach(function(k, i){
+      var card = document.createElement('article');
+      card.className = 'course rv' + (i > 0 && i < 6 ? ' rv-d' + i : '');
+
+      var media = document.createElement('span');
+      media.className = 'course__media';
+      var img = document.createElement('img');
+      img.src = k.bild; img.alt = k.name; img.loading = 'lazy'; img.draggable = false;
+      media.append(img, el('span', 'course__cat', k.kategorie));
+
+      var body = document.createElement('div');
+      body.className = 'course__body';
+      body.append(el('h3', 'course__name', k.name), el('p', 'course__desc', k.text));
+
+      if(k.tags && k.tags.length){
+        var tags = document.createElement('div');
+        tags.className = 'course__tags';
+        k.tags.forEach(function(t){ tags.append(el('span', 'course__tag', t)); });
+        body.append(tags);
+      }
+
+      body.append(el('p', 'course__price', k.preis), el('p', 'course__note', k.preisnote));
+
+      var book = document.createElement('button');
+      book.className = 'course__book'; book.type = 'button';
+      book.textContent = k.cta;
+      book.addEventListener('click', function(){ window.nutBooking.open(k); });
+      body.append(book);
+
+      card.append(media, body);
+      track.append(card);
+    });
+
+    document.getElementById('programmZahl').textContent = programme.length + ' Programme · Erstgespräch auf Anfrage';
+
+    /* Ziehen mit der Maus; Finger und Trackpad scrollen das Band ohnehin nativ. */
+    var down = false, startX = 0, startLeft = 0, moved = 0;
+    track.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse') return;
+      down = true; moved = 0; startX = e.clientX; startLeft = track.scrollLeft;
+      track.classList.add('is-drag');
+    });
+    track.addEventListener('pointermove', function(e){
+      if(!down) return;
+      var dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      track.scrollLeft = startLeft - dx;
+    });
+    /* Nach echtem Ziehen den folgenden Klick schlucken, sonst loest beim Loslassen
+       die Karte unter dem Zeiger aus. */
+    track.addEventListener('click', function(e){
+      if(moved > 6){ e.stopPropagation(); e.preventDefault(); moved = 0; }
+    }, true);
+    ['pointerup','pointerleave','pointercancel'].forEach(function(ev){
+      track.addEventListener(ev, function(){ down = false; track.classList.remove('is-drag'); });
+    });
+  }
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    n.className = cls; n.textContent = text;
+    return n;
+  }
+
+  /* ---------- Scroll-Reveals ---------- */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  document.getElementById('y').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
