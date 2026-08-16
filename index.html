@@ -58,10 +58,7 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
 
   <!-- Fonts: Archivo trägt das Display-Lockup des Health-Club-Layouts,
        Barlow bleibt als CI-Schrift für den Fließtext. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;0,700;0,800;1,600;1,700;1,800&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" />
-
+  <link rel="stylesheet" href="fonts.css" />
 <style>
 /* ============================================================
    REHAB FIVE NUTRITION
@@ -652,6 +649,10 @@ ul{margin:0;padding:0;list-style:none}
 .card .btn{margin-top:20px;padding:11px 22px;font-size:11px}
 .map{border:1px solid var(--line);min-height:360px;background:var(--ink-3)}
 .map iframe{display:block;width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.4) contrast(1.05)}
+.map__gate{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;width:100%;min-height:360px;padding:clamp(20px,3vw,36px);border:0;background:var(--ink-3);color:var(--cream-dim);text-align:left;cursor:pointer;font:inherit}
+.map__gate:hover,.map__gate:focus-visible{background:var(--ink-2)}
+.map__gate-t{font-family:var(--font-display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(15px,1.6vw,19px);color:var(--cream)}
+.map__gate-s{font-size:13px;line-height:1.55;max-width:52ch}
 .near{margin-top:10px;border:1px solid var(--line);padding:clamp(24px,2.8vw,36px)}
 .near__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
 .near__item{border:1px solid var(--line);padding:clamp(16px,1.8vw,22px);transition:border-color .25s,background .25s}
@@ -1124,7 +1125,7 @@ ul{margin:0;padding:0;list-style:none}
     <article class="course rv">
       <span class="course__media">
         <img src="img/ernaehrung-1200.jpg" alt="Gewicht &amp; Stoffwechsel — Ernährungsberatung bei REHAB FIVE NUTRITION Münster" loading="lazy" width="800" height="1000" draggable="false">
-        <span class="course__cat">Kasse erstattet</span>
+        <span class="course__cat">Zuschuss möglich</span>
       </span>
       <div class="course__body">
         <h3 class="course__name">Gewicht &amp; Stoffwechsel</h3>
@@ -1138,7 +1139,7 @@ ul{margin:0;padding:0;list-style:none}
     <article class="course rv rv-d1">
       <span class="course__media">
         <img src="img/ernaehrung-2-1200.jpg" alt="Verdauung &amp; Reizdarm — Ernährungsberatung bei REHAB FIVE NUTRITION Münster" loading="lazy" width="800" height="1000" draggable="false">
-        <span class="course__cat">Kasse erstattet</span>
+        <span class="course__cat">Zuschuss möglich</span>
       </span>
       <div class="course__body">
         <h3 class="course__name">Verdauung &amp; Reizdarm</h3>
@@ -1166,7 +1167,7 @@ ul{margin:0;padding:0;list-style:none}
     <article class="course rv rv-d3">
       <span class="course__media">
         <img src="img/real-anamnese.jpg" alt="Herz &amp; Stoffwechsel-Risiko — Ernährungsberatung bei REHAB FIVE NUTRITION Münster" loading="lazy" width="800" height="1000" draggable="false">
-        <span class="course__cat">Kasse erstattet</span>
+        <span class="course__cat">Zuschuss möglich</span>
       </span>
       <div class="course__body">
         <h3 class="course__name">Herz &amp; Stoffwechsel-Risiko</h3>
@@ -1627,7 +1628,12 @@ ul{margin:0;padding:0;list-style:none}
       </div>
     </article>
     <div class="map rv rv-d1">
-      <iframe title="Google Maps Karte: Weseler Straße 71, Münster" src="https://www.google.com/maps?q=Weseler+Stra%C3%9Fe+71,+48151+M%C3%BCnster&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <!-- Die Karte laedt erst auf Klick. Ein eingebettetes Google Maps uebertraegt die
+           IP-Adresse an Google, bevor die Besucherin irgendetwas entschieden hat. -->
+      <button type="button" class="map__gate" id="karteLaden">
+        <span class="map__gate-t">Karte von Google Maps laden</span>
+        <span class="map__gate-s">Dabei werden Daten an Google übertragen, darunter deine IP-Adresse. Die Route kannst du auch ohne Karte über „Route planen“ starten.</span>
+      </button>
     </div>
   </div>
 
@@ -1931,6 +1937,19 @@ ul{margin:0;padding:0;list-style:none}
     });
   }, {rootMargin:'0px 0px -12% 0px', threshold:0.08});
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  var karteLaden = document.getElementById('karteLaden');
+  if(karteLaden){
+    karteLaden.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.title = 'Google Maps Karte: Weseler Straße 71, Münster';
+      f.src = 'https://www.google.com/maps?q=Weseler+Stra%C3%9Fe+71,+48151+M%C3%BCnster&output=embed';
+      f.loading = 'lazy';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      f.allowFullscreen = true;
+      karteLaden.replaceWith(f);
+    });
+  }
 
   document.getElementById('y').textContent = new Date().getFullYear();
 })();

@@ -19,10 +19,8 @@
   <meta property="og:url" content="https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html" />
   <meta property="og:image" content="https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-1200.jpg" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../fonts.css" />
+<script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: { colors: { ink:{50:'#FAFAFA',100:'#F5F5F5',200:'#C9C9C9',700:'#4A4A4A',900:'#1A1A1A'}, forest:{700:'#1F342D',800:'#172620'}, brand:{100:'#FBF1E0',500:'#D99129',600:'#C57F1F',700:'#A66819'}, accent:{500:'#D99129'} }, fontFamily:{sans:['Barlow','system-ui','sans-serif']}, boxShadow:{card:'0 4px 24px -8px rgba(26,26,26,0.10)'} } } }
   </script>
@@ -46,70 +44,220 @@
   </style>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      { "@type": "Organization", "@id": "https://rehab-five.com/#organization", "name": "REHAB FIVE", "url": "https://rehab-five.com", "founder": { "@type": "Person", "name": "Aric Brämswig" } },
-      {
-        "@type": "MedicalCondition",
-        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#condition",
-        "name": "Adipositas",
-        "alternateName": ["Übergewicht", "Obesity"],
-        "code": { "@type": "MedicalCode", "code": "E66", "codingSystem": "ICD-10-GM" },
-        "signOrSymptom": [
-          { "@type": "MedicalSignOrSymptom", "name": "BMI ≥ 30 kg/m²" },
-          { "@type": "MedicalSignOrSymptom", "name": "Erhöhter Bauchumfang" },
-          { "@type": "MedicalSignOrSymptom", "name": "Bewegungseinschränkungen" }
-        ],
-        "possibleTreatment": [
-          { "@type": "MedicalTherapy", "name": "Mediterrane Ernährung" },
-          { "@type": "MedicalTherapy", "name": "Energiereduzierte Mischkost" },
-          { "@type": "MedicalTherapy", "name": "Ernährungstherapie nach DGE" },
-          { "@type": "MedicalTherapy", "name": "Multimodale Therapie (Ernährung, Bewegung, Verhalten)" }
-        ]
-      },
-      {
-        "@type": "MedicalWebPage",
-        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#webpage",
-        "url": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html",
-        "name": "Adipositas & Ernährungstherapie: Was wirklich nachhaltig wirkt",
-        "about": { "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#condition" },
-        "audience": [{ "@type": "PatientsAudience" }],
-        "lastReviewed": "2026-05-15",
-        "publisher": { "@id": "https://rehab-five.com/#organization" }
-      },
-      {
-        "@type": "Article",
-        "headline": "Adipositas & Ernährungstherapie: Was wirklich nachhaltig wirkt",
-        "image": "https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-1200.jpg",
-        "datePublished": "2026-05-15",
-        "dateModified": "2026-05-15",
-        "author": { "@id": "https://rehab-five.com/#organization" },
-        "publisher": { "@id": "https://rehab-five.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#webpage" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "Welche Ernährungsform ist bei Adipositas am besten?", "acceptedAnswer": { "@type": "Answer", "text": "Die S3-Leitlinie der DAG (2024) empfiehlt eine energiereduzierte, ausgewogene Mischkost mit Defizit von 500–600 kcal/Tag — z. B. mediterrane Kost. Eine bestimmte Makronährstoff-Verteilung (Low-Carb vs. Low-Fat) zeigt langfristig kaum Unterschiede; entscheidend ist Adhärenz." } },
-          { "@type": "Question", "name": "Wie viel Gewichtsverlust ist realistisch?", "acceptedAnswer": { "@type": "Answer", "text": "Realistisch sind 5–10% des Ausgangsgewichts in 6 Monaten — bereits diese Reduktion verbessert Blutdruck, Blutzucker und Blutfette signifikant. Schnelle Diäten führen langfristig häufig zum JoJo-Effekt." } },
-          { "@type": "Question", "name": "Ersetzen GLP-1-Medikamente die Ernährungsberatung?", "acceptedAnswer": { "@type": "Answer", "text": "Nein. Semaglutid und Tirzepatid wirken stark, aber nach Absetzen kehrt das Gewicht meist zurück. Begleitende Ernährungstherapie ist entscheidend für langfristigen Erfolg — auch unter GLP-1-Therapie." } },
-          { "@type": "Question", "name": "Übernimmt die Krankenkasse die Beratung bei Adipositas?", "acceptedAnswer": { "@type": "Answer", "text": "Ja. Adipositas (ICD E66) ist eine erstattungsfähige Indikation nach §43 SGB V. Mit ärztlicher Notwendigkeitsbescheinigung übernehmen Kassen typischerweise 80%, einzelne bis 100%." } },
-          { "@type": "Question", "name": "Welche Rolle spielt Bewegung?", "acceptedAnswer": { "@type": "Answer", "text": "Bewegung verstärkt Gewichtsverlust um 20–30% und ist essenziell für Gewichts-Stabilisierung. 150–300 Min/Woche moderate Ausdauer plus 2× Krafttraining werden empfohlen." } },
-          { "@type": "Question", "name": "Was unterscheidet eine seriöse Beratung von Diät-Programmen?", "acceptedAnswer": { "@type": "Answer", "text": "Seriöse Ernährungstherapie orientiert sich an Leitlinien (DAG, DGE), individualisiert nach Lebenssituation, integriert Verhaltensaspekte und vermeidet Verbote. Kommerzielle Diät-Programme arbeiten oft mit Restriktion ohne Nachhaltigkeit." } }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/" },
-          { "@type": "ListItem", "position": 3, "name": "Adipositas & Ernährungstherapie", "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html" }
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rehab-five.com/#organization",
+      "name": "REHAB FIVE",
+      "url": "https://rehab-five.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Aric Brämswig"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": [
+        "LocalBusiness",
+        "MedicalBusiness"
+      ],
+      "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/#nutrition",
+      "name": "REHAB FIVE NUTRITION",
+      "url": "https://rehab-five-nutrition-ernaehrungsberatung.com",
+      "telephone": "+49 251 747882 00",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Weseler Straße 71",
+        "postalCode": "48151",
+        "addressLocality": "Münster",
+        "addressRegion": "NRW",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.9514,
+        "longitude": 7.6225
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ]
+    },
+    {
+      "@type": "MedicalCondition",
+      "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#condition",
+      "name": "Adipositas",
+      "alternateName": [
+        "Übergewicht",
+        "Obesity"
+      ],
+      "code": {
+        "@type": "MedicalCode",
+        "code": "E66",
+        "codingSystem": "ICD-10-GM"
+      },
+      "signOrSymptom": [
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "BMI ≥ 30 kg/m²"
+        },
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Erhöhter Bauchumfang"
+        },
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Bewegungseinschränkungen"
+        }
+      ],
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Mediterrane Ernährung"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Energiereduzierte Mischkost"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Ernährungstherapie nach DGE"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Multimodale Therapie (Ernährung, Bewegung, Verhalten)"
+        }
+      ]
+    },
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#webpage",
+      "url": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html",
+      "name": "Adipositas & Ernährungstherapie: Was wirklich nachhaltig wirkt",
+      "about": {
+        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#condition"
+      },
+      "audience": [
+        {
+          "@type": "PatientsAudience"
+        }
+      ],
+      "lastReviewed": "2026-05-15",
+      "publisher": {
+        "@id": "https://rehab-five.com/#organization"
+      }
+    },
+    {
+      "@type": "Article",
+      "headline": "Adipositas & Ernährungstherapie: Was wirklich nachhaltig wirkt",
+      "image": "https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-1200.jpg",
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "author": {
+        "@id": "https://rehab-five.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://rehab-five.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html#webpage"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Ernährungsform ist bei Adipositas am besten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die S3-Leitlinie der DAG (2024) empfiehlt eine energiereduzierte, ausgewogene Mischkost mit Defizit von 500–600 kcal/Tag — z. B. mediterrane Kost. Eine bestimmte Makronährstoff-Verteilung (Low-Carb vs. Low-Fat) zeigt langfristig kaum Unterschiede; entscheidend ist Adhärenz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie viel Gewichtsverlust ist realistisch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Realistisch sind 5–10% des Ausgangsgewichts in 6 Monaten — bereits diese Reduktion verbessert Blutdruck, Blutzucker und Blutfette signifikant. Schnelle Diäten führen langfristig häufig zum JoJo-Effekt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ersetzen GLP-1-Medikamente die Ernährungsberatung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Semaglutid und Tirzepatid wirken stark, aber nach Absetzen kehrt das Gewicht meist zurück. Begleitende Ernährungstherapie ist entscheidend für langfristigen Erfolg — auch unter GLP-1-Therapie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Übernimmt die Krankenkasse die Beratung bei Adipositas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Adipositas (ICD E66) ist eine erstattungsfähige Indikation nach §43 SGB V. Mit ärztlicher Notwendigkeitsbescheinigung übernehmen Kassen typischerweise 80%, einzelne bis 100%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Rolle spielt Bewegung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bewegung verstärkt Gewichtsverlust um 20–30% und ist essenziell für Gewichts-Stabilisierung. 150–300 Min/Woche moderate Ausdauer plus 2× Krafttraining werden empfohlen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was unterscheidet eine seriöse Beratung von Diät-Programmen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seriöse Ernährungstherapie orientiert sich an Leitlinien (DAG, DGE), individualisiert nach Lebenssituation, integriert Verhaltensaspekte und vermeidet Verbote. Kommerzielle Diät-Programme arbeiten oft mit Restriktion ohne Nachhaltigkeit."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wissen",
+          "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Adipositas & Ernährungstherapie",
+          "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/adipositas-ernaehrungstherapie.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <script async src="https://cdn.docmedico-rezeption.de/j9u4c9m7a/reception_embed.js"></script>
 </head>
 
@@ -119,7 +267,7 @@
   <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
       <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" />
+        <img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-7 w-auto" />
         <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span>
       </a>
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
@@ -358,7 +506,7 @@
 
   <footer class="bg-forest-700 text-white/85 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-10">
-      <div class="md:col-span-2"><img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-8 w-auto" /><p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht.</p></div>
+      <div class="md:col-span-2"><img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-8 w-auto" /><p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht.</p></div>
       <div><h3 class="text-white font-semibold">Standort</h3><address class="not-italic mt-3 space-y-3 text-white/80"><div>Weseler Straße 71<br>48151 Münster</div><a href="tel:+4925174788200" class="block text-white hover:text-brand-500">0251 74788 200</a><a href="mailto:info@rehab-five.com" class="block text-white hover:text-brand-500">info@rehab-five.com</a></address></div>
       <div><h3 class="text-white font-semibold">Rechtliches</h3><ul class="mt-3 space-y-2 text-white/80"><li><a href="../impressum.html" class="hover:text-brand-500">Impressum</a></li><li><a href="../datenschutz.html" class="hover:text-brand-500">Datenschutz</a></li></ul></div>
     </div>

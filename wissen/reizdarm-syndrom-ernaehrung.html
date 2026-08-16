@@ -37,11 +37,8 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <meta property="og:image" content="https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-2-1200.jpg" />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../fonts.css" />
+<script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -87,115 +84,245 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
        SCHEMA.ORG JSON-LD
        ========================================= -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://rehab-five.com/#organization",
-        "name": "REHAB FIVE",
-        "url": "https://rehab-five.com",
-        "logo": "https://rehab-five.com/wp-content/uploads/logo.svg",
-        "founder": { "@type": "Person", "name": "Aric Brämswig" }
-      },
-      {
-        "@type": "MedicalCondition",
-        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#condition",
-        "name": "Reizdarm-Syndrom",
-        "alternateName": ["RDS", "Irritable Bowel Syndrome", "IBS", "Colon irritabile"],
-        "code": {
-          "@type": "MedicalCode",
-          "code": "K58",
-          "codingSystem": "ICD-10-GM"
-        },
-        "associatedAnatomy": { "@type": "AnatomicalStructure", "name": "Darm" },
-        "signOrSymptom": [
-          { "@type": "MedicalSignOrSymptom", "name": "Bauchschmerzen" },
-          { "@type": "MedicalSignOrSymptom", "name": "Blähungen" },
-          { "@type": "MedicalSignOrSymptom", "name": "Durchfall" },
-          { "@type": "MedicalSignOrSymptom", "name": "Verstopfung" },
-          { "@type": "MedicalSignOrSymptom", "name": "Stuhlunregelmäßigkeiten" }
-        ],
-        "possibleTreatment": [
-          { "@type": "MedicalTherapy", "name": "Low-FODMAP-Ernährung" },
-          { "@type": "MedicalTherapy", "name": "Ernährungstherapie" },
-          { "@type": "MedicalTherapy", "name": "Probiotika" },
-          { "@type": "MedicalTherapy", "name": "Stressmanagement" }
-        ]
-      },
-      {
-        "@type": "MedicalWebPage",
-        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#webpage",
-        "url": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html",
-        "name": "Reizdarm & Ernährung: Was wirklich hilft",
-        "headline": "Reizdarm & Ernährung: Was wirklich hilft (Low-FODMAP & mehr)",
-        "about": { "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#condition" },
-        "audience": [
-          { "@type": "PatientsAudience" },
-          { "@type": "MedicalAudience", "audienceType": "Patient" }
-        ],
-        "lastReviewed": "2026-05-15",
-        "reviewedBy": { "@id": "https://rehab-five.com/#organization" },
-        "mainContentOfPage": "Wissenschaftlich fundierter Leitfaden zu Ernährung bei Reizdarm-Syndrom: Low-FODMAP-Protokoll, Eliminationsdiät, Probiotika, weitere Strategien — mit Quellenangaben.",
-        "publisher": { "@id": "https://rehab-five.com/#organization" }
-      },
-      {
-        "@type": "Article",
-        "headline": "Reizdarm & Ernährung: Was wirklich hilft (Low-FODMAP & mehr)",
-        "description": "Wie Ernährung Reizdarm-Beschwerden lindern kann — Low-FODMAP, Eliminationsdiät, Probiotika evidenzbasiert erklärt.",
-        "image": "https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-2-1200.jpg",
-        "datePublished": "2026-05-15",
-        "dateModified": "2026-05-15",
-        "author": { "@id": "https://rehab-five.com/#organization" },
-        "publisher": { "@id": "https://rehab-five.com/#organization" },
-        "mainEntityOfPage": { "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#webpage" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Hilft Low-FODMAP bei Reizdarm wirklich?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ja. Low-FODMAP gehört laut S3-Leitlinie der DGVS (2021) zu den am besten belegten Ernährungsstrategien beim Reizdarm-Syndrom. In klinischen Studien zeigen 50–75% der Betroffenen eine deutliche Symptomverbesserung. Wichtig: Die Diät ist dreistufig (Restriktion, Reintroduktion, Personalisierung) und sollte ernährungstherapeutisch begleitet werden — eine dauerhafte FODMAP-Restriktion ist nicht das Ziel." }
-          },
-          {
-            "@type": "Question",
-            "name": "Wie lange dauert eine Low-FODMAP-Diät?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Die Restriktionsphase dauert typischerweise 4–6 Wochen. Anschließend folgt die strukturierte Reintroduktion über 6–10 Wochen, in der einzelne FODMAP-Gruppen wieder getestet werden. Insgesamt dauert das vollständige Protokoll etwa 3–4 Monate, bis du deine individuelle Toleranz kennst." }
-          },
-          {
-            "@type": "Question",
-            "name": "Helfen Probiotika bei Reizdarm?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Studienlage gemischt. Bestimmte Stämme (z. B. Bifidobacterium infantis 35624, Lactobacillus plantarum 299v) zeigen in Meta-Analysen moderate Effekte auf Bauchschmerzen und Blähungen. Wichtig: Probiotika sind kein Ersatz für eine fundierte Ernährungsumstellung — und 8 Wochen Test reichen, um zu sehen, ob sie bei dir wirken." }
-          },
-          {
-            "@type": "Question",
-            "name": "Übernimmt die Krankenkasse Ernährungsberatung bei Reizdarm?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ja. Reizdarm-Syndrom (ICD K58) ist eine erstattungsfähige Indikation nach §43 SGB V. Mit ärztlicher Notwendigkeitsbescheinigung übernehmen die gesetzlichen Kassen typischerweise 80% der Kosten, einzelne Kassen bis zu 100%. Wir unterstützen dich beim Antrag." }
-          },
-          {
-            "@type": "Question",
-            "name": "Was ist der Unterschied zwischen Reizdarm und Glutenunverträglichkeit?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Zöliakie ist eine Autoimmunerkrankung mit nachweisbaren Antikörpern und Darmschleimhaut-Veränderungen — sie muss vor jeder Ernährungsumstellung ärztlich ausgeschlossen werden. Reizdarm dagegen ist eine funktionelle Störung ohne strukturelle Schäden. Manche Reizdarm-Betroffene reagieren trotzdem sensibel auf Weizen — das nennt sich Nicht-Zöliakie-Weizensensitivität (NCWS)." }
-          },
-          {
-            "@type": "Question",
-            "name": "Kann man Reizdarm ohne Diät behandeln?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Ernährung ist eine wichtige Säule, aber nicht die einzige. Stressmanagement, Schlaf, körperliche Aktivität und manchmal Medikamente (z. B. Spasmolytika) ergänzen die Therapie. In der Beratung schauen wir auf das Gesamtbild — nicht nur auf den Teller." }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Wissen", "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/" },
-          { "@type": "ListItem", "position": 3, "name": "Reizdarm & Ernährung", "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html" }
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://rehab-five.com/#organization",
+      "name": "REHAB FIVE",
+      "url": "https://rehab-five.com",
+      "logo": "https://rehab-five.com/wp-content/uploads/logo.svg",
+      "founder": {
+        "@type": "Person",
+        "name": "Aric Brämswig"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": [
+        "LocalBusiness",
+        "MedicalBusiness"
+      ],
+      "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/#nutrition",
+      "name": "REHAB FIVE NUTRITION",
+      "url": "https://rehab-five-nutrition-ernaehrungsberatung.com",
+      "telephone": "+49 251 747882 00",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Weseler Straße 71",
+        "postalCode": "48151",
+        "addressLocality": "Münster",
+        "addressRegion": "NRW",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.9514,
+        "longitude": 7.6225
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:00",
+          "closes": "17:00"
+        }
+      ]
+    },
+    {
+      "@type": "MedicalCondition",
+      "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#condition",
+      "name": "Reizdarm-Syndrom",
+      "alternateName": [
+        "RDS",
+        "Irritable Bowel Syndrome",
+        "IBS",
+        "Colon irritabile"
+      ],
+      "code": {
+        "@type": "MedicalCode",
+        "code": "K58",
+        "codingSystem": "ICD-10-GM"
+      },
+      "associatedAnatomy": {
+        "@type": "AnatomicalStructure",
+        "name": "Darm"
+      },
+      "signOrSymptom": [
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Bauchschmerzen"
+        },
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Blähungen"
+        },
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Durchfall"
+        },
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Verstopfung"
+        },
+        {
+          "@type": "MedicalSignOrSymptom",
+          "name": "Stuhlunregelmäßigkeiten"
+        }
+      ],
+      "possibleTreatment": [
+        {
+          "@type": "MedicalTherapy",
+          "name": "Low-FODMAP-Ernährung"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Ernährungstherapie"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Probiotika"
+        },
+        {
+          "@type": "MedicalTherapy",
+          "name": "Stressmanagement"
+        }
+      ]
+    },
+    {
+      "@type": "MedicalWebPage",
+      "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#webpage",
+      "url": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html",
+      "name": "Reizdarm & Ernährung: Was wirklich hilft",
+      "headline": "Reizdarm & Ernährung: Was wirklich hilft (Low-FODMAP & mehr)",
+      "about": {
+        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#condition"
+      },
+      "audience": [
+        {
+          "@type": "PatientsAudience"
+        },
+        {
+          "@type": "MedicalAudience",
+          "audienceType": "Patient"
+        }
+      ],
+      "lastReviewed": "2026-05-15",
+      "reviewedBy": {
+        "@id": "https://rehab-five.com/#organization"
+      },
+      "mainContentOfPage": "Wissenschaftlich fundierter Leitfaden zu Ernährung bei Reizdarm-Syndrom: Low-FODMAP-Protokoll, Eliminationsdiät, Probiotika, weitere Strategien — mit Quellenangaben.",
+      "publisher": {
+        "@id": "https://rehab-five.com/#organization"
+      }
+    },
+    {
+      "@type": "Article",
+      "headline": "Reizdarm & Ernährung: Was wirklich hilft (Low-FODMAP & mehr)",
+      "description": "Wie Ernährung Reizdarm-Beschwerden lindern kann — Low-FODMAP, Eliminationsdiät, Probiotika evidenzbasiert erklärt.",
+      "image": "https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-2-1200.jpg",
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "author": {
+        "@id": "https://rehab-five.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://rehab-five.com/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html#webpage"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hilft Low-FODMAP bei Reizdarm wirklich?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Low-FODMAP gehört laut S3-Leitlinie der DGVS (2021) zu den am besten belegten Ernährungsstrategien beim Reizdarm-Syndrom. In klinischen Studien zeigen 50–75% der Betroffenen eine deutliche Symptomverbesserung. Wichtig: Die Diät ist dreistufig (Restriktion, Reintroduktion, Personalisierung) und sollte ernährungstherapeutisch begleitet werden — eine dauerhafte FODMAP-Restriktion ist nicht das Ziel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert eine Low-FODMAP-Diät?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Restriktionsphase dauert typischerweise 4–6 Wochen. Anschließend folgt die strukturierte Reintroduktion über 6–10 Wochen, in der einzelne FODMAP-Gruppen wieder getestet werden. Insgesamt dauert das vollständige Protokoll etwa 3–4 Monate, bis du deine individuelle Toleranz kennst."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Helfen Probiotika bei Reizdarm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Studienlage gemischt. Bestimmte Stämme (z. B. Bifidobacterium infantis 35624, Lactobacillus plantarum 299v) zeigen in Meta-Analysen moderate Effekte auf Bauchschmerzen und Blähungen. Wichtig: Probiotika sind kein Ersatz für eine fundierte Ernährungsumstellung — und 8 Wochen Test reichen, um zu sehen, ob sie bei dir wirken."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Übernimmt die Krankenkasse Ernährungsberatung bei Reizdarm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Reizdarm-Syndrom (ICD K58) ist eine erstattungsfähige Indikation nach §43 SGB V. Mit ärztlicher Notwendigkeitsbescheinigung übernehmen die gesetzlichen Kassen typischerweise 80% der Kosten, einzelne Kassen bis zu 100%. Wir unterstützen dich beim Antrag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist der Unterschied zwischen Reizdarm und Glutenunverträglichkeit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zöliakie ist eine Autoimmunerkrankung mit nachweisbaren Antikörpern und Darmschleimhaut-Veränderungen — sie muss vor jeder Ernährungsumstellung ärztlich ausgeschlossen werden. Reizdarm dagegen ist eine funktionelle Störung ohne strukturelle Schäden. Manche Reizdarm-Betroffene reagieren trotzdem sensibel auf Weizen — das nennt sich Nicht-Zöliakie-Weizensensitivität (NCWS)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann man Reizdarm ohne Diät behandeln?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ernährung ist eine wichtige Säule, aber nicht die einzige. Stressmanagement, Schlaf, körperliche Aktivität und manchmal Medikamente (z. B. Spasmolytika) ergänzen die Therapie. In der Beratung schauen wir auf das Gesamtbild — nicht nur auf den Teller."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wissen",
+          "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reizdarm & Ernährung",
+          "item": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
   <script async src="https://cdn.docmedico-rezeption.de/j9u4c9m7a/reception_embed.js"></script>
 </head>
 
@@ -207,7 +334,7 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
       <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-7 w-auto" />
+        <img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-7 w-auto" />
         <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span>
       </a>
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
@@ -525,7 +652,7 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <!-- FOOTER -->
   <footer class="bg-forest-700 text-white/85 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-10">
-      <div class="md:col-span-2"><img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE Logo" class="h-8 w-auto" /><p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht.</p></div>
+      <div class="md:col-span-2"><img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-8 w-auto" /><p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht.</p></div>
       <div><h3 class="text-white font-semibold">Standort</h3><address class="not-italic mt-3 space-y-3 text-white/80"><div>Weseler Straße 71<br>48151 Münster</div><a href="tel:+4925174788200" class="block text-white hover:text-brand-500">0251 74788 200</a><a href="mailto:info@rehab-five.com" class="block text-white hover:text-brand-500">info@rehab-five.com</a></address></div>
       <div><h3 class="text-white font-semibold">Rechtliches</h3><ul class="mt-3 space-y-2 text-white/80"><li><a href="../impressum.html" class="hover:text-brand-500">Impressum</a></li><li><a href="../datenschutz.html" class="hover:text-brand-500">Datenschutz</a></li></ul></div>
     </div>
