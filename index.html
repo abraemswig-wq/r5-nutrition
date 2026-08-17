@@ -223,11 +223,17 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
 </aside>
 
 <aside class="seal" aria-hidden="true">
-  <svg viewBox="0 0 120 120">
-    <defs><path id="sealPath" d="M60,60 m-42,0 a42,42 0 1,1 84,0 a42,42 0 1,1 -84,0"></path></defs>
+  <svg class="seal__spin" viewBox="0 0 120 120">
+    <!-- Radius 50, nicht 42: bei 42 ist die Bahn 264 Einheiten lang, die
+         Umschrift aber laenger — das Ende lief unter den Anfang. -->
+    <defs><path id="sealPath" d="M60,60 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"></path></defs>
     <text><textPath href="#sealPath" startOffset="0">ERNÄHRUNGSBERATUNG · REHAB FIVE MÜNSTER · NACH BEFUND · </textPath></text>
   </svg>
-  <span class="seal__glyph" aria-hidden="true"></span>
+  <!-- Die Bildmarke aus dem REHAB-FIVE-Logo, ohne Schriftzug: der letzte Pfad
+       aus r5-logo-black_rz.svg, auf seinen eigenen Rahmen beschnitten. -->
+  <svg class="seal__glyph" viewBox="86.34 147.14 245.97 274.99" aria-hidden="true">
+    <path d="M329.3,215.6c-0.3-14.5-9.8-27.2-23.6-31.7l-108.3-35.1c-14.9-4.8-31.1,1.1-39.5,14.3L91.6,268.5 c-7.3,11.6-7,26.5,0.9,37.8l71,101.3c9,12.9,25.6,17.9,40.3,12.2l106.7-41.3c13.4-5.2,22.2-18.3,21.8-32.7L329.3,215.6z M286,334.1 c-0.4,6.3-4.8,11.7-10.9,13.4l-77.9,21.5c-6.5,1.8-13.5-1-16.8-6.9l-43.8-76.1c-3-5.2-2.6-11.7,1.1-16.4l52.4-68.8 c4.2-5.5,11.5-7.4,17.8-4.6l74.8,32.7c5.7,2.5,9.3,8.3,8.9,14.5L286,334.1z"/>
+  </svg>
 </aside>
 
 <main id="story" class="story">
