@@ -10,13 +10,38 @@ Pattern entspricht den 7 bereits gebauten Artikeln, aber kompakter:
 - Quellen (6-8)
 - Verwandte Indikationen
 - Footer
+
+Stand 2026-08-16: Die Vorlage war hinter den ausgelieferten Artikeln zurueck und
+haette beim Neulauf den noindex-Schutz, das og:image und den LocalBusiness-Knoten
+mit NAP-Daten weggeschrieben. Alle drei sind jetzt nachgezogen; der sichtbare
+Text stimmt Zeichen fuer Zeichen mit den ausgelieferten Dateien ueberein.
+
+Trotzdem vor dem Schreiben pruefen, nicht blind laufen lassen — die Artikel
+werden auch von Hand gepflegt, und ein Generator gewinnt jeden Konflikt still.
+Der __main__-Block unten schreibt; das Rendern allein ist gefahrlos:
+
+    import importlib.util, difflib, pathlib
+    spec = importlib.util.spec_from_file_location("gen", "build_wissen_articles.py")
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    ind = next(i for i in m.INDIKATIONEN if i["slug"] == "osteoporose-ernaehrung")
+    alt = pathlib.Path("../wissen/osteoporose-ernaehrung.html").read_text("utf-8")
+    print("\\n".join(difflib.unified_diff(alt.splitlines(),
+                                         m.render_article(ind).splitlines(), n=0)))
 """
 
 import os
 import html
+import json
 
 OUT_DIR = "/Users/aricbramswig/Downloads/rehab-five-nutrition/wissen"
 BASE_URL = "https://rehab-five-nutrition-ernaehrungsberatung.com"
+
+
+def js(wert):
+    """String als JSON-Literal. Nicht repr() verwenden: das liefert einfache
+    Anfuehrungszeichen, damit ist der ganze ld+json-Block ungueltiges JSON und
+    Google liest auf der Seite keinerlei strukturierte Daten."""
+    return json.dumps(wert, ensure_ascii=False)
 
 # ============================================================
 # DATEN PRO INDIKATION
@@ -695,7 +720,7 @@ def render_article(ind):
         for q, a in ind["faqs"]
     )
     faqs_schema = ",\n        ".join(
-        f'''{{"@type":"Question","name":{repr(q)},"acceptedAnswer":{{"@type":"Answer","text":{repr(a)}}}}}'''
+        f'''{{"@type":"Question","name":{js(q)},"acceptedAnswer":{{"@type":"Answer","text":{js(a)}}}}}'''
         for q, a in ind["faqs"]
     )
     quellen_html = "\n".join(
@@ -704,14 +729,14 @@ def render_article(ind):
     )
     reading_time = estimate_reading_time(ind)
     symptoms_schema = ",\n          ".join(
-        f'{{"@type":"MedicalSignOrSymptom","name":{repr(s)}}}'
+        f'{{"@type":"MedicalSignOrSymptom","name":{js(s)}}}'
         for s in ind["symptoms"]
     )
     treatments_schema = ",\n          ".join(
-        f'{{"@type":"MedicalTherapy","name":{repr(t)}}}'
+        f'{{"@type":"MedicalTherapy","name":{js(t)}}}'
         for t in ind["treatments"]
     )
-    alt_names_schema = ", ".join(repr(n) for n in ind["alt_names"])
+    alt_names_schema = ", ".join(js(n) for n in ind["alt_names"])
     related_html = ""
     for r_slug in ind["related"]:
         # Suche den Titel
@@ -744,16 +769,18 @@ def render_article(ind):
   <meta name="description" content="{html.escape(ind["meta_desc"])}" />
   <meta name="keywords" content="{html.escape(ind["keywords"])}" />
   <meta name="author" content="REHAB FIVE NUTRITION" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <!-- Vorschau: bis die Domain entschieden ist, darf Google diese Seite nicht indexieren.
+     Sonst landet die GitHub-Pages-URL im Index und laesst sich spaeter nicht umleiten.
+     tools/set_domain.py setzt das beim Go-live automatisch zurueck. -->
+<meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#1F342D" />
   <link rel="canonical" href="{BASE_URL}/wissen/{ind["slug"]}.html" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{html.escape(ind["title_full"])}" />
+  <meta property="og:image" content="{BASE_URL}/img/ernaehrung-1200.jpg" />
   <meta property="og:description" content="{html.escape(ind["meta_desc"])}" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="../fonts.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config = {{ theme: {{ extend: {{ colors: {{ ink:{{50:'#FAFAFA',100:'#F5F5F5',200:'#C9C9C9',700:'#4A4A4A',900:'#1A1A1A'}}, forest:{{700:'#1F342D',800:'#172620'}}, brand:{{100:'#FBF1E0',500:'#D99129',600:'#C57F1F',700:'#A66819'}}, accent:{{500:'#D99129'}} }}, fontFamily:{{sans:['Barlow','system-ui','sans-serif']}}, boxShadow:{{card:'0 4px 24px -8px rgba(26,26,26,0.10)'}} }} }} }}</script>
   <style>
@@ -780,9 +807,29 @@ def render_article(ind):
     "@graph": [
       {{ "@type": "Organization", "@id": "https://rehab-five.com/#organization", "name": "REHAB FIVE", "url": "https://rehab-five.com" }},
       {{
+        "@type": ["LocalBusiness", "MedicalBusiness"],
+        "@id": "{BASE_URL}/#nutrition",
+        "name": "REHAB FIVE NUTRITION",
+        "url": "{BASE_URL}",
+        "telephone": "+49 251 747882 00",
+        "address": {{
+          "@type": "PostalAddress",
+          "streetAddress": "Weseler Straße 71",
+          "postalCode": "48151",
+          "addressLocality": "Münster",
+          "addressRegion": "NRW",
+          "addressCountry": "DE"
+        }},
+        "geo": {{ "@type": "GeoCoordinates", "latitude": 51.9514, "longitude": 7.6225 }},
+        "openingHoursSpecification": [
+          {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "20:00" }},
+          {{ "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "17:00" }}
+        ]
+      }},
+      {{
         "@type": "MedicalCondition",
         "@id": "{BASE_URL}/wissen/{ind["slug"]}.html#condition",
-        "name": {repr(ind["name_schema"])},
+        "name": {js(ind["name_schema"])},
         "alternateName": [{alt_names_schema}],
         "code": {{ "@type": "MedicalCode", "code": "{ind["icd_schema"]}", "codingSystem": "ICD-10-GM" }},
         "signOrSymptom": [
@@ -796,7 +843,7 @@ def render_article(ind):
         "@type": "MedicalWebPage",
         "@id": "{BASE_URL}/wissen/{ind["slug"]}.html#webpage",
         "url": "{BASE_URL}/wissen/{ind["slug"]}.html",
-        "name": {repr(ind["title_full"])},
+        "name": {js(ind["title_full"])},
         "about": {{ "@id": "{BASE_URL}/wissen/{ind["slug"]}.html#condition" }},
         "audience": [{{ "@type": "PatientsAudience" }}],
         "lastReviewed": "2026-05-15",
@@ -804,7 +851,7 @@ def render_article(ind):
       }},
       {{
         "@type": "Article",
-        "headline": {repr(ind["title_full"])},
+        "headline": {js(ind["title_full"])},
         "datePublished": "2026-05-15",
         "dateModified": "2026-05-15",
         "author": {{ "@id": "https://rehab-five.com/#organization" }},
@@ -822,7 +869,7 @@ def render_article(ind):
         "itemListElement": [
           {{ "@type": "ListItem", "position": 1, "name": "Startseite", "item": "{BASE_URL}/" }},
           {{ "@type": "ListItem", "position": 2, "name": "Wissen", "item": "{BASE_URL}/wissen/" }},
-          {{ "@type": "ListItem", "position": 3, "name": {repr(ind["title_short"])}, "item": "{BASE_URL}/wissen/{ind["slug"]}.html" }}
+          {{ "@type": "ListItem", "position": 3, "name": {js(ind["title_short"])}, "item": "{BASE_URL}/wissen/{ind["slug"]}.html" }}
         ]
       }}
     ]
