@@ -1,0 +1,171 @@
+{
+  "title": "Wissen · Ernährung bei Diagnosen | REHAB FIVE NUTRITION",
+  "meta_desc": "Wissenschaftsbasierte Artikel zu Ernährung bei Reizdarm, Diabetes, Adipositas, Lipödem, Zöliakie & mehr. Mit Quellen, ohne Diät-Mythen — von REHAB FIVE NUTRITION Münster.",
+  "keywords": null,
+  "canonical": "https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/",
+  "robots": "noindex, nofollow",
+  "og_title": "Wissen · Ernährung bei Diagnosen | REHAB FIVE NUTRITION",
+  "og_desc": "Wissenschaftsbasierte Artikel zu Ernährung bei Reizdarm, Diabetes, Adipositas, Lipödem, Zöliakie & mehr.",
+  "og_url": null,
+  "og_image": "https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-1200.jpg",
+  "jsonld": [
+    "{\n    \"@context\": \"https://schema.org\",\n    \"@type\": \"CollectionPage\",\n    \"name\": \"Wissen — Ernährung bei Diagnosen\",\n    \"url\": \"https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/\",\n    \"description\": \"Wissenschaftsbasierte Artikel zu Ernährungstherapie bei verschiedenen Indikationen.\",\n    \"publisher\": { \"@type\": \"Organization\", \"name\": \"REHAB FIVE\", \"url\": \"https://rehab-five.com\" }\n  }"
+  ],
+  "breadcrumb": "Wissen",
+  "pill": "Wissensbibliothek",
+  "h1_html": "Ernährung bei<br>\n          <span class=\"text-brand-500\">21 Indikationen.</span>",
+  "sub": "Wissenschaftsbasierte Artikel mit FAQ, ICD-Codes, Therapie-Optionen und peer-reviewed Quellen — ohne Diät-Mythen. Aktualisiert nach aktuellen Leitlinien.",
+  "checks": [
+    "✓ Leitlinien-basiert",
+    "✓ Mit Quellenangaben",
+    "✓ Patient:innen-verständlich"
+  ],
+  "top": {
+    "eyebrow": "Top-Indikationen",
+    "titel": "Artikel mit voller Tiefe",
+    "text": "Diese Indikationen haben wir bereits ausführlich aufbereitet — inkl. Quick-Answer, 3-Phasen-Protokoll oder Therapie-Optionen, FAQ und 8–12 wissenschaftliche Quellen pro Artikel.",
+    "karten": [
+      {
+        "href": "reizdarm-syndrom-ernaehrung.html",
+        "icd": "ICD K58",
+        "quellen": "12 Quellen",
+        "titel": "Reizdarm-Syndrom & Ernährung",
+        "text": "Low-FODMAP, Probiotika, Stress-Achse — evidenzbasiert mit S3-Leitlinie & Meta-Analysen.",
+        "go": "Artikel lesen →"
+      },
+      {
+        "href": "adipositas-ernaehrungstherapie.html",
+        "icd": "ICD E66",
+        "quellen": "10 Quellen",
+        "titel": "Adipositas & Ernährungstherapie",
+        "text": "Nachhaltige Gewichtsregulation, S3-Leitlinie DAG, GLP-1 vs. Lifestyle — was wirklich wirkt.",
+        "go": "Artikel lesen →"
+      },
+      {
+        "href": "diabetes-typ-2-ernaehrung.html",
+        "icd": "ICD E11",
+        "quellen": "10 Quellen",
+        "titel": "Diabetes Typ 2 & Ernährung",
+        "text": "HbA1c senken durch Ernährung, mediterrane Kost, Low-Carb-Evidenz, DDG-Leitlinie.",
+        "go": "Artikel lesen →"
+      },
+      {
+        "href": "lipoedem-ernaehrung.html",
+        "icd": "ICD E88.2",
+        "quellen": "10 Quellen",
+        "titel": "Lipödem & Ernährung",
+        "text": "Anti-entzündliche Ernährung, ketogene Optionen, Begleittherapie — was Studien zeigen.",
+        "go": "Artikel lesen →"
+      },
+      {
+        "href": "zoeliakie-ernaehrung.html",
+        "icd": "ICD K90.0",
+        "quellen": "10 Quellen",
+        "titel": "Zöliakie & glutenfreie Ernährung",
+        "text": "Strenge Karenz, Kreuzkontamination, Mikronährstoff-Versorgung — DZG-Leitlinie.",
+        "go": "Artikel lesen →"
+      },
+      {
+        "href": "hypertonie-ernaehrung.html",
+        "icd": "ICD I10",
+        "quellen": "10 Quellen",
+        "titel": "Hypertonie & DASH-Ernährung",
+        "text": "Bluthochdruck senken über DASH, Salz-Reduktion, Kalium — was die ESH-Leitlinie sagt.",
+        "go": "Artikel lesen →"
+      },
+      {
+        "href": "fettleber-ernaehrung.html",
+        "icd": "ICD K76.0",
+        "quellen": "10 Quellen",
+        "titel": "Fettleber (NAFLD/MASLD)",
+        "text": "Fruktose, Mediterran, Gewichtsreduktion — wie sich die Leber innerhalb von Monaten erholt.",
+        "go": "Artikel lesen →"
+      }
+    ]
+  },
+  "weitere": {
+    "eyebrow": "Alle weiteren Indikationen",
+    "titel": "14 weitere Indikationen im Detail",
+    "text": "Kompaktere Artikel mit Quick-Answer, FAQ und 6 Quellen pro Indikation. Jeder Klick führt zum vollständigen evidenzbasierten Artikel mit ICD-Code und Quellen.",
+    "karten": [
+      {
+        "href": "untergewicht-mangelernaehrung.html",
+        "icd": "E43–46",
+        "titel": "Untergewicht / Mangelernährung"
+      },
+      {
+        "href": "dyslipoproteinaemien-ernaehrung.html",
+        "icd": "E78",
+        "titel": "Dyslipoproteinämien"
+      },
+      {
+        "href": "gicht-hyperurikaemie-ernaehrung.html",
+        "icd": "E79.0",
+        "titel": "Hyperurikämie / Gicht"
+      },
+      {
+        "href": "osteoporose-ernaehrung.html",
+        "icd": "M80–82",
+        "titel": "Osteoporose"
+      },
+      {
+        "href": "reflux-gerd-ernaehrung.html",
+        "icd": "K21",
+        "titel": "Reflux / GERD"
+      },
+      {
+        "href": "rheumatoide-arthritis-ernaehrung.html",
+        "icd": "M05–06",
+        "titel": "Rheumatoide Arthritis"
+      },
+      {
+        "href": "laktose-intoleranz-ernaehrung.html",
+        "icd": "E73",
+        "titel": "Laktose-Intoleranz"
+      },
+      {
+        "href": "fructose-malabsorption-ernaehrung.html",
+        "icd": "E74.1",
+        "titel": "Fructose-Malabsorption"
+      },
+      {
+        "href": "sorbit-intoleranz-ernaehrung.html",
+        "icd": "E74.3",
+        "titel": "Sorbit-Intoleranz"
+      },
+      {
+        "href": "pcos-endometriose-ernaehrung.html",
+        "icd": "E28.2 / N80",
+        "titel": "PCOS / Endometriose"
+      },
+      {
+        "href": "schwangerschaft-stillzeit-ernaehrung.html",
+        "icd": "Z32–39",
+        "titel": "Schwangerschaft & Stillzeit"
+      },
+      {
+        "href": "sport-performance-ernaehrung.html",
+        "icd": "Sport",
+        "titel": "Sport- & Performance-Ernährung"
+      },
+      {
+        "href": "wechseljahre-ernaehrung.html",
+        "icd": "N95",
+        "titel": "Wechseljahre"
+      },
+      {
+        "href": "vegan-vegetarisch-ernaehrung.html",
+        "icd": "Vegan",
+        "titel": "Vegane / vegetarische Ernährung"
+      }
+    ]
+  },
+  "cta": {
+    "titel": "Deine Indikation ist nicht dabei?",
+    "text": "Wir beraten zu über 50 Indikationen evidenzbasiert. Frag uns einfach im Kennenlern-Call.",
+    "knopf": {
+      "href": "../#anmelden",
+      "text": "Gratis Kennenlern-Call"
+    }
+  }
+}

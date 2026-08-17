@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<!-- CookieFirst Consent Banner -->
+<!-- CookieFirst Consent Banner (muss erstes Element im <head> sein) -->
 <script src="https://consent.cookiefirst.com/sites/ads.rehab-five.com-c57f4a38-bb6e-4ba0-8ad3-2bd4c7fcbab2/consent.js"></script>
+<!-- Google Analytics 4 — wird erst nach Consent aktiviert -->
 <script type="text/plain" data-cookiefirst-category="performance" async src="https://www.googletagmanager.com/gtag/js?id=G-C75C9ZMSEJ"></script>
 <script type="text/plain" data-cookiefirst-category="performance">
 window.dataLayer = window.dataLayer || [];
@@ -14,18 +15,14 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
   <title>Reizdarm & Ernährung: Was wirklich hilft (Low-FODMAP & mehr) | REHAB FIVE NUTRITION</title>
   <meta name="description" content="Reizdarm-Syndrom (ICD K58): Wie Ernährung Beschwerden lindern kann. Low-FODMAP, Eliminationsdiät, Probiotika — evidenzbasiert erklärt. Ernährungsberatung Münster bei REHAB FIVE NUTRITION." />
   <meta name="keywords" content="Reizdarm Ernährung, Reizdarm-Syndrom, Low-FODMAP, FODMAP-Diät, Reizdarm Münster, RDS Ernährungsberatung, Reizdarm Therapie, IBS Ernährung, Reizdarmsyndrom Behandlung" />
-  <meta name="author" content="REHAB FIVE NUTRITION" />
-  <!-- Vorschau: bis die Domain entschieden ist, darf Google diese Seite nicht indexieren.
-     Sonst landet die GitHub-Pages-URL im Index und laesst sich spaeter nicht umleiten.
-     tools/set_domain.py setzt das beim Go-live automatisch zurueck. -->
-<meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#1F342D" />
-  <meta name="geo.region" content="DE-NW" />
-  <meta name="geo.placename" content="Münster" />
+  <meta name="author" content="REHAB FIVE GmbH" />
+  <!-- Vorschau: bis die Domain entschieden ist, darf Google diese Seite nicht
+       indexieren. tools/set_domain.py setzt das beim Go-live zurueck. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#121815" />
   <link rel="canonical" href="https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html" />
 
   <meta property="og:type" content="article" />
@@ -36,53 +33,18 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
   <meta property="og:url" content="https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/reizdarm-syndrom-ernaehrung.html" />
   <meta property="og:image" content="https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-2-1200.jpg" />
 
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="../fonts.css" />
-<script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink:    { 50:'#FAFAFA', 100:'#F5F5F5', 200:'#C9C9C9', 700:'#4A4A4A', 900:'#1A1A1A' },
-            forest: { 700:'#1F342D', 800:'#172620', 900:'#101A16' },
-            brand:  { 100:'#FBF1E0', 500:'#D99129', 600:'#C57F1F', 700:'#A66819' },
-            accent: { 500:'#D99129' }
-          },
-          fontFamily: { sans: ['Barlow','system-ui','sans-serif'] },
-          boxShadow: { card: '0 4px 24px -8px rgba(26,26,26,0.10)' }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', system-ui, sans-serif; -webkit-font-smoothing: antialiased; color:#1A1A1A; }
-    .display { font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; }
-    .eyebrow { font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
-    .gradient-hero {
-      background:
-        radial-gradient(60% 50% at 80% 15%, rgba(217,145,41,0.22), transparent 60%),
-        linear-gradient(180deg, #1F342D 0%, #172620 100%);
-    }
-    .prose-r5 { font-size: 1.05rem; line-height: 1.7; color:#1A1A1A; }
-    .prose-r5 h2 { font-size: 1.6rem; font-weight: 700; color:#1F342D; margin: 2.2rem 0 0.8rem; line-height: 1.25; }
-    .prose-r5 h3 { font-size: 1.2rem; font-weight: 700; color:#1F342D; margin: 1.6rem 0 0.6rem; }
-    .prose-r5 p { margin: 0 0 1.1rem; }
-    .prose-r5 ul { margin: 0 0 1.1rem 1.2rem; }
-    .prose-r5 ul li { list-style: disc; margin-bottom: 0.35rem; padding-left: 0.2rem; }
-    .prose-r5 ol { margin: 0 0 1.1rem 1.2rem; }
-    .prose-r5 ol li { list-style: decimal; margin-bottom: 0.35rem; padding-left: 0.2rem; }
-    .prose-r5 a { color:#A66819; text-decoration: underline; text-underline-offset: 2px; }
-    .prose-r5 a:hover { text-decoration: none; }
-    .prose-r5 strong { color:#1F342D; }
-    details[open] > summary .chev { transform: rotate(180deg); }
-    .chev { transition: transform .2s ease; }
-  </style>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-  <!-- =========================================
-       SCHEMA.ORG JSON-LD
-       ========================================= -->
+  <!-- Fonts: Archivo trägt das Display-Lockup des Health-Club-Layouts,
+       Barlow bleibt als CI-Schrift für den Fließtext. -->
+  <link rel="stylesheet" href="../fonts.css" />
+  <link rel="stylesheet" href="../css/seite.css" />
+  <link rel="stylesheet" href="../css/wissen.css" />
+  <script>document.documentElement.classList.add('js')</script>
+  <script async src="https://cdn.docmedico-rezeption.de/j9u4c9m7a/reception_embed.js"></script>
+
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -322,136 +284,85 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
     }
   ]
 }
-</script>
-  <script async src="https://cdn.docmedico-rezeption.de/j9u4c9m7a/reception_embed.js"></script>
+  </script>
 </head>
+<body class="page">
 
-<body class="bg-white text-ink-900 antialiased">
+<a href="#inhalt" class="sr">Zum Inhalt springen</a>
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ink-900 focus:text-white focus:px-4 focus:py-2 focus:rounded">Zum Inhalt springen</a>
+<header class="page-top">
+  <a class="wordmark" href="../index.html" aria-label="REHAB FIVE NUTRITION Startseite">
+    <img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE" width="3000" height="643">
+    <span>Nutrition</span>
+  </a>
+  <nav class="page-nav" aria-label="Hauptbereiche">
+    <a href="../programme.html">Programme</a>
+    <a href="../team.html">Team</a>
+    <a href="../unternehmen.html">Unternehmen</a>
+    <a href="../standort.html">Standort</a>
+    <a href="./" aria-current="page">Wissen</a>
+    <a href="../programme.html?dmropen=1" class="ist-cta">Erstgespräch</a>
+  </nav>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Menü öffnen">
+    <span></span><span></span>
+  </button>
+</header>
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-      <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-7 w-auto" />
-        <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span>
-      </a>
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
-        <a href="../#programme" class="hover:text-white">Programme</a>
-        <a href="../#ablauf" class="hover:text-white">Ablauf</a>
-        <a href="../#preise" class="hover:text-white">Preise</a>
-        <a href="./" class="hover:text-white text-white font-semibold">Wissen</a>
-        <a href="../#standort" class="hover:text-white">Standort</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="../#anmelden" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-sm px-4 py-2 transition shadow-lg shadow-brand-500/20">Erstgespräch</a>
-        <button class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition" aria-label="Menü öffnen" aria-expanded="false" data-mobile-toggle>
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-icon-menu><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-icon-close><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
+<nav class="drawer" id="drawer" aria-label="Menü">
+  <a href="../programme.html">Programme</a>
+  <a href="../team.html">Team</a>
+  <a href="../unternehmen.html">Unternehmen</a>
+  <a href="../standort.html">Standort</a>
+  <a href="./">Wissen</a>
+  <a href="../programme.html?dmropen=1">Erstgespräch sichern</a>
+  <p class="drawer__foot">Weseler Straße 71 · 48151 Münster<br>0251 74788 200 · info@rehab-five.com</p>
+</nav>
+
+<section class="masthead" data-abschnitt>
+  <div class="masthead__inner">
+    <p class="krume"><a href="../">Startseite</a> · <a href="./">Wissen</a> · <span>Reizdarm & Ernährung</span></p>
+    <p class="icd rv">Indikation · ICD-10 K58</p>
+    <h1 class="hl hl--klein">
+    <span class="hl__line">Reizdarm &amp;</span>
+    <span class="hl__line">Ernährung:</span>
+    <span class="hl__line">Was wirklich</span>
+    <span class="hl__line">hilft.</span>
+    </h1>
+    <p class="lede lede--breit rv">Low-FODMAP, Eliminationsdiät, Probiotika — wir ordnen die Ernährungs-Optionen beim Reizdarm-Syndrom evidenzbasiert ein. Mit Quellen, ohne Versprechen.</p>
+    <p class="artmeta rv"><span>📅 Stand: 15. Mai 2026</span><span>⏱ 8 Min Lesezeit</span><span>🔬 12 wissenschaftliche Quellen</span></p>
+  </div>
+</section>
+
+<main id="inhalt">
+
+<div class="artbody">
+  <article class="prose" data-abschnitt>
+    <div class="tldr rv">
+      <p class="tldr__label">Kurz & Knapp</p>
+      <p>Bei <strong>Reizdarm-Syndrom (ICD K58)</strong> ist die <strong>Low-FODMAP-Diät</strong> die am besten belegte Ernährungsstrategie — laut S3-Leitlinie der DGVS (2021). 50–75 % der Betroffenen erleben in Studien eine deutliche Symptomverbesserung. Wichtig: Low-FODMAP ist <strong>kein Dauer-Verzicht</strong>, sondern ein 3-Phasen-Protokoll (Restriktion, Reintroduktion, Personalisierung) — und sollte <strong>ernährungstherapeutisch begleitet</strong> werden. Die Krankenkasse erstattet die Beratung mit ärztlicher Bescheinigung typischerweise zu 80 %.</p>
     </div>
-    <div class="hidden lg:hidden bg-forest-800 border-t border-forest-900" data-mobile-menu>
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 grid grid-cols-2 gap-x-4 gap-y-1 text-sm font-medium text-white/85">
-        <a href="../#programme" class="block py-2 hover:text-brand-500" data-mobile-link>Programme</a>
-        <a href="../#konzept" class="block py-2 hover:text-brand-500" data-mobile-link>Konzept</a>
-        <a href="../#ablauf" class="block py-2 hover:text-brand-500" data-mobile-link>Ablauf</a>
-        <a href="../#indikationen" class="block py-2 hover:text-brand-500" data-mobile-link>Indikationen</a>
-        <a href="../#preise" class="block py-2 hover:text-brand-500" data-mobile-link>Preise</a>
-        <a href="./" class="block py-2 hover:text-brand-500 text-brand-500" data-mobile-link>Wissen</a>
-        <a href="../#standort" class="block py-2 hover:text-brand-500" data-mobile-link>Standort</a>
-        <a href="../#faq" class="block py-2 hover:text-brand-500" data-mobile-link>FAQ</a>
-        <a href="tel:+4925174788200" class="block py-2 col-span-2 mt-2 border-t border-white/10 pt-3 text-white font-semibold hover:text-brand-500">📞 0251 74788 200 anrufen</a>
-        <a href="../#anmelden" class="block sm:hidden py-3 col-span-2 mt-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-center" data-mobile-link>Erstgespräch sichern</a>
-      </nav>
-    </div>
-  </header>
-  <script>(function(){var b=document.querySelector('[data-mobile-toggle]');var m=document.querySelector('[data-mobile-menu]');if(!b||!m)return;var im=b.querySelector('[data-icon-menu]');var ic=b.querySelector('[data-icon-close]');function s(o){m.classList.toggle('hidden',!o);im.classList.toggle('hidden',o);ic.classList.toggle('hidden',!o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen');}b.addEventListener('click',function(){s(m.classList.contains('hidden'));});m.querySelectorAll('[data-mobile-link]').forEach(function(a){a.addEventListener('click',function(){s(false);});});})();</script>
 
-  <main id="main">
+  <h2 id="was-ist-rds">Was ist das Reizdarm-Syndrom?</h2>
 
-    <!-- HERO -->
-    <section class="gradient-hero text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
-        <!-- Breadcrumb -->
-        <nav aria-label="Breadcrumb" class="text-xs text-white/60">
-          <a href="../" class="hover:text-brand-500">Startseite</a>
-          <span class="mx-1.5">›</span>
-          <a href="./" class="hover:text-brand-500">Wissen</a>
-          <span class="mx-1.5">›</span>
-          <span class="text-white/85">Reizdarm & Ernährung</span>
-        </nav>
-
-        <p class="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 bg-brand-500/10 ring-1 ring-brand-500/30 rounded-full px-3 py-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-          Indikation · ICD-10 K58
-        </p>
-        <h1 class="display mt-5 text-3xl md:text-5xl leading-[1.05]">
-          Reizdarm & Ernährung:<br>
-          <span class="text-brand-500">Was wirklich hilft.</span>
-        </h1>
-        <p class="mt-5 text-lg text-white/85 max-w-2xl">
-          Low-FODMAP, Eliminationsdiät, Probiotika — wir ordnen die Ernährungs-Optionen beim Reizdarm-Syndrom evidenzbasiert ein. Mit Quellen, ohne Versprechen.
-        </p>
-        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/60">
-          <span>📅 Stand: 15. Mai 2026</span>
-          <span>⏱ 8 Min Lesezeit</span>
-          <span>🔬 12 wissenschaftliche Quellen</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUICK ANSWER BOX -->
-    <section class="bg-ink-50 border-b border-ink-100">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12">
-        <div class="rounded-2xl bg-white ring-1 ring-ink-100 shadow-card p-6 md:p-8 border-l-4 border-brand-500">
-          <p class="eyebrow text-xs text-brand-600">Kurz & Knapp</p>
-          <p class="mt-3 text-lg md:text-xl text-ink-900 leading-relaxed">
-            Bei <strong>Reizdarm-Syndrom (ICD K58)</strong> ist die <strong>Low-FODMAP-Diät</strong> die am besten belegte Ernährungsstrategie — laut S3-Leitlinie der DGVS (2021). 50–75 % der Betroffenen erleben in Studien eine deutliche Symptomverbesserung. Wichtig: Low-FODMAP ist <strong>kein Dauer-Verzicht</strong>, sondern ein 3-Phasen-Protokoll (Restriktion, Reintroduktion, Personalisierung) — und sollte <strong>ernährungstherapeutisch begleitet</strong> werden. Die Krankenkasse erstattet die Beratung mit ärztlicher Bescheinigung typischerweise zu 80 %.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTENT -->
-    <article class="prose-r5">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-
-        <!-- TOC -->
-        <nav aria-label="Inhalt" class="rounded-2xl bg-ink-50 ring-1 ring-ink-100 p-6 mb-10 text-sm">
-          <p class="text-xs font-semibold uppercase tracking-wider text-brand-600 mb-3">Inhalt</p>
-          <ol class="grid sm:grid-cols-2 gap-y-1.5 gap-x-6 list-decimal list-inside text-ink-900">
-            <li><a href="#was-ist-rds" class="hover:text-brand-700">Was ist Reizdarm-Syndrom?</a></li>
-            <li><a href="#diagnose" class="hover:text-brand-700">Diagnose & Abklärung</a></li>
-            <li><a href="#low-fodmap" class="hover:text-brand-700">Low-FODMAP: Die Evidenz-Basis</a></li>
-            <li><a href="#protokoll" class="hover:text-brand-700">Das 3-Phasen-Protokoll</a></li>
-            <li><a href="#probiotika" class="hover:text-brand-700">Probiotika & Ballaststoffe</a></li>
-            <li><a href="#fehler" class="hover:text-brand-700">Häufige Fehler</a></li>
-            <li><a href="#beratung" class="hover:text-brand-700">Wann ärztlich abklären?</a></li>
-            <li><a href="#faq" class="hover:text-brand-700">FAQ</a></li>
-            <li><a href="#quellen" class="hover:text-brand-700">Wissenschaftliche Quellen</a></li>
-          </ol>
-        </nav>
-
-        <h2 id="was-ist-rds">Was ist das Reizdarm-Syndrom?</h2>
-        <p>
+<p>
           Das Reizdarm-Syndrom (RDS, im Englischen <em>Irritable Bowel Syndrome / IBS</em>, ICD-10 K58) ist eine <strong>funktionelle Darmerkrankung</strong>: Der Darm reagiert überempfindlich, ohne dass eine strukturelle oder entzündliche Veränderung nachweisbar wäre. Typische Symptome sind <strong>Bauchschmerzen, Blähungen, Stuhlunregelmäßigkeiten</strong> (Durchfall, Verstopfung oder beides im Wechsel) und das Gefühl der unvollständigen Entleerung.
         </p>
         <p>
           In Deutschland sind je nach Studie <strong>10–15 % der Erwachsenen</strong> betroffen, Frauen häufiger als Männer. Die Ursachen sind multifaktoriell — beteiligt sind Darm-Hirn-Achse, Mikrobiom, Schleimhautempfindlichkeit, Stress und genetische Faktoren <a href="#q1">[1]</a><a href="#q2">[2]</a>.
         </p>
 
-        <h2 id="diagnose">Diagnose & ärztliche Abklärung — bevor du isst</h2>
-        <p>
+  <h2 id="diagnose">Diagnose & ärztliche Abklärung — bevor du isst</h2>
+
+<p>
           <strong>Wichtig vorweg:</strong> Bevor du eine Reizdarm-Diät startest, sollten andere Erkrankungen ärztlich ausgeschlossen sein — insbesondere <strong>Zöliakie</strong> (per Antikörpertest), <strong>chronisch-entzündliche Darmerkrankungen</strong> (Morbus Crohn, Colitis ulcerosa), Laktose-, Fructose- oder Sorbit-Intoleranzen (per H2-Atemtest) und ggf. Schilddrüsenstörungen.
         </p>
         <p>
           Die Reizdarm-Diagnose stellt deine Ärztin / dein Arzt nach den <strong>Rom-IV-Kriterien</strong>: wiederkehrende Bauchschmerzen an mindestens einem Tag pro Woche über die letzten 3 Monate, in Verbindung mit Stuhlgang und/oder Stuhlveränderungen <a href="#q3">[3]</a>.
         </p>
 
-        <h2 id="low-fodmap">Low-FODMAP: Die am besten belegte Ernährungsstrategie</h2>
-        <p>
+  <h2 id="low-fodmap">Low-FODMAP: Die am besten belegte Ernährungsstrategie</h2>
+
+<p>
           FODMAP steht für <strong>Fermentable Oligo-, Di-, Mono-saccharides And Polyols</strong> — kurzkettige Kohlenhydrate, die im Dünndarm schlecht aufgenommen werden, in den Dickdarm gelangen und dort von Bakterien fermentiert werden. Das Ergebnis: <strong>Gase, osmotischer Wassereinstrom, Druck auf die empfindliche Darmwand</strong>.
         </p>
         <p>
@@ -465,8 +376,9 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
           <li><strong>Whelan et al. 2018</strong> (J Hum Nutr Diet): 50–75 % der Patient:innen profitieren — Effekt hält bei langfristiger Personalisierung an <a href="#q7">[7]</a>.</li>
         </ul>
 
-        <h2 id="protokoll">Das 3-Phasen-Protokoll</h2>
-        <p>Low-FODMAP ist <strong>keine Dauer-Diät</strong>, sondern ein strukturierter, dreistufiger Diagnose- und Therapieprozess.</p>
+  <h2 id="protokoll">Das 3-Phasen-Protokoll</h2>
+
+<p>Low-FODMAP ist <strong>keine Dauer-Diät</strong>, sondern ein strukturierter, dreistufiger Diagnose- und Therapieprozess.</p>
 
         <h3>Phase 1 · Restriktion (4–6 Wochen)</h3>
         <p>
@@ -483,8 +395,9 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
           Du isst eine möglichst breite, „mild-FODMAP-bewusste" Ernährung — basierend auf deinem persönlichen Verträglichkeits-Profil. Strikte Low-FODMAP-Restriktion auf Dauer ist <strong>nicht empfohlen</strong>: Sie verarmt das Mikrobiom und kann selbst neue Beschwerden auslösen <a href="#q8">[8]</a>.
         </p>
 
-        <h2 id="probiotika">Probiotika, Ballaststoffe & weitere Strategien</h2>
-        <p>
+  <h2 id="probiotika">Probiotika, Ballaststoffe & weitere Strategien</h2>
+
+<p>
           <strong>Probiotika:</strong> Bestimmte Stämme zeigen moderate Effekte. Am besten belegt: <em>Bifidobacterium infantis 35624</em> und <em>Lactobacillus plantarum 299v</em> <a href="#q9">[9]</a>. Wenn keine Besserung nach 8 Wochen — wieder absetzen.
         </p>
         <p>
@@ -497,8 +410,9 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
           <strong>Stressmanagement & Schlaf:</strong> Die Darm-Hirn-Achse ist beim Reizdarm zentral. Achtsamkeitsbasierte Verfahren, Yoga, Hypnotherapie und kognitive Verhaltenstherapie haben in RCTs nachgewiesene Effekte <a href="#q12">[12]</a>.
         </p>
 
-        <h2 id="fehler">Die 5 häufigsten Fehler bei Reizdarm-Ernährung</h2>
-        <ol>
+  <h2 id="fehler">Die 5 häufigsten Fehler bei Reizdarm-Ernährung</h2>
+
+<ol>
           <li><strong>Eigentherapie ohne Diagnose:</strong> Wer Gluten oder Laktose meidet, ohne Zöliakie ausgeschlossen zu haben, riskiert eine spätere Fehldiagnose und unnötige Dauer-Restriktionen.</li>
           <li><strong>Low-FODMAP für immer:</strong> Phase 1 ist kein Lifestyle. Wer dauerhaft restriktiv isst, verarmt das Mikrobiom und verschärft langfristig Symptome.</li>
           <li><strong>Reintroduktion überspringen:</strong> Ohne strukturierte Wiedereinführung weißt du nicht, was du <em>wirklich</em> nicht verträgst — und meidest mehr als nötig.</li>
@@ -506,8 +420,9 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
           <li><strong>Stress unterschätzen:</strong> Selbst die perfekte Ernährung wirkt wenig, wenn die Darm-Hirn-Achse im Dauerstress steht.</li>
         </ol>
 
-        <h2 id="beratung">Wann professionelle Begleitung sinnvoll ist</h2>
-        <p>
+  <h2 id="beratung">Wann professionelle Begleitung sinnvoll ist</h2>
+
+<p>
           Spätestens, wenn du das Low-FODMAP-Protokoll seriös durchlaufen willst, lohnt sich eine <strong>begleitete Ernährungstherapie</strong>. Eine Ernährungsberaterin / ein Ernährungsberater hilft dir bei:
         </p>
         <ul>
@@ -520,151 +435,212 @@ gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
         <p>
           Bei Reizdarm-Diagnose (ICD K58) ist die Beratung mit <strong>ärztlicher Notwendigkeitsbescheinigung über §43 SGB V erstattungsfähig</strong> — die gesetzliche Kasse übernimmt typischerweise 80 %.
         </p>
+  </article>
 
-      </div>
-    </article>
-
-    <!-- CTA Block -->
-    <section class="bg-forest-700 text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 md:p-8 grid md:grid-cols-[1.2fr_1fr] gap-8 items-center">
-          <div>
-            <p class="eyebrow text-xs text-brand-500">Ernährungsberatung bei Reizdarm</p>
-            <h2 class="display mt-3 text-2xl md:text-3xl">Bereit, dein Low-FODMAP strukturiert anzugehen?</h2>
-            <p class="mt-3 text-white/85">Buche dir ein unverbindliches 15-Min-Kennenlern-Gespräch — wir schauen gemeinsam, ob eine begleitete Ernährungstherapie für dich passt. Bei Reizdarm-Diagnose erstattet die Kasse typischerweise 80 % der Folgekosten.</p>
-          </div>
-          <div class="flex flex-col gap-3">
-            <a href="../#anmelden" class="inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold px-6 py-3.5 text-base transition shadow-lg shadow-brand-500/20">Gratis Kennenlern-Call</a>
-            <a href="../kassen-check-rehab-five.pdf" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold px-6 py-3.5 text-base ring-1 ring-white/20 transition">Kassen-Check PDF (5 Seiten)</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="bg-forest-700 text-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <p class="eyebrow text-sm text-brand-500">Häufige Fragen</p>
-        <h2 class="display mt-3 text-3xl md:text-4xl">Reizdarm & Ernährung — kurz erklärt.</h2>
-
-        <div class="mt-10 space-y-3">
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">
-              Hilft Low-FODMAP bei Reizdarm wirklich?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3 text-ink-700">Ja. Low-FODMAP gehört laut S3-Leitlinie der DGVS (2021) zu den am besten belegten Ernährungsstrategien beim Reizdarm-Syndrom. In klinischen Studien zeigen 50–75 % der Betroffenen eine deutliche Symptomverbesserung. Wichtig: Die Diät ist dreistufig (Restriktion, Reintroduktion, Personalisierung) und sollte ernährungstherapeutisch begleitet werden.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">
-              Wie lange dauert eine Low-FODMAP-Diät?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3 text-ink-700">Die Restriktionsphase dauert typischerweise 4–6 Wochen. Anschließend folgt die strukturierte Reintroduktion über 6–10 Wochen. Insgesamt dauert das vollständige Protokoll etwa 3–4 Monate, bis du deine individuelle Toleranz kennst.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">
-              Helfen Probiotika bei Reizdarm?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3 text-ink-700">Studienlage gemischt. Bestimmte Stämme (Bifidobacterium infantis 35624, Lactobacillus plantarum 299v) zeigen in Meta-Analysen moderate Effekte. 8 Wochen Test reichen, um zu sehen, ob sie bei dir wirken — sonst wieder absetzen.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">
-              Übernimmt die Krankenkasse Ernährungsberatung bei Reizdarm?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3 text-ink-700">Ja. Reizdarm-Syndrom (ICD K58) ist eine erstattungsfähige Indikation nach §43 SGB V. Mit ärztlicher Notwendigkeitsbescheinigung übernehmen die gesetzlichen Kassen typischerweise 80 %, einzelne bis 100 %. Wir helfen beim Antrag.</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">
-              Reizdarm oder Glutenunverträglichkeit — wie unterscheidet man?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3 text-ink-700">Zöliakie ist eine Autoimmunerkrankung mit nachweisbaren Antikörpern und Darmschleimhaut-Veränderungen — sie muss vor jeder Ernährungsumstellung ärztlich ausgeschlossen werden. Reizdarm ist funktionell. Manche Reizdarm-Betroffene reagieren trotzdem sensibel auf Weizen (NCWS).</p>
-          </details>
-          <details class="group rounded-xl bg-white ring-1 ring-ink-100 p-5 shadow-card">
-            <summary class="flex justify-between items-center cursor-pointer font-semibold text-lg list-none text-ink-900">
-              Kann man Reizdarm ohne Diät behandeln?
-              <span class="chev text-brand-600">▾</span>
-            </summary>
-            <p class="mt-3 text-ink-700">Ernährung ist eine wichtige Säule, aber nicht die einzige. Stressmanagement, Schlaf, Bewegung und manchmal Medikamente (Spasmolytika, Pfefferminzöl) ergänzen die Therapie. In der Beratung schauen wir auf das Gesamtbild.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- QUELLEN -->
-    <section id="quellen" class="bg-white border-t border-ink-100">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <p class="eyebrow text-xs text-brand-600">Wissenschaftliche Quellen</p>
-        <h2 class="display mt-3 text-2xl md:text-3xl" style="color:#1F342D">Quellen & weiterführende Literatur</h2>
-        <p class="mt-3 text-ink-700">Alle Empfehlungen auf dieser Seite basieren auf peer-reviewed Studien, internationalen Leitlinien und aktuellen Meta-Analysen. Stand: Mai 2026.</p>
-
-        <ol class="mt-8 space-y-4 text-sm text-ink-900 list-decimal list-inside">
-          <li id="q1"><strong>Lacy BE et al.</strong> (2016): „Bowel Disorders." Gastroenterology, 150(6):1393–1407. <a href="https://www.gastrojournal.org/article/S0016-5085(16)00222-5/fulltext" target="_blank" rel="noopener">Link</a></li>
-          <li id="q2"><strong>Enck P et al.</strong> (2016): „Irritable bowel syndrome." Nature Reviews Disease Primers, 2:16014. <a href="https://www.nature.com/articles/nrdp201614" target="_blank" rel="noopener">Link</a></li>
-          <li id="q3"><strong>Rome Foundation</strong>: Rome IV Criteria for Functional Bowel Disorders (2016). <a href="https://theromefoundation.org/rome-iv/" target="_blank" rel="noopener">theromefoundation.org</a></li>
-          <li id="q4"><strong>Halmos EP et al.</strong> (2014): „A diet low in FODMAPs reduces symptoms of irritable bowel syndrome." Gastroenterology, 146(1):67–75. <a href="https://www.gastrojournal.org/article/S0016-5085(13)01407-8/fulltext" target="_blank" rel="noopener">Link</a></li>
-          <li id="q5"><strong>DGVS S3-Leitlinie Reizdarmsyndrom</strong> (Update 2021): „Definition, Pathophysiologie, Diagnostik und Therapie des Reizdarmsyndroms." AWMF-Register 021/016. <a href="https://www.awmf.org/leitlinien/detail/ll/021-016.html" target="_blank" rel="noopener">awmf.org</a></li>
-          <li id="q6"><strong>Black CJ et al.</strong> (2022): „Efficacy of a low FODMAP diet in irritable bowel syndrome: systematic review and network meta-analysis." Gut, 71(6):1117–1126. <a href="https://gut.bmj.com/content/71/6/1117" target="_blank" rel="noopener">Link</a></li>
-          <li id="q7"><strong>Whelan K et al.</strong> (2018): „The low FODMAP diet in the management of irritable bowel syndrome: an evidence-based review of FODMAP restriction, reintroduction and personalisation in clinical practice." J Hum Nutr Diet, 31(2):239–255. <a href="https://onlinelibrary.wiley.com/doi/10.1111/jhn.12530" target="_blank" rel="noopener">Link</a></li>
-          <li id="q8"><strong>Staudacher HM et al.</strong> (2017): „Mechanisms and efficacy of dietary FODMAP restriction in IBS." Nat Rev Gastroenterol Hepatol, 14(8):506–514. <a href="https://www.nature.com/articles/nrgastro.2017.75" target="_blank" rel="noopener">Link</a></li>
-          <li id="q9"><strong>Ford AC et al.</strong> (2018): „Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, synbiotics and antibiotics in irritable bowel syndrome." Aliment Pharmacol Ther, 48(10):1044–1060. <a href="https://onlinelibrary.wiley.com/doi/10.1111/apt.15001" target="_blank" rel="noopener">Link</a></li>
-          <li id="q10"><strong>Moayyedi P et al.</strong> (2014): „The effect of fiber supplementation on irritable bowel syndrome." Am J Gastroenterol, 109(9):1367–1374. <a href="https://journals.lww.com/ajg/Fulltext/2014/09000/The_Effect_of_Fiber_Supplementation_on_Irritable.13.aspx" target="_blank" rel="noopener">Link</a></li>
-          <li id="q11"><strong>Khanna R et al.</strong> (2014): „Peppermint oil for the treatment of irritable bowel syndrome: a systematic review and meta-analysis." J Clin Gastroenterol, 48(6):505–512. <a href="https://journals.lww.com/jcge/Abstract/2014/07000/Peppermint_Oil_for_the_Treatment_of_Irritable.4.aspx" target="_blank" rel="noopener">Link</a></li>
-          <li id="q12"><strong>Ford AC et al.</strong> (2019): „Effect of antidepressants and psychological therapies in irritable bowel syndrome: an updated systematic review and meta-analysis." Am J Gastroenterol, 114(1):21–39. <a href="https://journals.lww.com/ajg/Fulltext/2019/01000/Effect_of_Antidepressants_and_Psychological.10.aspx" target="_blank" rel="noopener">Link</a></li>
-        </ol>
-
-        <div class="mt-10 rounded-xl bg-ink-50 ring-1 ring-ink-100 p-5 text-xs text-ink-700">
-          <p><strong>Medizinischer Disclaimer:</strong> Diese Seite dient ausschließlich der Information und ersetzt keine ärztliche Diagnose, Beratung oder Therapie. Bei anhaltenden Beschwerden konsultiere bitte deine Hausärztin / deinen Hausarzt oder eine gastroenterologische Fachpraxis. Eine Reizdarm-Diagnose sollte stets nach Ausschluss anderer Ursachen erfolgen.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VERWANDTE INDIKATIONEN -->
-    <section class="bg-ink-50 border-t border-ink-100">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <p class="eyebrow text-xs text-brand-600">Verwandte Indikationen</p>
-        <h2 class="display mt-3 text-2xl md:text-3xl" style="color:#1F342D">Auch interessant für dich</h2>
-        <div class="mt-8 grid md:grid-cols-3 gap-4">
-          <a href="./" class="group rounded-2xl bg-white ring-1 ring-ink-100 p-5 hover:ring-brand-500/40 hover:shadow-lg transition flex flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1 w-max">In Kürze</p>
-            <h3 class="mt-3 font-bold text-base group-hover:text-brand-700" style="color:#1F342D">Zöliakie & Ernährung</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Glutenfreie Ernährung — was die Leitlinie sagt.</p>
-          </a>
-          <a href="./" class="group rounded-2xl bg-white ring-1 ring-ink-100 p-5 hover:ring-brand-500/40 hover:shadow-lg transition flex flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1 w-max">In Kürze</p>
-            <h3 class="mt-3 font-bold text-base group-hover:text-brand-700" style="color:#1F342D">Laktose-Intoleranz</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Diagnostik, Karenz, Reintroduktion.</p>
-          </a>
-          <a href="./" class="group rounded-2xl bg-white ring-1 ring-ink-100 p-5 hover:ring-brand-500/40 hover:shadow-lg transition flex flex-col">
-            <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1 w-max">In Kürze</p>
-            <h3 class="mt-3 font-bold text-base group-hover:text-brand-700" style="color:#1F342D">Fructose-Malabsorption</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">H2-Atemtest und 3-Stufen-Protokoll.</p>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-forest-700 text-white/85 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-10">
-      <div class="md:col-span-2"><img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-8 w-auto" /><p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht.</p></div>
-      <div><h3 class="text-white font-semibold">Standort</h3><address class="not-italic mt-3 space-y-3 text-white/80"><div>Weseler Straße 71<br>48151 Münster</div><a href="tel:+4925174788200" class="block text-white hover:text-brand-500">0251 74788 200</a><a href="mailto:info@rehab-five.com" class="block text-white hover:text-brand-500">info@rehab-five.com</a></address></div>
-      <div><h3 class="text-white font-semibold">Rechtliches</h3><ul class="mt-3 space-y-2 text-white/80"><li><a href="../impressum.html" class="hover:text-brand-500">Impressum</a></li><li><a href="../datenschutz.html" class="hover:text-brand-500">Datenschutz</a></li></ul></div>
+  <aside class="artside" data-abschnitt>
+    <nav class="toc" aria-label="Inhalt">
+      <p class="toc__h">Inhalt</p>
+      <ol class="toc__l">
+        <li><a href="#was-ist-rds">Was ist Reizdarm-Syndrom?</a></li>
+        <li><a href="#diagnose">Diagnose & Abklärung</a></li>
+        <li><a href="#low-fodmap">Low-FODMAP: Die Evidenz-Basis</a></li>
+        <li><a href="#protokoll">Das 3-Phasen-Protokoll</a></li>
+        <li><a href="#probiotika">Probiotika & Ballaststoffe</a></li>
+        <li><a href="#fehler">Häufige Fehler</a></li>
+        <li><a href="#beratung">Wann ärztlich abklären?</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#quellen">Wissenschaftliche Quellen</a></li>
+      </ol>
+    </nav>
+    <div class="artcard rv">
+      <p class="artcard__h">Ernährungsberatung bei Reizdarm</p>
+      <p class="artcard__t">Buche dir ein unverbindliches 15-Min-Kennenlern-Gespräch — wir schauen gemeinsam, ob eine begleitete Ernährungstherapie für dich passt. Bei Reizdarm-Diagnose erstattet die Kasse typischerweise 80 % der Folgekosten.</p>
+      <ul class="artcard__l">
+        <li><a href="../programme.html#anmelden">Gratis Kennenlern-Call</a></li>
+        <li><a href="../kassen-check-rehab-five.pdf" target="_blank" rel="noopener">Kassen-Check PDF (5 Seiten)</a></li>
+      </ul>
     </div>
-    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-xs flex flex-wrap items-center justify-between gap-3 text-white/60"><p>© <span id="y"></span> REHAB FIVE.</p><p>Made in Münster</p></div></div>
-  </footer>
+  </aside>
+</div>
 
-  <!-- Sticky Mobile CTA -->
-  <div class="md:hidden fixed bottom-3 inset-x-3 z-30 flex gap-2">
-    <a href="tel:+4925174788200" class="flex-1 inline-flex items-center justify-center rounded-xl bg-white ring-1 ring-ink-200 text-ink-900 font-semibold px-4 py-3 shadow-card">Anrufen</a>
-    <a href="../#anmelden" class="flex-[1.4] inline-flex items-center justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-3 shadow-card">Erstgespräch</a>
+<section class="abschnitt abschnitt--eng" id="faq" data-abschnitt>
+  <div class="kopfzeile">
+    <p class="kicker rv">Häufige Fragen</p>
+    <h2 class="hl hl--klein">
+      <span class="hl__line">Reizdarm &amp;</span>
+      <span class="hl__line">Ernährung — kurz</span>
+      <span class="hl__line">erklärt.</span>
+    </h2>
+  </div>
+  <div class="faq__list rv">
+      <details>
+        <summary>Hilft Low-FODMAP bei Reizdarm wirklich?</summary>
+        <p class="faq__a">Ja. Low-FODMAP gehört laut S3-Leitlinie der DGVS (2021) zu den am besten belegten Ernährungsstrategien beim Reizdarm-Syndrom. In klinischen Studien zeigen 50–75 % der Betroffenen eine deutliche Symptomverbesserung. Wichtig: Die Diät ist dreistufig (Restriktion, Reintroduktion, Personalisierung) und sollte ernährungstherapeutisch begleitet werden.</p>
+      </details>
+      <details>
+        <summary>Wie lange dauert eine Low-FODMAP-Diät?</summary>
+        <p class="faq__a">Die Restriktionsphase dauert typischerweise 4–6 Wochen. Anschließend folgt die strukturierte Reintroduktion über 6–10 Wochen. Insgesamt dauert das vollständige Protokoll etwa 3–4 Monate, bis du deine individuelle Toleranz kennst.</p>
+      </details>
+      <details>
+        <summary>Helfen Probiotika bei Reizdarm?</summary>
+        <p class="faq__a">Studienlage gemischt. Bestimmte Stämme (Bifidobacterium infantis 35624, Lactobacillus plantarum 299v) zeigen in Meta-Analysen moderate Effekte. 8 Wochen Test reichen, um zu sehen, ob sie bei dir wirken — sonst wieder absetzen.</p>
+      </details>
+      <details>
+        <summary>Übernimmt die Krankenkasse Ernährungsberatung bei Reizdarm?</summary>
+        <p class="faq__a">Ja. Reizdarm-Syndrom (ICD K58) ist eine erstattungsfähige Indikation nach §43 SGB V. Mit ärztlicher Notwendigkeitsbescheinigung übernehmen die gesetzlichen Kassen typischerweise 80 %, einzelne bis 100 %. Wir helfen beim Antrag.</p>
+      </details>
+      <details>
+        <summary>Reizdarm oder Glutenunverträglichkeit — wie unterscheidet man?</summary>
+        <p class="faq__a">Zöliakie ist eine Autoimmunerkrankung mit nachweisbaren Antikörpern und Darmschleimhaut-Veränderungen — sie muss vor jeder Ernährungsumstellung ärztlich ausgeschlossen werden. Reizdarm ist funktionell. Manche Reizdarm-Betroffene reagieren trotzdem sensibel auf Weizen (NCWS).</p>
+      </details>
+      <details>
+        <summary>Kann man Reizdarm ohne Diät behandeln?</summary>
+        <p class="faq__a">Ernährung ist eine wichtige Säule, aber nicht die einzige. Stressmanagement, Schlaf, Bewegung und manchmal Medikamente (Spasmolytika, Pfefferminzöl) ergänzen die Therapie. In der Beratung schauen wir auf das Gesamtbild.</p>
+      </details>
+  </div>
+</section>
+
+<section class="quellen" data-abschnitt>
+  <p class="kicker rv">Wissenschaftliche Quellen</p>
+  <h2 class="hl hl--klein">
+      <span class="hl__line">Quellen &amp;</span>
+      <span class="hl__line">weiterführende</span>
+      <span class="hl__line">Literatur</span>
+    </h2>
+    <p class="lede lede--breit rv">Alle Empfehlungen auf dieser Seite basieren auf peer-reviewed Studien, internationalen Leitlinien und aktuellen Meta-Analysen. Stand: Mai 2026.</p>
+  <ol class="quellen__l rv">
+      <li id="q1"><strong>Lacy BE et al.</strong> (2016): „Bowel Disorders." Gastroenterology, 150(6):1393–1407. <a href="https://www.gastrojournal.org/article/S0016-5085(16)00222-5/fulltext" target="_blank" rel="noopener">Link</a></li>
+      <li id="q2"><strong>Enck P et al.</strong> (2016): „Irritable bowel syndrome." Nature Reviews Disease Primers, 2:16014. <a href="https://www.nature.com/articles/nrdp201614" target="_blank" rel="noopener">Link</a></li>
+      <li id="q3"><strong>Rome Foundation</strong>: Rome IV Criteria for Functional Bowel Disorders (2016). <a href="https://theromefoundation.org/rome-iv/" target="_blank" rel="noopener">theromefoundation.org</a></li>
+      <li id="q4"><strong>Halmos EP et al.</strong> (2014): „A diet low in FODMAPs reduces symptoms of irritable bowel syndrome." Gastroenterology, 146(1):67–75. <a href="https://www.gastrojournal.org/article/S0016-5085(13)01407-8/fulltext" target="_blank" rel="noopener">Link</a></li>
+      <li id="q5"><strong>DGVS S3-Leitlinie Reizdarmsyndrom</strong> (Update 2021): „Definition, Pathophysiologie, Diagnostik und Therapie des Reizdarmsyndroms." AWMF-Register 021/016. <a href="https://www.awmf.org/leitlinien/detail/ll/021-016.html" target="_blank" rel="noopener">awmf.org</a></li>
+      <li id="q6"><strong>Black CJ et al.</strong> (2022): „Efficacy of a low FODMAP diet in irritable bowel syndrome: systematic review and network meta-analysis." Gut, 71(6):1117–1126. <a href="https://gut.bmj.com/content/71/6/1117" target="_blank" rel="noopener">Link</a></li>
+      <li id="q7"><strong>Whelan K et al.</strong> (2018): „The low FODMAP diet in the management of irritable bowel syndrome: an evidence-based review of FODMAP restriction, reintroduction and personalisation in clinical practice." J Hum Nutr Diet, 31(2):239–255. <a href="https://onlinelibrary.wiley.com/doi/10.1111/jhn.12530" target="_blank" rel="noopener">Link</a></li>
+      <li id="q8"><strong>Staudacher HM et al.</strong> (2017): „Mechanisms and efficacy of dietary FODMAP restriction in IBS." Nat Rev Gastroenterol Hepatol, 14(8):506–514. <a href="https://www.nature.com/articles/nrgastro.2017.75" target="_blank" rel="noopener">Link</a></li>
+      <li id="q9"><strong>Ford AC et al.</strong> (2018): „Systematic review with meta-analysis: the efficacy of prebiotics, probiotics, synbiotics and antibiotics in irritable bowel syndrome." Aliment Pharmacol Ther, 48(10):1044–1060. <a href="https://onlinelibrary.wiley.com/doi/10.1111/apt.15001" target="_blank" rel="noopener">Link</a></li>
+      <li id="q10"><strong>Moayyedi P et al.</strong> (2014): „The effect of fiber supplementation on irritable bowel syndrome." Am J Gastroenterol, 109(9):1367–1374. <a href="https://journals.lww.com/ajg/Fulltext/2014/09000/The_Effect_of_Fiber_Supplementation_on_Irritable.13.aspx" target="_blank" rel="noopener">Link</a></li>
+      <li id="q11"><strong>Khanna R et al.</strong> (2014): „Peppermint oil for the treatment of irritable bowel syndrome: a systematic review and meta-analysis." J Clin Gastroenterol, 48(6):505–512. <a href="https://journals.lww.com/jcge/Abstract/2014/07000/Peppermint_Oil_for_the_Treatment_of_Irritable.4.aspx" target="_blank" rel="noopener">Link</a></li>
+      <li id="q12"><strong>Ford AC et al.</strong> (2019): „Effect of antidepressants and psychological therapies in irritable bowel syndrome: an updated systematic review and meta-analysis." Am J Gastroenterol, 114(1):21–39. <a href="https://journals.lww.com/ajg/Fulltext/2019/01000/Effect_of_Antidepressants_and_Psychological.10.aspx" target="_blank" rel="noopener">Link</a></li>
+  </ol>
+    <p class="disclaimer rv"><b>Medizinischer Disclaimer:</b>Diese Seite dient ausschließlich der Information und ersetzt keine ärztliche Diagnose, Beratung oder Therapie. Bei anhaltenden Beschwerden konsultiere bitte deine Hausärztin / deinen Hausarzt oder eine gastroenterologische Fachpraxis. Eine Reizdarm-Diagnose sollte stets nach Ausschluss anderer Ursachen erfolgen.</p>
+</section>
+
+<section class="abschnitt abschnitt--eng" data-abschnitt>
+  <div class="kopfzeile">
+    <p class="kicker rv">Verwandte Indikationen</p>
+    <h2 class="hl hl--klein">
+      <span class="hl__line">Auch interessant</span>
+      <span class="hl__line">für dich</span>
+    </h2>
+  </div>
+  <div class="lesen">
+      <a class="lese rv" href="./">
+        <span class="lese__k">In Kürze</span>
+        <h3>Zöliakie & Ernährung</h3>
+        <p>Glutenfreie Ernährung — was die Leitlinie sagt.</p>
+        <span class="lese__go">Lesen</span>
+      </a>
+      <a class="lese rv" href="./">
+        <span class="lese__k">In Kürze</span>
+        <h3>Laktose-Intoleranz</h3>
+        <p>Diagnostik, Karenz, Reintroduktion.</p>
+        <span class="lese__go">Lesen</span>
+      </a>
+      <a class="lese rv" href="./">
+        <span class="lese__k">In Kürze</span>
+        <h3>Fructose-Malabsorption</h3>
+        <p>H2-Atemtest und 3-Stufen-Protokoll.</p>
+        <span class="lese__go">Lesen</span>
+      </a>
+  </div>
+</section>
+
+<section class="abschnitt tail" id="anmelden" data-abschnitt>
+  <p class="kicker rv">Ernährungsberatung bei Reizdarm</p>
+  <h2 class="hl hl--klein hl--center">
+      <span class="hl__line">Bereit, dein</span>
+      <span class="hl__line">Low-FODMAP</span>
+      <span class="hl__line">strukturiert</span>
+      <span class="hl__line">anzugehen?</span>
+    </h2>
+  <p class="lede rv">Buche dir ein unverbindliches 15-Min-Kennenlern-Gespräch — wir schauen gemeinsam, ob eine begleitete Ernährungstherapie für dich passt. Bei Reizdarm-Diagnose erstattet die Kasse typischerweise 80 % der Folgekosten.</p>
+  <div class="btns rv">
+      <a class="btn" href="../programme.html#anmelden">Gratis Kennenlern-Call</a>
+      <a class="btn btn--ghost" href="../kassen-check-rehab-five.pdf">Kassen-Check PDF (5 Seiten)</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-foot" id="kontakt">
+  <p class="foot__mark">
+    <span>REHAB FIVE</span>
+    <b>NUTRITION</b>
+    <span><a href="mailto:info@rehab-five.com">info@rehab-five.com</a></span>
+  </p>
+
+  <div class="foot__social">
+    <a href="mailto:info@rehab-five.com" aria-label="E-Mail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+    </a>
+    <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.4v.1M11.5 17v-3.6a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+    </a>
   </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <div class="foot__cols">
+    <div>
+      <h3>Über uns</h3>
+      <p>REHAB FIVE NUTRITION — Ernährung neu gedacht. Wissenschaftlich, individuell, ohne Verbote. Teil der REHAB FIVE Familie in Münster.</p>
+      <p><a href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener">Google</a> · <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+    <div>
+      <h3>Standort</h3>
+      <address>
+        Weseler Straße 71<br>48151 Münster<br><br>
+        Mo–Do 8:00–20:00<br>Fr 8:00–17:00<br><br>
+        <a href="tel:+4925174788200">0251 74788 200</a><br>
+        <a href="mailto:info@rehab-five.com">info@rehab-five.com</a>
+      </address>
+    </div>
+    <div>
+      <h3>Seite</h3>
+      <ul>
+        <li><a href="../programme.html#programme">Programme</a></li>
+        <li><a href="../programme.html#indikationen">Indikationen</a></li>
+        <li><a href="../programme.html#preise">Preise</a></li>
+        <li><a href="../unternehmen.html#bgm">Für Unternehmen</a></li>
+        <li><a href="./">Wissens-Artikel</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Rechtliches</h3>
+      <ul>
+        <li><a href="../impressum.html">Impressum</a></li>
+        <li><a href="../datenschutz.html">Datenschutz</a></li>
+        <li><a href="https://www.rehab-five.com/agb" target="_blank" rel="noopener">AGB</a></li>
+        <li><a href="#" data-cookiefirst-action="open-preferences">Cookie-Einstellungen</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="foot__legal">
+    <span>© <span id="y"></span> REHAB FIVE. Alle Rechte vorbehalten.</span>
+    <span>Made in Münster · Inhaber: Aric Brämswig</span>
+    <a href="../programme.html#anmelden">Erstgespräch sichern</a>
+  </p>
+</footer>
+
+<div class="mobbar">
+  <a href="tel:+4925174788200">Anrufen</a>
+  <a href="../programme.html#anmelden">Erstgespräch</a>
+</div>
+
+<script src="../js/seite.js" defer></script>
+
+<script src="../js/seite.js" defer></script>
 </body>
 </html>

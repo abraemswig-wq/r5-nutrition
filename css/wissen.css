@@ -1,0 +1,193 @@
+/* REHAB FIVE NUTRITION — Fachartikel
+   seite.css wird davor geladen; hier steht nur, was ein Artikel zusaetzlich
+   braucht: Kopfzeile mit Indikations-Kennung, Kurzantwort, zweispaltiger
+   Lesebereich mit Verzeichnis, Quellenapparat.
+
+   Bewusst kein Aufmacherbild wie im Physio-Blog: fuer 21 Indikationen gibt es
+   kein ehrliches Bildmaterial, und ein Symbolbild pro Krankheitsbild waere
+   Dekoration ohne Aussage. Traeger ist die ausgestanzte Zeile aus dem CI. */
+
+/* ---------- Brotkrume ---------- */
+
+.krume{
+  margin:0 0 1.6rem;
+  font-size:.625rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(251,241,224,.42);
+}
+.krume a{color:rgba(251,241,224,.62);text-decoration:none}
+.krume a:hover{color:var(--cream)}
+.krume a:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+/* ---------- Indikations-Kennung ---------- */
+/* Der ICD-Code steht bewusst oben: er ist das, was Aerztin und Kasse suchen. */
+
+.icd{
+  display:inline-flex;align-items:center;gap:.55rem;
+  margin:0 0 1.35rem;padding:.4rem .8rem;
+  border:1px solid rgba(217,145,41,.5);border-radius:2px;
+  font-size:.625rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--orange-lt);
+}
+.icd::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange)}
+
+.artmeta{
+  margin:1.9rem 0 0;
+  display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;
+  font-size:.625rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(251,241,224,.5);
+}
+
+/* ---------- Kurzantwort ---------- */
+/* Steht vor dem Verzeichnis, weil die meisten Leute mit genau einer Frage
+   kommen und nach der Antwort wieder gehen duerfen. */
+
+.tldr{
+  margin:0 0 3rem;
+  background:var(--cream);color:var(--pine-black);
+  padding:1.7rem 1.9rem 1.9rem;
+}
+.tldr__label{
+  margin:0 0 .7rem;
+  font-size:.6875rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:#8a5a12;
+}
+.tldr p{margin:0;font-size:1rem;line-height:1.62;font-weight:300}
+.tldr strong{font-weight:600}
+
+/* ---------- Lesebereich ---------- */
+
+.artbody{
+  display:grid;
+  grid-template-columns:minmax(0,72ch) minmax(0,19rem);
+  gap:clamp(2.5rem,5vw,5rem);
+  max-width:calc(72ch + 19rem + 5rem + 2 * var(--gut));
+  padding:clamp(3rem,7vh,5rem) var(--gut) 0;
+}
+.artbody > .prose{margin-top:0;max-width:none}
+.artside{align-self:start;position:sticky;top:6.5rem}
+
+.toc{
+  border-top:1px solid rgba(251,241,224,.22);
+  padding-top:1.1rem;margin-bottom:2.2rem;
+}
+.toc__h{
+  margin:0 0 .9rem;
+  font-size:.625rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(251,241,224,.45);
+}
+.toc__l{margin:0;padding:0;list-style:none;counter-reset:toc}
+.toc__l li{counter-increment:toc}
+.toc__l a{
+  display:grid;grid-template-columns:1.9em 1fr;gap:.2em;
+  padding:.42rem 0;
+  font-size:.8125rem;line-height:1.35;font-weight:300;
+  text-decoration:none;color:rgba(251,241,224,.6);
+  transition:color .22s var(--ease-out);
+}
+.toc__l a::before{
+  content:counter(toc,decimal-leading-zero);
+  font-weight:900;font-size:.625rem;color:rgba(251,241,224,.3);
+  font-variant-numeric:tabular-nums;padding-top:.22em;
+  transition:color .22s var(--ease-out);
+}
+@media (hover:hover){.toc__l a:hover{color:var(--cream)}}
+.toc__l a:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.toc__l a[aria-current="true"]{color:var(--cream)}
+.toc__l a[aria-current="true"]::before{color:var(--orange)}
+
+.artcard{border-top:1px solid rgba(251,241,224,.22);padding-top:1.1rem}
+.artcard__h{
+  margin:0 0 .7rem;
+  font-size:.625rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--orange);
+}
+.artcard__t{margin:0 0 1rem;font-size:.8125rem;line-height:1.6;font-weight:200;color:rgba(251,241,224,.7)}
+.artcard__l{margin:0;padding:0;list-style:none}
+.artcard__l li + li{margin-top:.5rem}
+.artcard__l a{
+  font-size:.8125rem;font-weight:500;letter-spacing:.04em;
+  text-decoration:none;color:var(--cream);
+  border-bottom:1px solid rgba(251,241,224,.28);
+  transition:border-color .22s var(--ease-out);
+}
+@media (hover:hover){.artcard__l a:hover{border-color:var(--orange)}}
+.artcard__l a:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+/* Unter 1024px traegt die zweite Spalte nicht mehr: das Verzeichnis faellt weg
+   (der Text ist dann ohnehin einen Wisch entfernt), die Termin-Karte bleibt. */
+@media (max-width:1023px){
+  .artbody{grid-template-columns:minmax(0,1fr);max-width:calc(72ch + 2 * var(--gut))}
+  .artside{position:static;padding-top:2.5rem}
+  .toc{display:none}
+}
+
+/* ---------- Fliesstext im Artikel ---------- */
+
+.prose h2{
+  margin:2.9em 0 .9em;
+  font-size:clamp(1.1rem,1.8vw,1.5rem);
+  font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1.2;
+  color:var(--cream);
+  padding-top:1.4rem;
+  border-top:1px solid rgba(251,241,224,.16);
+}
+.prose h2:first-child{margin-top:0}
+.prose h2[id]{scroll-margin-top:6rem}   /* die Kopfleiste klebt oben */
+.prose h3{
+  margin:2.1em 0 .7em;
+  font-size:clamp(.9375rem,1.3vw,1.0625rem);
+  font-weight:500;letter-spacing:.02em;line-height:1.35;color:var(--cream);
+}
+.prose ul{margin:0 0 1.5em;padding:0;list-style:none}
+.prose ul li{position:relative;padding-left:1.5rem;margin-bottom:.75em}
+.prose ul li::before{
+  content:"";position:absolute;left:0;top:.72em;
+  width:9px;height:1.5px;background:var(--orange);
+}
+.prose ol{margin:0 0 1.5em;padding-left:1.4rem}
+.prose ol li{margin-bottom:.75em}
+.prose table{
+  width:100%;margin:0 0 1.8em;border-collapse:collapse;
+  font-size:.875rem;line-height:1.55;
+}
+.prose th,.prose td{
+  padding:.75rem .9rem;text-align:left;vertical-align:top;
+  border-bottom:1px solid rgba(251,241,224,.16);
+}
+.prose th{
+  font-size:.625rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(251,241,224,.55);
+}
+.prose a{color:var(--orange-lt);text-decoration:none;border-bottom:1px solid rgba(217,145,41,.4)}
+.prose a:hover{border-bottom-color:var(--orange-lt)}
+.prose a:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+
+/* Quellenverweis: hochgestellt und ohne Unterstrich, damit die Ziffer den Satz
+   nicht zerreisst. */
+.prose a[href^="#q"]{
+  border:0;font-size:.6875rem;font-weight:500;vertical-align:.42em;
+  padding:0 .1em;white-space:nowrap;
+}
+
+/* ---------- Quellen ---------- */
+
+.quellen{padding:clamp(3.5rem,8vh,5.5rem) var(--gut) 0;max-width:calc(72ch + 2 * var(--gut))}
+.quellen__l{
+  margin:2.2rem 0 0;padding-left:1.4rem;
+  font-size:.8125rem;line-height:1.7;color:rgba(251,241,224,.6);
+}
+.quellen__l li{margin-bottom:.85em;scroll-margin-top:6rem}
+.quellen__l strong{font-weight:500;color:var(--cream)}
+.quellen__l a{color:var(--orange-lt);text-decoration:none;border-bottom:1px solid rgba(217,145,41,.4)}
+.quellen__l a:hover{border-bottom-color:var(--orange-lt)}
+
+/* Wer aus dem Text auf eine Ziffer springt, soll sehen, wo er gelandet ist. */
+.quellen__l li:target{color:rgba(251,241,224,.92)}
+.quellen__l li:target::marker{color:var(--orange)}
+
+.disclaimer{
+  margin:2.6rem 0 0;padding:1.2rem 1.4rem;
+  border:1px solid rgba(251,241,224,.16);border-radius:2px;
+  font-size:.75rem;line-height:1.75;color:rgba(251,241,224,.55);
+}
+.disclaimer b{font-weight:500;color:rgba(251,241,224,.8)}

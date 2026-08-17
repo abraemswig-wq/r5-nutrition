@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+<!-- CookieFirst Consent Banner (muss erstes Element im <head> sein) -->
 <script src="https://consent.cookiefirst.com/sites/ads.rehab-five.com-c57f4a38-bb6e-4ba0-8ad3-2bd4c7fcbab2/consent.js"></script>
+<!-- Google Analytics 4 — wird erst nach Consent aktiviert -->
+<script type="text/plain" data-cookiefirst-category="performance" async src="https://www.googletagmanager.com/gtag/js?id=G-C75C9ZMSEJ"></script>
+<script type="text/plain" data-cookiefirst-category="performance">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-C75C9ZMSEJ', { anonymize_ip: true });
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Wissen · Ernährung bei Diagnosen | REHAB FIVE NUTRITION</title>
   <meta name="description" content="Wissenschaftsbasierte Artikel zu Ernährung bei Reizdarm, Diabetes, Adipositas, Lipödem, Zöliakie & mehr. Mit Quellen, ohne Diät-Mythen — von REHAB FIVE NUTRITION Münster." />
-  <!-- Vorschau: bis die Domain entschieden ist, darf Google diese Seite nicht indexieren.
-     Sonst landet die GitHub-Pages-URL im Index und laesst sich spaeter nicht umleiten.
-     tools/set_domain.py setzt das beim Go-live automatisch zurueck. -->
-<meta name="robots" content="noindex, nofollow" />
-  <meta name="theme-color" content="#1F342D" />
+  <meta name="author" content="REHAB FIVE GmbH" />
+  <!-- Vorschau: bis die Domain entschieden ist, darf Google diese Seite nicht
+       indexieren. tools/set_domain.py setzt das beim Go-live zurueck. -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#121815" />
   <link rel="canonical" href="https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/" />
+
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="REHAB FIVE NUTRITION" />
   <meta property="og:title" content="Wissen · Ernährung bei Diagnosen | REHAB FIVE NUTRITION" />
-  <meta property="og:image" content="https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-1200.jpg" />
   <meta property="og:description" content="Wissenschaftsbasierte Artikel zu Ernährung bei Reizdarm, Diabetes, Adipositas, Lipödem, Zöliakie & mehr." />
+  <meta property="og:url" content="https://rehab-five-nutrition-ernaehrungsberatung.com/wissen/" />
+  <meta property="og:image" content="https://rehab-five-nutrition-ernaehrungsberatung.com/img/ernaehrung-1200.jpg" />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Fonts: Archivo trägt das Display-Lockup des Health-Club-Layouts,
+       Barlow bleibt als CI-Schrift für den Fließtext. -->
   <link rel="stylesheet" href="../fonts.css" />
-<script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink:    { 50:'#FAFAFA', 100:'#F5F5F5', 200:'#C9C9C9', 700:'#4A4A4A', 900:'#1A1A1A' },
-            forest: { 700:'#1F342D', 800:'#172620' },
-            brand:  { 100:'#FBF1E0', 500:'#D99129', 600:'#C57F1F', 700:'#A66819' }
-          },
-          fontFamily: { sans: ['Barlow','system-ui','sans-serif'] },
-          boxShadow: { card: '0 4px 24px -8px rgba(26,26,26,0.10)' }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Barlow', system-ui, sans-serif; color:#1A1A1A; }
-    .display { font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; }
-    .eyebrow { font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
-    .gradient-hero {
-      background:
-        radial-gradient(60% 50% at 80% 15%, rgba(217,145,41,0.22), transparent 60%),
-        linear-gradient(180deg, #1F342D 0%, #172620 100%);
-    }
-  </style>
+  <link rel="stylesheet" href="../css/seite.css" />
+  <link rel="stylesheet" href="../css/wissen.css" />
+  <script>document.documentElement.classList.add('js')</script>
+  <script async src="https://cdn.docmedico-rezeption.de/j9u4c9m7a/reception_embed.js"></script>
+
   <script type="application/ld+json">
-  {
+{
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Wissen — Ernährung bei Diagnosen",
@@ -56,269 +55,226 @@
   }
   </script>
 </head>
+<body class="page">
 
-<body class="bg-white text-ink-900 antialiased">
+<a href="#inhalt" class="sr">Zum Inhalt springen</a>
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-ink-900 focus:text-white focus:px-4 focus:py-2 focus:rounded">Zum Inhalt springen</a>
+<header class="page-top">
+  <a class="wordmark" href="../index.html" aria-label="REHAB FIVE NUTRITION Startseite">
+    <img src="../R5-Logo-B-white_RZ.png" alt="REHAB FIVE" width="3000" height="643">
+    <span>Nutrition</span>
+  </a>
+  <nav class="page-nav" aria-label="Hauptbereiche">
+    <a href="../programme.html">Programme</a>
+    <a href="../team.html">Team</a>
+    <a href="../unternehmen.html">Unternehmen</a>
+    <a href="../standort.html">Standort</a>
+    <a href="./" aria-current="page">Wissen</a>
+    <a href="../programme.html?dmropen=1" class="ist-cta">Erstgespräch</a>
+  </nav>
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Menü öffnen">
+    <span></span><span></span>
+  </button>
+</header>
 
-  <header class="sticky top-0 z-40 bg-forest-700 text-white border-b border-forest-800 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
-      <a href="../" class="flex items-center gap-3 shrink-0" aria-label="REHAB FIVE NUTRITION Startseite">
-        <img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-7 w-auto" />
-        <span class="hidden sm:inline-block text-[11px] font-semibold tracking-[0.22em] uppercase text-white/70 border-l border-white/20 pl-3">Nutrition · Wissen</span>
+<nav class="drawer" id="drawer" aria-label="Menü">
+  <a href="../programme.html">Programme</a>
+  <a href="../team.html">Team</a>
+  <a href="../unternehmen.html">Unternehmen</a>
+  <a href="../standort.html">Standort</a>
+  <a href="./">Wissen</a>
+  <a href="../programme.html?dmropen=1">Erstgespräch sichern</a>
+  <p class="drawer__foot">Weseler Straße 71 · 48151 Münster<br>0251 74788 200 · info@rehab-five.com</p>
+</nav>
+
+<section class="masthead" data-abschnitt>
+  <div class="masthead__inner">
+    <p class="krume"><a href="../">Startseite</a> · <span>Wissen</span></p>
+    <div class="kopfzeile">
+    <p class="kicker rv">Wissensbibliothek</p>
+    <h1 class="hl">
+    <span class="hl__line">Ernährung bei</span>
+    <span class="hl__line">21 Indikationen.</span>
+    </h1>
+    <p class="lede lede--breit rv">Wissenschaftsbasierte Artikel mit FAQ, ICD-Codes, Therapie-Optionen und peer-reviewed Quellen — ohne Diät-Mythen. Aktualisiert nach aktuellen Leitlinien.</p>
+    <ul class="checks rv">
+      <li>Leitlinien-basiert</li>
+      <li>Mit Quellenangaben</li>
+      <li>Patient:innen-verständlich</li>
+    </ul>
+    </div>
+  </div>
+</section>
+
+<main id="inhalt">
+
+<section class="abschnitt" id="top" data-abschnitt>
+  <div class="kopfzeile">
+    <p class="kicker rv">Top-Indikationen</p>
+    <h2 class="hl hl--klein">
+      <span class="hl__line">Artikel mit voller</span>
+      <span class="hl__line">Tiefe</span>
+    </h2>
+    <p class="lede lede--breit rv">Diese Indikationen haben wir bereits ausführlich aufbereitet — inkl. Quick-Answer, 3-Phasen-Protokoll oder Therapie-Optionen, FAQ und 8–12 wissenschaftliche Quellen pro Artikel.</p>
+  </div>
+
+  <div class="lesen">
+      <a class="lese rv" href="reizdarm-syndrom-ernaehrung.html">
+        <span class="lese__k">ICD K58 · 12 Quellen</span>
+        <h3>Reizdarm-Syndrom & Ernährung</h3>
+        <p>Low-FODMAP, Probiotika, Stress-Achse — evidenzbasiert mit S3-Leitlinie & Meta-Analysen.</p>
+        <span class="lese__go">Artikel lesen →</span>
       </a>
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-white/80" aria-label="Hauptnavigation">
-        <a href="../#programme" class="hover:text-white">Programme</a>
-        <a href="../#ablauf" class="hover:text-white">Ablauf</a>
-        <a href="../#preise" class="hover:text-white">Preise</a>
-        <a href="./" class="hover:text-white text-white font-semibold">Wissen</a>
-        <a href="../#standort" class="hover:text-white">Standort</a>
-      </nav>
-      <div class="flex items-center gap-2">
-        <a href="../#anmelden" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-sm px-4 py-2 transition shadow-lg shadow-brand-500/20">Erstgespräch</a>
-        <button class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition" aria-label="Menü öffnen" aria-expanded="false" data-mobile-toggle>
-          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-icon-menu><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-icon-close><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
-      </div>
+      <a class="lese rv" href="adipositas-ernaehrungstherapie.html">
+        <span class="lese__k">ICD E66 · 10 Quellen</span>
+        <h3>Adipositas & Ernährungstherapie</h3>
+        <p>Nachhaltige Gewichtsregulation, S3-Leitlinie DAG, GLP-1 vs. Lifestyle — was wirklich wirkt.</p>
+        <span class="lese__go">Artikel lesen →</span>
+      </a>
+      <a class="lese rv" href="diabetes-typ-2-ernaehrung.html">
+        <span class="lese__k">ICD E11 · 10 Quellen</span>
+        <h3>Diabetes Typ 2 & Ernährung</h3>
+        <p>HbA1c senken durch Ernährung, mediterrane Kost, Low-Carb-Evidenz, DDG-Leitlinie.</p>
+        <span class="lese__go">Artikel lesen →</span>
+      </a>
+      <a class="lese rv" href="lipoedem-ernaehrung.html">
+        <span class="lese__k">ICD E88.2 · 10 Quellen</span>
+        <h3>Lipödem & Ernährung</h3>
+        <p>Anti-entzündliche Ernährung, ketogene Optionen, Begleittherapie — was Studien zeigen.</p>
+        <span class="lese__go">Artikel lesen →</span>
+      </a>
+      <a class="lese rv" href="zoeliakie-ernaehrung.html">
+        <span class="lese__k">ICD K90.0 · 10 Quellen</span>
+        <h3>Zöliakie & glutenfreie Ernährung</h3>
+        <p>Strenge Karenz, Kreuzkontamination, Mikronährstoff-Versorgung — DZG-Leitlinie.</p>
+        <span class="lese__go">Artikel lesen →</span>
+      </a>
+      <a class="lese rv" href="hypertonie-ernaehrung.html">
+        <span class="lese__k">ICD I10 · 10 Quellen</span>
+        <h3>Hypertonie & DASH-Ernährung</h3>
+        <p>Bluthochdruck senken über DASH, Salz-Reduktion, Kalium — was die ESH-Leitlinie sagt.</p>
+        <span class="lese__go">Artikel lesen →</span>
+      </a>
+      <a class="lese rv" href="fettleber-ernaehrung.html">
+        <span class="lese__k">ICD K76.0 · 10 Quellen</span>
+        <h3>Fettleber (NAFLD/MASLD)</h3>
+        <p>Fruktose, Mediterran, Gewichtsreduktion — wie sich die Leber innerhalb von Monaten erholt.</p>
+        <span class="lese__go">Artikel lesen →</span>
+      </a>
+  </div>
+</section>
+
+<section class="abschnitt abschnitt--rand" id="weitere" data-abschnitt>
+  <div class="kopfzeile">
+    <p class="kicker rv">Alle weiteren Indikationen</p>
+    <h2 class="hl hl--klein">
+      <span class="hl__line">14 weitere</span>
+      <span class="hl__line">Indikationen im</span>
+      <span class="hl__line">Detail</span>
+    </h2>
+    <p class="lede lede--breit rv">Kompaktere Artikel mit Quick-Answer, FAQ und 6 Quellen pro Indikation. Jeder Klick führt zum vollständigen evidenzbasierten Artikel mit ICD-Code und Quellen.</p>
+  </div>
+
+  <ul class="weiter__l rv">
+      <li><a href="untergewicht-mangelernaehrung.html"><b>Untergewicht / Mangelernährung</b><span>E43–46</span></a></li>
+      <li><a href="dyslipoproteinaemien-ernaehrung.html"><b>Dyslipoproteinämien</b><span>E78</span></a></li>
+      <li><a href="gicht-hyperurikaemie-ernaehrung.html"><b>Hyperurikämie / Gicht</b><span>E79.0</span></a></li>
+      <li><a href="osteoporose-ernaehrung.html"><b>Osteoporose</b><span>M80–82</span></a></li>
+      <li><a href="reflux-gerd-ernaehrung.html"><b>Reflux / GERD</b><span>K21</span></a></li>
+      <li><a href="rheumatoide-arthritis-ernaehrung.html"><b>Rheumatoide Arthritis</b><span>M05–06</span></a></li>
+      <li><a href="laktose-intoleranz-ernaehrung.html"><b>Laktose-Intoleranz</b><span>E73</span></a></li>
+      <li><a href="fructose-malabsorption-ernaehrung.html"><b>Fructose-Malabsorption</b><span>E74.1</span></a></li>
+      <li><a href="sorbit-intoleranz-ernaehrung.html"><b>Sorbit-Intoleranz</b><span>E74.3</span></a></li>
+      <li><a href="pcos-endometriose-ernaehrung.html"><b>PCOS / Endometriose</b><span>E28.2 / N80</span></a></li>
+      <li><a href="schwangerschaft-stillzeit-ernaehrung.html"><b>Schwangerschaft & Stillzeit</b><span>Z32–39</span></a></li>
+      <li><a href="sport-performance-ernaehrung.html"><b>Sport- & Performance-Ernährung</b><span>Sport</span></a></li>
+      <li><a href="wechseljahre-ernaehrung.html"><b>Wechseljahre</b><span>N95</span></a></li>
+      <li><a href="vegan-vegetarisch-ernaehrung.html"><b>Vegane / vegetarische Ernährung</b><span>Vegan</span></a></li>
+  </ul>
+</section>
+
+</main>
+
+<section class="tail" id="anmelden" data-abschnitt>
+  <h2 class="hl hl--center hl--klein">
+      <span class="hl__line">Deine Indikation</span>
+      <span class="hl__line">ist nicht dabei?</span>
+    </h2>
+  <p class="lede rv">Wir beraten zu über 50 Indikationen evidenzbasiert. Frag uns einfach im Kennenlern-Call.</p>
+  <div class="btns rv">
+    <a class="btn" href="../programme.html#anmelden">Gratis Kennenlern-Call</a>
+  </div>
+</section>
+
+<footer class="page-foot" id="kontakt">
+  <p class="foot__mark">
+    <span>REHAB FIVE</span>
+    <b>NUTRITION</b>
+    <span><a href="mailto:info@rehab-five.com">info@rehab-five.com</a></span>
+  </p>
+
+  <div class="foot__social">
+    <a href="mailto:info@rehab-five.com" aria-label="E-Mail">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 6.5 9 6.5 9-6.5"/></svg>
+    </a>
+    <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5V17M7.5 7.4v.1M11.5 17v-3.6a2.4 2.4 0 0 1 4.8 0V17"/></svg>
+    </a>
+  </div>
+
+  <div class="foot__cols">
+    <div>
+      <h3>Über uns</h3>
+      <p>REHAB FIVE NUTRITION — Ernährung neu gedacht. Wissenschaftlich, individuell, ohne Verbote. Teil der REHAB FIVE Familie in Münster.</p>
+      <p><a href="https://www.google.com/search?q=rehab+five+m%C3%BCnster" target="_blank" rel="noopener">Google</a> · <a href="https://www.instagram.com/rehabfive/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.linkedin.com/company/rehab-five/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
-    <div class="hidden lg:hidden bg-forest-800 border-t border-forest-900" data-mobile-menu>
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-4 grid grid-cols-2 gap-x-4 gap-y-1 text-sm font-medium text-white/85">
-        <a href="../#programme" class="block py-2 hover:text-brand-500" data-mobile-link>Programme</a>
-        <a href="../#konzept" class="block py-2 hover:text-brand-500" data-mobile-link>Konzept</a>
-        <a href="../#ablauf" class="block py-2 hover:text-brand-500" data-mobile-link>Ablauf</a>
-        <a href="../#indikationen" class="block py-2 hover:text-brand-500" data-mobile-link>Indikationen</a>
-        <a href="../#preise" class="block py-2 hover:text-brand-500" data-mobile-link>Preise</a>
-        <a href="./" class="block py-2 hover:text-brand-500 text-brand-500" data-mobile-link>Wissen</a>
-        <a href="../#standort" class="block py-2 hover:text-brand-500" data-mobile-link>Standort</a>
-        <a href="../#faq" class="block py-2 hover:text-brand-500" data-mobile-link>FAQ</a>
-        <a href="tel:+4925174788200" class="block py-2 col-span-2 mt-2 border-t border-white/10 pt-3 text-white font-semibold hover:text-brand-500">📞 0251 74788 200 anrufen</a>
-        <a href="../#anmelden" class="block sm:hidden py-3 col-span-2 mt-2 rounded-lg bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold text-center" data-mobile-link>Erstgespräch sichern</a>
-      </nav>
+    <div>
+      <h3>Standort</h3>
+      <address>
+        Weseler Straße 71<br>48151 Münster<br><br>
+        Mo–Do 8:00–20:00<br>Fr 8:00–17:00<br><br>
+        <a href="tel:+4925174788200">0251 74788 200</a><br>
+        <a href="mailto:info@rehab-five.com">info@rehab-five.com</a>
+      </address>
     </div>
-  </header>
-  <script>(function(){var b=document.querySelector('[data-mobile-toggle]');var m=document.querySelector('[data-mobile-menu]');if(!b||!m)return;var im=b.querySelector('[data-icon-menu]');var ic=b.querySelector('[data-icon-close]');function s(o){m.classList.toggle('hidden',!o);im.classList.toggle('hidden',o);ic.classList.toggle('hidden',!o);b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen');}b.addEventListener('click',function(){s(m.classList.contains('hidden'));});m.querySelectorAll('[data-mobile-link]').forEach(function(a){a.addEventListener('click',function(){s(false);});});})();</script>
-
-  <main id="main">
-
-    <!-- HERO -->
-    <section class="gradient-hero text-white">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <nav aria-label="Breadcrumb" class="text-xs text-white/60">
-          <a href="../" class="hover:text-brand-500">Startseite</a>
-          <span class="mx-1.5">›</span>
-          <span class="text-white/85">Wissen</span>
-        </nav>
-        <p class="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-500 bg-brand-500/10 ring-1 ring-brand-500/30 rounded-full px-3 py-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
-          Wissensbibliothek
-        </p>
-        <h1 class="display mt-5 text-4xl md:text-5xl lg:text-6xl leading-[1.05]">
-          Ernährung bei<br>
-          <span class="text-brand-500">21 Indikationen.</span>
-        </h1>
-        <p class="mt-5 text-lg md:text-xl text-white/85 max-w-2xl">
-          Wissenschaftsbasierte Artikel mit FAQ, ICD-Codes, Therapie-Optionen und peer-reviewed Quellen — ohne Diät-Mythen. Aktualisiert nach aktuellen Leitlinien.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/85">
-          <span class="inline-flex items-center gap-2"><span class="text-brand-500">✓</span> Leitlinien-basiert</span>
-          <span class="inline-flex items-center gap-2"><span class="text-brand-500">✓</span> Mit Quellenangaben</span>
-          <span class="inline-flex items-center gap-2"><span class="text-brand-500">✓</span> Patient:innen-verständlich</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- VERFÜGBARE ARTIKEL -->
-    <section class="bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <p class="eyebrow text-sm text-brand-600">Top-Indikationen</p>
-        <h2 class="display mt-3 text-2xl md:text-3xl" style="color:#1F342D">Artikel mit voller Tiefe</h2>
-        <p class="mt-3 text-ink-700 max-w-2xl">Diese Indikationen haben wir bereits ausführlich aufbereitet — inkl. Quick-Answer, 3-Phasen-Protokoll oder Therapie-Optionen, FAQ und 8–12 wissenschaftliche Quellen pro Artikel.</p>
-
-        <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Reizdarm -->
-          <a href="reizdarm-syndrom-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD K58</p>
-              <span class="text-xs text-ink-700">12 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Reizdarm-Syndrom & Ernährung</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Low-FODMAP, Probiotika, Stress-Achse — evidenzbasiert mit S3-Leitlinie & Meta-Analysen.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-          <!-- Adipositas -->
-          <a href="adipositas-ernaehrungstherapie.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD E66</p>
-              <span class="text-xs text-ink-700">10 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Adipositas & Ernährungstherapie</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Nachhaltige Gewichtsregulation, S3-Leitlinie DAG, GLP-1 vs. Lifestyle — was wirklich wirkt.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-          <!-- Diabetes Typ 2 -->
-          <a href="diabetes-typ-2-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD E11</p>
-              <span class="text-xs text-ink-700">10 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Diabetes Typ 2 & Ernährung</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">HbA1c senken durch Ernährung, mediterrane Kost, Low-Carb-Evidenz, DDG-Leitlinie.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-          <!-- Lipödem -->
-          <a href="lipoedem-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD E88.2</p>
-              <span class="text-xs text-ink-700">10 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Lipödem & Ernährung</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Anti-entzündliche Ernährung, ketogene Optionen, Begleittherapie — was Studien zeigen.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-          <!-- Zöliakie -->
-          <a href="zoeliakie-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD K90.0</p>
-              <span class="text-xs text-ink-700">10 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Zöliakie & glutenfreie Ernährung</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Strenge Karenz, Kreuzkontamination, Mikronährstoff-Versorgung — DZG-Leitlinie.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-          <!-- Hypertonie -->
-          <a href="hypertonie-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD I10</p>
-              <span class="text-xs text-ink-700">10 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Hypertonie & DASH-Ernährung</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Bluthochdruck senken über DASH, Salz-Reduktion, Kalium — was die ESH-Leitlinie sagt.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-          <!-- Fettleber -->
-          <a href="fettleber-ernaehrung.html" class="group rounded-2xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-lg p-6 shadow-card transition flex flex-col">
-            <div class="flex items-center justify-between">
-              <p class="text-xs font-semibold uppercase tracking-wider text-brand-700 bg-brand-500/10 rounded-full px-2.5 py-1">ICD K76.0</p>
-              <span class="text-xs text-ink-700">10 Quellen</span>
-            </div>
-            <h3 class="mt-4 font-bold text-lg leading-snug group-hover:text-brand-700" style="color:#1F342D">Fettleber (NAFLD/MASLD)</h3>
-            <p class="mt-2 text-sm text-ink-700 flex-1">Fruktose, Mediterran, Gewichtsreduktion — wie sich die Leber innerhalb von Monaten erholt.</p>
-            <p class="mt-4 text-sm font-semibold text-brand-600 group-hover:text-brand-700">Artikel lesen →</p>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- WEITERE ARTIKEL (kompakt) -->
-    <section class="bg-ink-50 border-y border-ink-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <p class="eyebrow text-sm text-brand-600">Alle weiteren Indikationen</p>
-        <h2 class="display mt-3 text-2xl md:text-3xl" style="color:#1F342D">14 weitere Indikationen im Detail</h2>
-        <p class="mt-3 text-ink-700 max-w-2xl">Kompaktere Artikel mit Quick-Answer, FAQ und 6 Quellen pro Indikation. Jeder Klick führt zum vollständigen evidenzbasierten Artikel mit ICD-Code und Quellen.</p>
-
-        <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          <a href="untergewicht-mangelernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E43–46</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Untergewicht / Mangelernährung</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="dyslipoproteinaemien-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E78</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Dyslipoproteinämien</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="gicht-hyperurikaemie-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E79.0</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Hyperurikämie / Gicht</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="osteoporose-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">M80–82</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Osteoporose</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="reflux-gerd-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">K21</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Reflux / GERD</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="rheumatoide-arthritis-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">M05–06</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Rheumatoide Arthritis</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="laktose-intoleranz-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E73</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Laktose-Intoleranz</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="fructose-malabsorption-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E74.1</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Fructose-Malabsorption</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="sorbit-intoleranz-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E74.3</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Sorbit-Intoleranz</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="pcos-endometriose-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">E28.2 / N80</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">PCOS / Endometriose</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="schwangerschaft-stillzeit-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">Z32–39</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Schwangerschaft & Stillzeit</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="sport-performance-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">Sport</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Sport- & Performance-Ernährung</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="wechseljahre-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">N95</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Wechseljahre</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-          <a href="vegan-vegetarisch-ernaehrung.html" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-ink-100 hover:ring-brand-500/40 hover:shadow-card p-4 transition">
-            <span class="text-xs font-semibold text-brand-700 bg-brand-500/10 rounded px-2 py-0.5 shrink-0">Vegan</span>
-            <span class="text-sm font-semibold flex-1" style="color:#1F342D">Vegane / vegetarische Ernährung</span>
-            <span class="text-brand-600 group-hover:translate-x-0.5 transition">→</span>
-          </a>
-        </div>
-
-        <div class="mt-12 rounded-2xl bg-forest-700 text-white p-6 md:p-8 flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p class="font-bold text-lg">Deine Indikation ist nicht dabei?</p>
-            <p class="mt-1 text-sm text-white/85">Wir beraten zu über 50 Indikationen evidenzbasiert. Frag uns einfach im Kennenlern-Call.</p>
-          </div>
-          <a href="../#anmelden" class="inline-flex items-center justify-center rounded-xl bg-brand-500 hover:bg-brand-600 text-ink-900 font-semibold px-5 py-3 text-sm transition">Gratis Kennenlern-Call</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="bg-forest-700 text-white/85 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid md:grid-cols-4 gap-10">
-      <div class="md:col-span-2"><img src="../R5-Logo-B-white_RZ.png" width="3000" height="643" alt="REHAB FIVE Logo" class="h-8 w-auto" /><p class="mt-3 max-w-md text-white/75">REHAB FIVE NUTRITION — Ernährung neu gedacht.</p></div>
-      <div><h3 class="text-white font-semibold">Standort</h3><address class="not-italic mt-3 space-y-3 text-white/80"><div>Weseler Straße 71<br>48151 Münster</div><a href="tel:+4925174788200" class="block text-white hover:text-brand-500">0251 74788 200</a><a href="mailto:info@rehab-five.com" class="block text-white hover:text-brand-500">info@rehab-five.com</a></address></div>
-      <div><h3 class="text-white font-semibold">Rechtliches</h3><ul class="mt-3 space-y-2 text-white/80"><li><a href="../impressum.html" class="hover:text-brand-500">Impressum</a></li><li><a href="../datenschutz.html" class="hover:text-brand-500">Datenschutz</a></li></ul></div>
+    <div>
+      <h3>Seite</h3>
+      <ul>
+        <li><a href="../programme.html#programme">Programme</a></li>
+        <li><a href="../programme.html#indikationen">Indikationen</a></li>
+        <li><a href="../programme.html#preise">Preise</a></li>
+        <li><a href="../unternehmen.html#bgm">Für Unternehmen</a></li>
+        <li><a href="./">Wissens-Artikel</a></li>
+      </ul>
     </div>
-    <div class="border-t border-white/10"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-xs flex flex-wrap items-center justify-between gap-3 text-white/60"><p>© <span id="y"></span> REHAB FIVE.</p><p>Made in Münster</p></div></div>
-  </footer>
+    <div>
+      <h3>Rechtliches</h3>
+      <ul>
+        <li><a href="../impressum.html">Impressum</a></li>
+        <li><a href="../datenschutz.html">Datenschutz</a></li>
+        <li><a href="https://www.rehab-five.com/agb" target="_blank" rel="noopener">AGB</a></li>
+        <li><a href="#" data-cookiefirst-action="open-preferences">Cookie-Einstellungen</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <p class="foot__legal">
+    <span>© <span id="y"></span> REHAB FIVE. Alle Rechte vorbehalten.</span>
+    <span>Made in Münster · Inhaber: Aric Brämswig</span>
+    <a href="../programme.html#anmelden">Erstgespräch sichern</a>
+  </p>
+</footer>
+
+<div class="mobbar">
+  <a href="tel:+4925174788200">Anrufen</a>
+  <a href="../programme.html#anmelden">Erstgespräch</a>
+</div>
+
+<script src="../js/seite.js" defer></script>
+
+<script src="../js/seite.js" defer></script>
 </body>
 </html>

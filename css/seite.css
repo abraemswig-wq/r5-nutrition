@@ -165,6 +165,18 @@ a{color:inherit}
   transition-delay:var(--d,0s);
 }
 
+/* ---------- Seitenkopf ---------- */
+/* Traegt die einzige h1 der Seite. Ohne eigene Polsterung klebte die
+   Ueberschrift bisher direkt unter der Kopfleiste. */
+
+.masthead{
+  position:relative;
+  padding:clamp(4rem,11vh,7.5rem) var(--gut) clamp(3rem,7vh,4.5rem);
+  overflow:hidden;
+}
+.masthead__inner{position:relative;z-index:2}
+.masthead .lede{margin-top:1.9rem}
+
 /* ---------- Abschnitte ---------- */
 
 .abschnitt{padding:clamp(4rem,10vh,7rem) var(--gut)}
