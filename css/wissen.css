@@ -81,7 +81,7 @@
   display:grid;grid-template-columns:1.9em 1fr;gap:.2em;
   padding:.42rem 0;
   font-size:.8125rem;line-height:1.35;font-weight:300;
-  text-decoration:none;color:rgba(251,241,224,.6);
+  text-decoration:none;color:rgba(251,241,224,.78);
   transition:color .22s var(--ease-out);
 }
 .toc__l a::before{
@@ -101,7 +101,7 @@
   font-size:.625rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
   color:var(--orange);
 }
-.artcard__t{margin:0 0 1rem;font-size:.8125rem;line-height:1.6;font-weight:200;color:rgba(251,241,224,.7)}
+.artcard__t{margin:0 0 1rem;font-size:.8125rem;line-height:1.6;font-weight:300;color:rgba(251,241,224,.84)}
 .artcard__l{margin:0;padding:0;list-style:none}
 .artcard__l li + li{margin-top:.5rem}
 .artcard__l a{
@@ -174,7 +174,7 @@
 .quellen{padding:clamp(3.5rem,8vh,5.5rem) var(--gut) 0;max-width:calc(72ch + 2 * var(--gut))}
 .quellen__l{
   margin:2.2rem 0 0;padding-left:1.4rem;
-  font-size:.8125rem;line-height:1.7;color:rgba(251,241,224,.6);
+  font-size:.8125rem;line-height:1.7;color:rgba(251,241,224,.78);
 }
 .quellen__l li{margin-bottom:.85em;scroll-margin-top:6rem}
 .quellen__l strong{font-weight:500;color:var(--cream)}
