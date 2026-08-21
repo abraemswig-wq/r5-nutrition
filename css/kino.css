@@ -225,7 +225,7 @@ a{color:inherit}
 
 .ort__fuss{
   margin:.7rem 0 0;font-size:.75rem;letter-spacing:.06em;
-  color:rgba(251,241,224,.55);
+  color:rgba(251,241,224,.72);
 }
 .ort__fuss a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(251,241,224,.3)}
 .ort__fuss a:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
@@ -259,7 +259,7 @@ a{color:inherit}
 .outro-foot{
   margin:3rem 0 0;
   font-size:.75rem;letter-spacing:.06em;line-height:2;
-  color:rgba(251,241,224,.55);
+  color:rgba(251,241,224,.72);
 }
 .outro-foot a{text-decoration:none;border-bottom:1px solid rgba(251,241,224,.3)}
 
@@ -474,6 +474,21 @@ html.cinema,html.cinema body{height:100%;overflow:hidden}
   /* Der Hinweis stand mittig und lag damit auf dem Siegel. */
   .hint{left:auto;right:var(--gut);transform:none;align-items:flex-end;text-align:right}
   .chrome-top{padding:1.4rem var(--gut)}
+  /* Im Fliess-Layout scrollt der Inhalt unter der fixierten Kopfleiste durch.
+     Die ist transparent, also lief der Text bisher mitten durch den Schriftzug.
+     Deckend ueber der Leiste selbst, ausgeblendet erst darunter: ein Verlauf,
+     der schon am Schriftzug faellt, laesst den Text durchscheinen.
+     `z-index:-1` ist noetig: die Kopfleiste hat keine positionierten Kinder,
+     ein absolut gesetztes ::before wuerde sonst ueber Logo und Burger malen.
+     Die Kopfleiste hat `z-index:60`, das Negativ bleibt also in ihrem Stapel
+     und faellt nicht hinter den Seiteninhalt. */
+  .chrome-top::before{
+    content:"";position:absolute;z-index:-1;
+    left:0;right:0;top:0;height:calc(100% + 3.4rem);
+    background:linear-gradient(to bottom,
+      rgba(11,22,17,.97) 0%, rgba(11,22,17,.97) 56%, rgba(11,22,17,0) 100%);
+    pointer-events:none;
+  }
   .wordmark img{height:22px}
   .beat{padding:7.5rem 0 6rem}
   .lede{max-width:34rem}   /* Zeilenmass bleibt lesbar; auf Telefonen bindet ohnehin die Gasse */
